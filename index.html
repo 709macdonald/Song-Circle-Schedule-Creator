@@ -131,6 +131,7 @@
             <use xlink:href="./images/square-minus.svg#icon"></use>
           </svg>
         </button>
+        <br />
         <label for="songLength" class="label">Performance Length: </label>
         <input type="text" id="classGenre" class="bigInputs" />
         <br />
@@ -145,12 +146,19 @@
         <label for="bufferTime" class="label">Buffer Time: </label>
         <input type="text" id="bufferTime" class="bigInputs" />
       </div>
-      <!--GOOGLE SHEET SECTION-->
+      <!-- GOOGLE SHEET SECTION -->
       <div id="googleSheetUpload" class="titleDiv">
+        <input
+          type="file"
+          id="fileInput"
+          accept=".xlsx, .xls, .csv"
+          style="display: none"
+          onchange="handleFileUpload(event)"
+        />
         <button
           id="uploadGoogleSheet"
           class="uploadGoogleSheet"
-          onclick="uploadGoogleSheet()"
+          onclick="triggerFileInput()"
           aria-label="Upload Google Sheet"
         >
           <svg
@@ -172,5 +180,6 @@
     <script src="js/overview.js"></script>
     <script src="js/festival.js"></script>
     <script src="js/class.js"></script>
+    <script src="js/googlesheet.js"></script>
   </body>
 </html>
