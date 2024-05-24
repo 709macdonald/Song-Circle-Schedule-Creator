@@ -1,9 +1,30 @@
-let currentVenue = {
+let festival = {
   name: "",
+  venue: "",
   dates: [],
 };
-let venues = [];
 let i = 0;
+
+// FESTIVAL INPUT FIELDS
+
+const festivalUserInput = document.getElementById("festivalUserInput");
+
+festivalUserInput.addEventListener("input", function (event) {
+  updateFestivalData();
+});
+
+function updateFestivalData() {
+  const festivalName = document.getElementById("festivalName").value;
+  const festivalVenue = document.getElementById("festivalVenue").value;
+
+  // Ensure the dates array is not lost during update
+  festival.name = festivalName;
+  festival.venue = festivalVenue;
+
+  localStorage.setItem("festival", JSON.stringify(festival));
+}
+
+// FESTIVAL DATES
 
 document.addEventListener("DOMContentLoaded", function () {
   loadDateLabels();
@@ -40,64 +61,85 @@ function loadDateInputs() {
   // Insert second row
   var row2 = table.insertRow();
   var cell2_1 = row2.insertCell(0);
-  cell2_1.className = "venueInput";
+  cell2_1.className = "dateInput";
   var cell2_2 = row2.insertCell(1);
-  cell2_2.className = "venueInput";
+  cell2_2.className = "dateInput";
   var cell2_3 = row2.insertCell(2);
-  cell2_3.className = "venueInput";
+  cell2_3.className = "dateInput";
 
   var dateInputElement = document.createElement("input");
   dateInputElement.type = "date";
-  dateInputElement.id = "venueDate" + i;
+  dateInputElement.id = "festivalDate" + i;
   dateInputElement.placeholder = "Select a date";
   dateInputElement.addEventListener("input", () => {
     const date = dateInputElement.value;
-    const dateId = dateInputElement.id.toString();
-    const newI = parseInt(dateId.charAt(dateId.length - 1), 10);
+    const newI = parseInt(dateInputElement.id.replace("festivalDate", ""), 10);
 
-    currentVenue.dates[newI].date = date;
-    localStorage.setItem("currentVenue", JSON.stringify(currentVenue));
+    if (festival.dates[newI]) {
+      festival.dates[newI].date = date;
+    } else {
+      festival.dates[newI] = { date: date, startTime: "", endTime: "" };
+    }
+
+    localStorage.setItem("festival", JSON.stringify(festival));
   });
   cell2_1.appendChild(dateInputElement);
 
   var startTimeInputElement = document.createElement("input");
-  startTimeInputElement.type = "Time";
-  startTimeInputElement.id = "venueStartTime" + i;
+  startTimeInputElement.type = "time";
+  startTimeInputElement.id = "festivalStartTime" + i;
   startTimeInputElement.addEventListener("input", () => {
     const startTime = startTimeInputElement.value;
-    const startTimeId = startTimeInputElement.id.toString();
-    const newI = parseInt(startTimeId.charAt(startTimeId.length - 1), 10);
+    const newI = parseInt(
+      startTimeInputElement.id.replace("festivalStartTime", ""),
+      10
+    );
 
-    currentVenue.dates[newI].startTime = startTime;
-    localStorage.setItem("currentVenue", JSON.stringify(currentVenue));
+    if (festival.dates[newI]) {
+      festival.dates[newI].startTime = startTime;
+    } else {
+      festival.dates[newI] = { date: "", startTime: startTime, endTime: "" };
+    }
+
+    localStorage.setItem("festival", JSON.stringify(festival));
   });
   cell2_2.appendChild(startTimeInputElement);
 
   var endTimeInputElement = document.createElement("input");
-  endTimeInputElement.type = "Time";
-  endTimeInputElement.id = "venueEndTime" + i;
+  endTimeInputElement.type = "time";
+  endTimeInputElement.id = "festivalEndTime" + i;
   endTimeInputElement.addEventListener("input", () => {
     const endTime = endTimeInputElement.value;
-    const endTimeId = endTimeInputElement.id.toString();
-    const newI = parseInt(endTimeId.charAt(endTimeId.length - 1), 10);
+    const newI = parseInt(
+      endTimeInputElement.id.replace("festivalEndTime", ""),
+      10
+    );
 
-    currentVenue.dates[newI].endTime = endTime;
-    localStorage.setItem("currentVenue", JSON.stringify(currentVenue));
+    if (festival.dates[newI]) {
+      festival.dates[newI].endTime = endTime;
+    } else {
+      festival.dates[newI] = { date: "", startTime: "", endTime: endTime };
+    }
+
+    localStorage.setItem("festival", JSON.stringify(festival));
   });
   cell2_3.appendChild(endTimeInputElement);
 
-  currentVenue.dates.push({
-    date: "",
-    startTime: "",
-    endTime: "",
-  });
+  // Ensure the festival.dates array has a corresponding entry for the new inputs
+  if (!festival.dates[i]) {
+    festival.dates.push({
+      date: "",
+      startTime: "",
+      endTime: "",
+    });
+  }
 
   i++;
 }
 
 function deleteDateInputs() {
   // Check if there's more than one row
-  if (currentVenue.dates.length > 1) {
+  if (festival.dates.length > 1) {
     var table = document.getElementById("festivalDatesTable");
     var lastRowIndex = table.rows.length - 1;
 
@@ -105,14 +147,68 @@ function deleteDateInputs() {
     table.deleteRow(lastRowIndex);
 
     // Remove data from the array
-    currentVenue.dates.pop(); // Remove the last element directly
+    festival.dates.pop(); // Remove the last element directly
 
     // Decrement i
     i--;
 
     // Update local storage after removing the row
-    localStorage.setItem("currentVenue", JSON.stringify(currentVenue));
+    localStorage.setItem("festival", JSON.stringify(festival));
   } else {
     console.log("Cannot delete the last row.");
   }
+}
+
+// RELOAD FESTIVAL
+
+document.addEventListener("DOMContentLoaded", populateFestivalFromStorage);
+
+function populateFestivalFromStorage() {
+  const savedFestivalString = localStorage.getItem("festival");
+
+  if (savedFestivalString) {
+    const savedFestival = JSON.parse(savedFestivalString);
+
+    document.getElementById("festivalName").value = savedFestival.name;
+    document.getElementById("festivalVenue").value = savedFestival.venue;
+
+    festival.name = savedFestival.name;
+    festival.venue = savedFestival.venue;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", populateDatesFromStorage);
+let runCount = 0;
+
+function populateDatesFromStorage() {
+  const savedDates = localStorage.getItem("festival");
+
+  if (savedDates) {
+    const storedFestivalDates = JSON.parse(savedDates);
+
+    for (let loopI = 0; loopI < storedFestivalDates.dates.length; loopI++) {
+      const dateObject = storedFestivalDates.dates[loopI];
+
+      const date = dateObject.date;
+      const startTime = dateObject.startTime;
+      const endTime = dateObject.endTime;
+
+      document.getElementById("festivalDate" + loopI).value = date;
+      document.getElementById("festivalStartTime" + loopI).value = startTime;
+      document.getElementById("festivalEndTime" + loopI).value = endTime;
+
+      document
+        .getElementById("festivalDate" + loopI)
+        .dispatchEvent(new Event("input"));
+      document
+        .getElementById("festivalStartTime" + loopI)
+        .dispatchEvent(new Event("input"));
+      document
+        .getElementById("festivalEndTime" + loopI)
+        .dispatchEvent(new Event("input"));
+
+      loadDateInputs();
+    }
+  }
+  deleteDateInputs();
 }
