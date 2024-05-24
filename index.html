@@ -30,22 +30,54 @@
         </button>
         <label class="infoTitle">Festival Information</label>
       </div>
-      <div id="festivalInfo" class="infoDiv">
+      <div id="festivalUserInput" class="UserInputDiv" style="display: none">
         <label for="festivalName" class="label">Festival Name: </label>
         <input type="text" id="festivalName" class="bigInputs" />
-        <br>
+        <br />
         <label for="festivalVenue" class="label">Venue: </label>
-        <input type="text" id="festivalVenue" class="bigInputs"
-        <table id="festivalDates">
+        <input type="text" id="festivalVenue" class="bigInputs" />
+        <table id="festivalDatesTable">
           <!--Dynamically Add Dates-->
         </table>
+        <button
+          id="addNewDate"
+          onclick="loadDateInputs()"
+          aria-label="Add New Date"
+        >
+          <svg
+            class="svg-icon"
+            alt="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/calendar-plus.svg#icon"></use>
+          </svg>
+        </button>
+        <button
+          id="deleteLastDate"
+          onclick="deleteDateInputs()"
+          aria-label="Delete Last Date"
+        >
+          <svg
+            class="svg-icon"
+            alt="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/calendar-minus.svg#icon"></use>
+          </svg>
+        </button>
       </div>
       <!--CLASS SECTION-->
       <div id="ClasslTitle" class="titleDiv">
         <button
-          id="festivalDropdownButton"
+          id="classDropdownButton"
           class="dropdownButton"
-          onclick="toggleDropdownInfo('festival')"
+          onclick="toggleDropdownInfo('class')"
           aria-label="Toggle Festival Info"
         >
           <svg
@@ -61,23 +93,57 @@
         </button>
         <label class="infoTitle">Class Information</label>
       </div>
-      <div id="classInfo" class="infoDiv">
+      <div id="classUserInput" class="UserInputDiv" style="display: none">
         <label for="classGenre" class="label">Class/Genre: </label>
         <input type="text" id="classGenre" class="bigInputs" />
-        <table id="classes">
+        <table id="classesTable">
           <!--Dynamically Add Classes-->
         </table>
-        <label for="songLength" class="label">Song Length: </label>
+        <button
+          id="addNewDate"
+          onclick="loadClassInputs()"
+          aria-label="Add New Date"
+        >
+          <svg
+            class="svg-icon"
+            alt="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/square-plus.svg#icon"></use>
+          </svg>
+        </button>
+        <button
+          id="deleteLastDate"
+          onclick="deleteClassInputs()"
+          aria-label="Delete Last Date"
+        >
+          <svg
+            class="svg-icon"
+            alt="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/square-minus.svg#icon"></use>
+          </svg>
+        </button>
+        <label for="songLength" class="label">Performance Length: </label>
         <input type="text" id="classGenre" class="bigInputs" />
-        <br>
+        <br />
         <label for="adjTime" class="label">Adjudication Writing Time: </label>
-        <input type="text" id="adjTime" class="bigInputs">
-        <br>
-        <label for="classAdjTime" class="label">Class Adjudication Time: </label>
+        <input type="text" id="adjTime" class="bigInputs" />
+        <br />
+        <label for="classAdjTime" class="label"
+          >Class Adjudication Time:
+        </label>
         <input type="text" id="classAdjTime" class="bigInputs" />
-        <br>
+        <br />
         <label for="bufferTime" class="label">Buffer Time: </label>
-        <input type="text" id="bufferTime" class="bigInputs">
+        <input type="text" id="bufferTime" class="bigInputs" />
       </div>
       <!--GOOGLE SHEET SECTION-->
       <div id="googleSheetUpload" class="titleDiv">
@@ -99,7 +165,9 @@
           </svg>
         </button>
       </div>
-      <label for="uploadGoogleSheet" class="uploadLabel">Upload Google Sheet</label>
+      <label for="uploadGoogleSheet" class="uploadLabel"
+        >Upload Google Sheet</label
+      >
     </div>
     <script src="js/overview.js"></script>
     <script src="js/festival.js"></script>
