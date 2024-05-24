@@ -1,0 +1,62 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.sidebar {
+  background-color: rgb(108, 104, 104);
+  height: 100vh; /* 100% of the viewport height */
+  width: 350px;
+  margin: 0;
+}
+
+.titleDiv {
+  margin-left: 10px;
+  font-family: -apple-system, "San Francisco", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-weight: 600;
+  font-size: 150%;
+  color: rgb(166, 166, 166);
+  background-color: rgb(68, 65, 65);
+  margin: 0;
+}
+
+.mainButton {
+  color: rgb(38, 38, 38);
+  margin: 10px;
+}
+
+.dropdownButton .svg-icon {
+  fill: rgb(68, 65, 65);
+}
+
+.UserInputDiv {
+  text-align: left; /* Align label text to the right */
+  width: auto; /* Set a fixed width for the labels */
+  font-family: -apple-system, "San Francisco", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+}
+
+.bigInputs {
+  display: inline-block; /* Display inputs inline */
+  text-align: right; /* Align input text to the right */
+  color: black;
+  font-size: 16px;
+  border: 2px solid rgb(56, 56, 56); /* Border color and width */
+  border-radius: 5px; /* Border radius for rounded corners */
+  background-color: rgb(150, 150, 150); /* Background color of the input box */
+  padding: 3px; /* Padding inside the input box */
+  margin: 5px; /* Adjust margin between inputs */
+  width: auto; /* Adjust width dynamically based on content */
+}
+
+.venueInput {
+  color: black;
+  font-size: 16px;
+  border: 2px solid rgb(56, 56, 56); /* Border color and width */
+  border-radius: 5px; /* Border radius for rounded corners */
+  padding: 3px; /* Padding inside the input box */
+  width: 10px; /* Width of the input box */
+  background-color: rgb(150, 150, 150);
+}

@@ -1,0 +1,12 @@
+.bottomTitleDiv {
+  position: absolute;
+  bottom: 0;
+  height: 150px;
+  font-family: -apple-system, "San Francisco", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-weight: 600;
+  font-size: 150%;
+  color: rgb(166, 166, 166);
+  background-color: rgb(68, 65, 65);
+  margin: 0;
+}
