@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>People and Venue Information</title>
+    <link rel="stylesheet" href="styles/overview.css" />
+    <link rel="stylesheet" href="styles/class.css" />
+  </head>
+  <body>
+    <!-- FESTIVAL SECTION -->
+    <div class="sidebar">
+      <div id="festivalTitle" class="titleDiv">
+        <button
+          id="festivalDropdownButton"
+          class="dropdownButton"
+          onclick="toggleDropdownInfo('festival')"
+          aria-label="Toggle Festival Info"
+        >
+          <svg
+            class="svg-icon"
+            alt="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/caret-right.svg#icon"></use>
+          </svg>
+        </button>
+        <label class="infoTitle">Festival Information</label>
+      </div>
+      <div id="festivalInfo" class="infoDiv">
+        <label for="festivalName" class="label">Festival Name: </label>
+        <input type="text" id="festivalName" class="bigInputs" />
+        <br>
+        <label for="festivalVenue" class="label">Venue: </label>
+        <input type="text" id="festivalVenue" class="bigInputs"
+        <table id="festivalDates">
+          <!--Dynamically Add Dates-->
+        </table>
+      </div>
+      <!--CLASS SECTION-->
+      <div id="ClasslTitle" class="titleDiv">
+        <button
+          id="festivalDropdownButton"
+          class="dropdownButton"
+          onclick="toggleDropdownInfo('festival')"
+          aria-label="Toggle Festival Info"
+        >
+          <svg
+            class="svg-icon"
+            alt="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/caret-right.svg#icon"></use>
+          </svg>
+        </button>
+        <label class="infoTitle">Class Information</label>
+      </div>
+      <div id="classInfo" class="infoDiv">
+        <label for="classGenre" class="label">Class/Genre: </label>
+        <input type="text" id="classGenre" class="bigInputs" />
+        <table id="classes">
+          <!--Dynamically Add Classes-->
+        </table>
+        <label for="songLength" class="label">Song Length: </label>
+        <input type="text" id="classGenre" class="bigInputs" />
+        <br>
+        <label for="adjTime" class="label">Adjudication Writing Time: </label>
+        <input type="text" id="adjTime" class="bigInputs">
+        <br>
+        <label for="classAdjTime" class="label">Class Adjudication Time: </label>
+        <input type="text" id="classAdjTime" class="bigInputs" />
+        <br>
+        <label for="bufferTime" class="label">Buffer Time: </label>
+        <input type="text" id="bufferTime" class="bigInputs">
+      </div>
+      <!--GOOGLE SHEET SECTION-->
+      <div id="googleSheetUpload" class="titleDiv">
+        <button
+          id="uploadGoogleSheet"
+          class="uploadGoogleSheet"
+          onclick="uploadGoogleSheet()"
+          aria-label="Upload Google Sheet"
+        >
+          <svg
+            class="svg-icon"
+            alt="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/file-lines.svg#icon"></use>
+          </svg>
+        </button>
+      </div>
+      <label for="uploadGoogleSheet" class="uploadLabel">Upload Google Sheet</label>
+    </div>
+    <script src="js/overview.js"></script>
+    <script src="js/festival.js"></script>
+    <script src="js/class.js"></script>
+  </body>
+</html>
