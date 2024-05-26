@@ -27,8 +27,10 @@ function handleFileUpload(event) {
       const worksheet = workbook.Sheets[firstSheetName];
       const jsonSheet = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
+      console.log(jsonSheet);
+
       // Convert the sheet data into an array of items
-      const entries = jsonSheet.slice(1).map((row) => ({
+      const entries = jsonSheet.map((row) => ({
         Name: row[0],
         SongTitle: row[1],
         Genre: row[2],

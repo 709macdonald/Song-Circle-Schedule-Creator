@@ -1,0 +1,16 @@
+.festivalInputs {
+  color: black;
+  font-size: 16px;
+  border: 2px solid rgb(56, 56, 56); /* Border color and width */
+  border-radius: 5px; /* Border radius for rounded corners */
+  background-color: rgb(150, 150, 150); /* Background color of the input box */
+  padding: 3px; /* Padding inside the input box */
+  width: 150px; /* Fixed width */
+  margin-right: 10px;
+}
+
+.festivalLabel {
+  display: inline-block; /* Display labels inline */
+  margin-left: 10px;
+  float: left; /* Align input boxes to the left */
+}

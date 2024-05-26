@@ -6,6 +6,7 @@
     <title>People and Venue Information</title>
     <link rel="stylesheet" href="styles/overview.css" />
     <link rel="stylesheet" href="styles/class.css" />
+    <link rel="stylesheet" href="styles/festival.css" />
     <link rel="stylesheet" href="styles/googlesheets.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   </head>
@@ -33,11 +34,17 @@
         <label class="infoTitle">Festival Information</label>
       </div>
       <div id="festivalUserInput" class="UserInputDiv" style="display: none">
-        <label for="festivalName" class="label">Festival Name: </label>
-        <input type="text" id="festivalName" class="bigInputs" />
+        <div class="labelAndInput">
+          <label for="festivalName" class="festivalLabel"
+            >Festival Name:
+          </label>
+          <input type="text" id="festivalName" class="festivalInputs" />
+        </div>
         <br />
-        <label for="festivalVenue" class="label">Venue: </label>
-        <input type="text" id="festivalVenue" class="bigInputs" />
+        <div class="labelAndInput">
+          <label for="festivalVenue" class="festivalLabel">Venue: </label>
+          <input type="text" id="festivalVenue" class="festivalInputs" />
+        </div>
         <table id="festivalDatesTable">
           <!--Dynamically Add Dates-->
         </table>

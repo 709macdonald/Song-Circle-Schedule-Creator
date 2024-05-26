@@ -80,6 +80,7 @@ function loadClassInputs() {
   numberInputElement.type = "text";
   numberInputElement.id = "classNumber" + i2;
   numberInputElement.placeholder = "Class Number";
+  numberInputElement.classList.add("classNumberInput");
   numberInputElement.addEventListener("input", () => {
     const number = numberInputElement.value;
     const newI = parseInt(numberInputElement.id.replace("classNumber", ""), 10);
@@ -97,6 +98,7 @@ function loadClassInputs() {
   var minAgeInputElement = document.createElement("input");
   minAgeInputElement.type = "number";
   minAgeInputElement.id = "minAge" + i2;
+  minAgeInputElement.classList.add("ageInput"); // Add your CSS class here
   minAgeInputElement.addEventListener("input", () => {
     const minAge = minAgeInputElement.value;
     const newI = parseInt(minAgeInputElement.id.replace("minAge", ""), 10);
@@ -114,6 +116,7 @@ function loadClassInputs() {
   var maxAgeInputElement = document.createElement("input");
   maxAgeInputElement.type = "number";
   maxAgeInputElement.id = "maxAge" + i2;
+  maxAgeInputElement.classList.add("ageInput"); // Add your CSS class here
   maxAgeInputElement.addEventListener("input", () => {
     const maxAge = maxAgeInputElement.value;
     const newI = parseInt(maxAgeInputElement.id.replace("maxAge", ""), 10);

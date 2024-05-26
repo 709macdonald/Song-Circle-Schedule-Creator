@@ -32,23 +32,25 @@ body {
 }
 
 .UserInputDiv {
-  text-align: left; /* Align label text to the right */
+  display: flex;
+  justify-content: space-between; /* Align items to the edges of the container */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 10px; /* Space between each pair */
   width: auto; /* Set a fixed width for the labels */
   font-family: -apple-system, "San Francisco", "Helvetica Neue", Helvetica,
     Arial, sans-serif;
 }
 
 .bigInputs {
-  display: inline-block; /* Display inputs inline */
-  text-align: right; /* Align input text to the right */
+  right: 0px;
   color: black;
   font-size: 16px;
   border: 2px solid rgb(56, 56, 56); /* Border color and width */
   border-radius: 5px; /* Border radius for rounded corners */
   background-color: rgb(150, 150, 150); /* Background color of the input box */
   padding: 3px; /* Padding inside the input box */
-  margin: 5px; /* Adjust margin between inputs */
-  width: auto; /* Adjust width dynamically based on content */
+  margin-left: 5px; /* Adjust margin between inputs */
+  width: 50px; /* Adjust width dynamically based on content */
 }
 
 .venueInput {
@@ -59,4 +61,11 @@ body {
   padding: 3px; /* Padding inside the input box */
   width: 10px; /* Width of the input box */
   background-color: rgb(150, 150, 150);
+}
+
+.labelAndInput {
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+  margin: 0px;
 }
