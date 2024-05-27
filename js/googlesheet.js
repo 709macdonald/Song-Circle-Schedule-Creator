@@ -1,3 +1,6 @@
+let participants = [];
+let totalClasses = [];
+
 function triggerFileInput() {
   document.getElementById("fileInput").click();
 }
@@ -38,11 +41,25 @@ function handleFileUpload(event) {
         Age: row[4],
       }));
 
-      console.log(entries); // For demonstration, log the entries array
+      console.log(entries);
       alert("File uploaded and processed successfully!");
+
+      participants = entries;
+      console.log("Participants: " + participants);
+
+      getClasses();
     };
     reader.readAsBinaryString(file);
   } else {
     alert("No file selected!");
   }
+}
+
+function getClasses() {
+  everyClass = participants.map((participant) => participant.ClassNumber);
+
+  totalClasses = [...new Set(everyClass)];
+
+  console.log("every class: " + everyClass);
+  console.log("TotalClasses" + totalClasses);
 }
