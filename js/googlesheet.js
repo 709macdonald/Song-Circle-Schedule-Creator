@@ -46,6 +46,7 @@ function handleFileUpload(event) {
 
       getClasses();
       participantsIntoClasses();
+      classLength();
     };
     reader.readAsBinaryString(file);
   } else {

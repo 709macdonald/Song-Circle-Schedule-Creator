@@ -1,19 +1,19 @@
 let participants = []; // Found in googlesheet.js
-let totalClasses = [];
+let finalClassList = [];
 let classParticipants = {};
 
 function getClasses() {
   everyClass = participants.map((participant) => participant.ClassNumber);
 
-  totalClasses = [...new Set(everyClass)];
+  finalClassList = [...new Set(everyClass)];
 
   console.log("every class: ", everyClass);
-  console.log("TotalClasses", totalClasses);
+  console.log("Final Class List", finalClassList);
 }
 
 function participantsIntoClasses() {
   // Initialize the classParticipants object with empty arrays for each class
-  totalClasses.forEach((classNum) => {
+  finalClassList.forEach((classNum) => {
     classParticipants[classNum] = [];
   });
 
@@ -23,4 +23,13 @@ function participantsIntoClasses() {
   });
 
   console.log(classParticipants);
+}
+
+function classLength() {
+  Object.keys(classParticipants).forEach((classKey) => {
+    let numOfParticipants = classParticipants[classKey].length;
+
+    const classLength = document.getElementById();
+    console.log(`Length of class ${classKey}: ${numOfParticipants}`);
+  });
 }
