@@ -1,6 +1,7 @@
 let participants = []; // Found in googlesheet.js
 let finalClassList = [];
 let classParticipants = {};
+const schedule = [];
 
 function getClasses() {
   everyClass = participants.map((participant) => participant.ClassNumber);
@@ -12,24 +13,54 @@ function getClasses() {
 }
 
 function participantsIntoClasses() {
-  // Initialize the classParticipants object with empty arrays for each class
   finalClassList.forEach((classNum) => {
-    classParticipants[classNum] = [];
+    classParticipants[classNum] = {
+      classKey: classNum,
+      participants: participants.filter(
+        (participant) => participant.ClassNumber === classNum
+      ),
+    };
   });
 
-  // Sort participants into their respective classes
-  participants.forEach((participant) => {
-    classParticipants[participant.ClassNumber].push(participant);
-  });
-
-  console.log(classParticipants);
+  console.log("Class Participants", classParticipants);
 }
 
 function classLength() {
+  console.log(classes);
   Object.keys(classParticipants).forEach((classKey) => {
-    let numOfParticipants = classParticipants[classKey].length;
+    let numOfParticipants = classParticipants[classKey].participants.length; // Access the length of participants array
 
-    const classLength = document.getElementById();
-    console.log(`Length of class ${classKey}: ${numOfParticipants}`);
+    // Get the values directly from the classes object and parse them as integers
+    const individualPerformanceLength = parseInt(classes.performanceLength, 10);
+    const adjudicationWritingTime = parseInt(
+      classes.adjudicationWritingTime,
+      10
+    );
+    const classAdjudicationTime = parseInt(classes.classAdjudicationTime, 10);
+    const bufferTime = parseInt(classes.bufferTime, 10);
+
+    // Perform the calculations
+    const totalPerformanceLength =
+      numOfParticipants * individualPerformanceLength;
+    const totalAdjudicationWritingTime =
+      numOfParticipants * adjudicationWritingTime;
+    const totalClassLength =
+      totalPerformanceLength +
+      totalAdjudicationWritingTime +
+      classAdjudicationTime +
+      bufferTime;
+
+    console.log(
+      `Total length of class ${classKey}: ${totalClassLength} minutes`
+    );
+
+    // Store the total class length in minutes directly
+    schedule.push({ classKey, totalClassLength });
   });
+
+  console.log("Schedule info", schedule);
+  console.log("festival info", festival);
+  myValues();
+
+  return schedule;
 }

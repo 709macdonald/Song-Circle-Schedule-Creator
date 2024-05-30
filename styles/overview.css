@@ -1,14 +1,23 @@
 html,
 body {
+  height: 100vh;
   margin: 0;
-  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
 }
 
 .sidebar {
   background-color: rgb(108, 104, 104);
-  height: 100vh; /* 100% of the viewport height */
   width: 350px;
   margin: 0;
+}
+
+.schedule {
+  background-color: aquamarine;
+  flex: 1; /* This makes the schedule take up the remaining space */
 }
 
 .titleDiv {

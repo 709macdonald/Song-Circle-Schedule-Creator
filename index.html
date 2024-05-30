@@ -11,187 +11,168 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   </head>
   <body>
-    <!-- FESTIVAL SECTION -->
-    <div class="sidebar">
-      <div id="festivalTitle" class="titleDiv">
-        <button
-          id="festivalDropdownButton"
-          class="mainButton"
-          onclick="toggleDropdownInfo('festival')"
-          aria-label="Toggle Festival Info"
-        >
-          <svg
-            class="svg-icon"
-            alt="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 256 512"
-            width="25"
-            height="25"
+    <div class="container">
+      <!-- FESTIVAL SECTION -->
+      <div class="sidebar">
+        <div id="festivalTitle" class="titleDiv">
+          <button
+            id="festivalDropdownButton"
+            class="mainButton"
+            onclick="toggleDropdownInfo('festival')"
+            aria-label="Toggle Festival Info"
           >
-            <use xlink:href="./images/caret-right.svg#icon"></use>
-          </svg>
-        </button>
-        <label class="infoTitle">Festival Information</label>
-      </div>
-      <div id="festivalUserInput" class="UserInputDiv" style="display: none">
-        <div class="labelAndInput">
-          <label for="festivalName" class="festivalLabel"
-            >Festival Name:
+            <svg
+              class="svg-icon"
+              alt="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/caret-right.svg#icon"></use>
+            </svg>
+          </button>
+          <label class="infoTitle">Festival Information</label>
+        </div>
+        <div id="festivalUserInput" class="UserInputDiv" style="display: none">
+          <div class="labelAndInput">
+            <label for="festivalName" class="festivalLabel"
+              >Festival Name:
+            </label>
+            <input type="text" id="festivalName" class="festivalInputs" />
+          </div>
+          <br />
+          <div class="labelAndInput">
+            <label for="festivalVenue" class="festivalLabel">Venue: </label>
+            <input type="text" id="festivalVenue" class="festivalInputs" />
+          </div>
+          <table id="festivalDatesTable">
+            <!--Dynamically Add Dates-->
+          </table>
+          <button
+            id="addNewDate"
+            onclick="loadDateInputs()"
+            aria-label="Add New Date"
+          >
+            <svg
+              class="svg-icon"
+              alt="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/calendar-plus.svg#icon"></use>
+            </svg>
+          </button>
+          <button
+            id="deleteLastDate"
+            onclick="deleteDateInputs()"
+            aria-label="Delete Last Date"
+          >
+            <svg
+              class="svg-icon"
+              alt="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/calendar-minus.svg#icon"></use>
+            </svg>
+          </button>
+        </div>
+        <!--CLASS SECTION-->
+        <div id="ClasslTitle" class="titleDiv">
+          <button
+            id="classDropdownButton"
+            class="mainButton"
+            onclick="toggleDropdownInfo('class')"
+            aria-label="Toggle Festival Info"
+          >
+            <svg
+              class="svg-icon"
+              alt="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/caret-right.svg#icon"></use>
+            </svg>
+          </button>
+          <label class="infoTitle">Class Information</label>
+        </div>
+        <div id="classUserInput" class="UserInputDiv" style="display: none">
+          <label for="classGenre" class="label">Class/Genre: </label>
+          <input type="text" id="classGenre" class="bigInputs" />
+          <br />
+          <label for="performanceLength" class="label"
+            >Performance Length:
           </label>
-          <input type="text" id="festivalName" class="festivalInputs" />
+          <input type="text" id="performanceLength" class="bigInputs" />
+          <br />
+          <label for="adjTime" class="label">Adjudication Writing Time: </label>
+          <input type="text" id="adjTime" class="bigInputs" />
+          <br />
+          <label for="classAdjTime" class="label"
+            >Class Adjudication Time:
+          </label>
+          <input type="text" id="classAdjTime" class="bigInputs" />
+          <br />
+          <label for="bufferTime" class="label">Buffer Time: </label>
+          <input type="text" id="bufferTime" class="bigInputs" />
+          <br />
+          <label for="inBetweenTime" class="label"
+            >Time Between Classes:
+          </label>
+          <input type="text" id="inBetweenTime" class="bigInputs" />
+          <br />
+          <div id="googlesheetClasses">
+            <div class="classDisplay">
+              <hr />
+            </div>
+          </div>
         </div>
-        <br />
-        <div class="labelAndInput">
-          <label for="festivalVenue" class="festivalLabel">Venue: </label>
-          <input type="text" id="festivalVenue" class="festivalInputs" />
+
+        <!-- GOOGLE SHEET SECTION -->
+        <div id="googleSheetUpload" class="bottomTitleDiv">
+          <input
+            type="file"
+            id="fileInput"
+            accept=".xlsx, .xls, .csv"
+            style="display: none"
+            onchange="handleFileUpload(event)"
+          />
+          <button
+            id="uploadGoogleSheet"
+            class="mainButton"
+            onclick="triggerFileInput()"
+            aria-label="Upload Google Sheet"
+          >
+            <svg
+              class="svg-icon"
+              alt="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/file-lines.svg#icon"></use>
+            </svg>
+          </button>
+          <label for="uploadGoogleSheet" class="uploadLabel"
+            >Upload Google Sheet</label
+          >
         </div>
-        <table id="festivalDatesTable">
-          <!--Dynamically Add Dates-->
-        </table>
-        <button
-          id="addNewDate"
-          onclick="loadDateInputs()"
-          aria-label="Add New Date"
-        >
-          <svg
-            class="svg-icon"
-            alt="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 256 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/calendar-plus.svg#icon"></use>
-          </svg>
-        </button>
-        <button
-          id="deleteLastDate"
-          onclick="deleteDateInputs()"
-          aria-label="Delete Last Date"
-        >
-          <svg
-            class="svg-icon"
-            alt="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 256 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/calendar-minus.svg#icon"></use>
-          </svg>
-        </button>
       </div>
-      <!--CLASS SECTION-->
-      <div id="ClasslTitle" class="titleDiv">
-        <button
-          id="classDropdownButton"
-          class="mainButton"
-          onclick="toggleDropdownInfo('class')"
-          aria-label="Toggle Festival Info"
-        >
-          <svg
-            class="svg-icon"
-            alt="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 256 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/caret-right.svg#icon"></use>
-          </svg>
-        </button>
-        <label class="infoTitle">Class Information</label>
-      </div>
-      <div id="classUserInput" class="UserInputDiv" style="display: none">
-        <label for="classGenre" class="label">Class/Genre: </label>
-        <input type="text" id="classGenre" class="bigInputs" />
-        <table id="classesTable">
-          <!--Dynamically Add Classes-->
-        </table>
-        <button
-          id="addNewDate"
-          onclick="loadClassInputs()"
-          aria-label="Add New Date"
-        >
-          <svg
-            class="svg-icon"
-            alt="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 256 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/square-plus.svg#icon"></use>
-          </svg>
-        </button>
-        <button
-          id="deleteLastDate"
-          onclick="deleteClassInputs()"
-          aria-label="Delete Last Date"
-        >
-          <svg
-            class="svg-icon"
-            alt="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 256 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/square-minus.svg#icon"></use>
-          </svg>
-        </button>
-        <br />
-        <label for="performanceLength" class="label"
-          >Performance Length:
-        </label>
-        <input type="text" id="performanceLength" class="bigInputs" />
-        <br />
-        <label for="adjTime" class="label">Adjudication Writing Time: </label>
-        <input type="text" id="adjTime" class="bigInputs" />
-        <br />
-        <label for="classAdjTime" class="label"
-          >Class Adjudication Time:
-        </label>
-        <input type="text" id="classAdjTime" class="bigInputs" />
-        <br />
-        <label for="bufferTime" class="label">Buffer Time: </label>
-        <input type="text" id="bufferTime" class="bigInputs" />
-      </div>
-      <!-- GOOGLE SHEET SECTION -->
-      <div id="googleSheetUpload" class="bottomTitleDiv">
-        <input
-          type="file"
-          id="fileInput"
-          accept=".xlsx, .xls, .csv"
-          style="display: none"
-          onchange="handleFileUpload(event)"
-        />
-        <button
-          id="uploadGoogleSheet"
-          class="mainButton"
-          onclick="triggerFileInput()"
-          aria-label="Upload Google Sheet"
-        >
-          <svg
-            class="svg-icon"
-            alt="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 256 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/file-lines.svg#icon"></use>
-          </svg>
-        </button>
-        <label for="uploadGoogleSheet" class="uploadLabel"
-          >Upload Google Sheet</label
-        >
-      </div>
+      <di class="schedule"> </di>
     </div>
     <script src="js/overview.js"></script>
     <script src="js/festival.js"></script>
     <script src="js/class.js"></script>
     <script src="js/googlesheet.js"></script>
     <script src="js/sorting.js"></script>
+    <script src="js/organizeTimes.js"></script>
   </body>
 </html>
