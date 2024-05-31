@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>People and Venue Information</title>
     <link rel="stylesheet" href="styles/overview.css" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
+    <link rel="stylesheet" href="styles/schedule.css" />
     <link rel="stylesheet" href="styles/class.css" />
     <link rel="stylesheet" href="styles/festival.css" />
     <link rel="stylesheet" href="styles/googlesheets.css" />
+    <link rel="stylesheet" href="styles/schedule.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="grid-container">
       <!-- FESTIVAL SECTION -->
       <div class="sidebar">
-        <div id="festivalTitle" class="titleDiv">
+        <div id="festivalTitle" class="sidebarDropdownTitle">
           <button
             id="festivalDropdownButton"
-            class="mainButton"
+            class="dropdownButton"
             onclick="toggleDropdownInfo('festival')"
             aria-label="Toggle Festival Info"
           >
@@ -46,49 +49,55 @@
             <label for="festivalVenue" class="festivalLabel">Venue: </label>
             <input type="text" id="festivalVenue" class="festivalInputs" />
           </div>
-          <table id="festivalDatesTable">
-            <!--Dynamically Add Dates-->
-          </table>
-          <button
-            id="addNewDate"
-            onclick="loadDateInputs()"
-            aria-label="Add New Date"
-          >
-            <svg
-              class="svg-icon"
-              alt="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 512"
-              width="25"
-              height="25"
+          <div class="datesTable">
+            <table id="festivalDatesTable">
+              <!--Dynamically Add Dates-->
+            </table>
+          </div>
+          <div class="festivalTableButtonsDiv">
+            <button
+              class="festivalButtons"
+              id="addNewDate"
+              onclick="loadDateInputs()"
+              aria-label="Add New Date"
             >
-              <use xlink:href="./images/calendar-plus.svg#icon"></use>
-            </svg>
-          </button>
-          <button
-            id="deleteLastDate"
-            onclick="deleteDateInputs()"
-            aria-label="Delete Last Date"
-          >
-            <svg
-              class="svg-icon"
-              alt="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 512"
-              width="25"
-              height="25"
+              <svg
+                class="festival-svg-icon"
+                alt="back"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 512"
+                width="25"
+                height="25"
+              >
+                <use xlink:href="./images/calendar-plus.svg#icon"></use>
+              </svg>
+            </button>
+            <button
+              class="festivalButtons"
+              id="deleteLastDate"
+              onclick="deleteDateInputs()"
+              aria-label="Delete Last Date"
             >
-              <use xlink:href="./images/calendar-minus.svg#icon"></use>
-            </svg>
-          </button>
+              <svg
+                class="festival-svg-icon"
+                alt="back"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 512"
+                width="25"
+                height="25"
+              >
+                <use xlink:href="./images/calendar-minus.svg#icon"></use>
+              </svg>
+            </button>
+          </div>
         </div>
         <!--CLASS SECTION-->
-        <div id="ClasslTitle" class="titleDiv">
+        <div id="ClasslTitle" class="sidebarDropdownTitle">
           <button
             id="classDropdownButton"
-            class="mainButton"
+            class="dropdownButton"
             onclick="toggleDropdownInfo('class')"
-            aria-label="Toggle Festival Info"
+            aria-label="Toggle Class Info"
           >
             <svg
               class="svg-icon"
@@ -104,13 +113,16 @@
           <label class="infoTitle">Class Information</label>
         </div>
         <div id="classUserInput" class="UserInputDiv" style="display: none">
-          <label for="classGenre" class="label">Class/Genre: </label>
-          <input type="text" id="classGenre" class="bigInputs" />
-          <br />
-          <label for="performanceLength" class="label"
-            >Performance Length:
-          </label>
-          <input type="text" id="performanceLength" class="bigInputs" />
+          <div class="labelAndInput">
+            <label for="classGenre" class="label">Class/Genre: </label>
+            <input type="text" id="classGenre" class="bigInputs" />
+          </div>
+          <div class="labelAndInput">
+            <label for="performanceLength" class="label"
+              >Performance Length:
+            </label>
+            <input type="text" id="performanceLength" class="bigInputs" />
+          </div>
           <br />
           <label for="adjTime" class="label">Adjudication Writing Time: </label>
           <input type="text" id="adjTime" class="bigInputs" />
@@ -136,7 +148,7 @@
         </div>
 
         <!-- GOOGLE SHEET SECTION -->
-        <div id="googleSheetUpload" class="bottomTitleDiv">
+        <div id="googleSheetUpload" class="googlesheetTitleDiv">
           <input
             type="file"
             id="fileInput"
@@ -166,7 +178,31 @@
           >
         </div>
       </div>
-      <di class="schedule"> </di>
+      <div class="schedule grid-col-span-2">
+        <div id="scheduleTitleDiv">
+          <span class="scheduleTitle">Schedule Title</span>
+          <br />
+          <span class="scheduleVenue">Schedule Venue</span>
+          <span class="scheduleStartDate">DATE</span>
+        </div>
+        <div id="individualClass">
+          <div class="individualClassDates">
+            <span class="scheduleClassTime">TIME</span>
+            <span class="scheduleClassDate">DATE</span>
+            <br />
+            <span class="scheduleClassNumber">Class Num</span>
+            <span class="scheduleClassNoParticipants">X Participants</span>
+          </div>
+          <div class="individualClassParticipants">
+            <span class="participantClassPosition">X</span>
+            <span class="participantName">Firstname LastName</span>
+            <br />
+            <span class="participantSongTitle">SongTitle</span>
+            <span> by </span>
+            <span class="participantSongComposer">Composer</span>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="js/overview.js"></script>
     <script src="js/festival.js"></script>

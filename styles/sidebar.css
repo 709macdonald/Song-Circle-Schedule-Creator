@@ -1,0 +1,58 @@
+.sidebar {
+  background-color: #b3b492;
+  border-radius: 20px;
+  max-width: 24rem;
+}
+
+.sidebarDropdownTitle {
+  background-color: #cbb8a9;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 20px;
+  border: 2px solid #6f686d;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.dropdownButton {
+  min-width: 3rem;
+  min-height: 3rem;
+  border-radius: 10rem;
+  background-color: #f0f0f0;
+  padding: 0;
+  display: flex;
+  border: 2px solid #6f686d;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 10rem;
+}
+
+.infoTitle {
+  margin-left: 1rem;
+  font-family: Arial, sans-serif; /* Use Arial as  default font */
+  font-size: 1.5rem;
+  color: #333; /* Dark gray text color */
+}
+
+.UserInputDiv {
+  background-color: #e0d3de;
+  margin-top: 0px;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 20px;
+  border: 2px solid #6f686d;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: Arial, sans-serif; /* Use Arial as  default font */
+  font-size: 1rem;
+  color: #333; /* Dark gray text color */
+}
