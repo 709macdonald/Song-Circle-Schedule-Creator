@@ -1,4 +1,80 @@
-.schedule {
+.scheduleFlex {
   background-color: #cbb8a9;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+
+#scheduleTitleDiv,
+.individualClass {
+  background-color: #d8d0c1;
+  margin: 1rem 1rem 0 1rem;
+  border: 1px solid black;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 2px solid #6f686d;
+}
+
+.scheduleTitle {
+  margin: 2rem auto 0 auto;
+  font-family: Arial, sans-serif;
+  font-size: 3rem;
+  color: #333;
+  align-self: center;
+}
+
+.scheduleVenueAndDate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.individualClassTimeAndDate {
+  font-family: Arial, sans-serif;
+  display: flex;
+  margin: 1rem;
+}
+
+.scheduleClassDate {
+  align-self: center;
+  margin-left: auto;
+  margin-right: 48%;
+  font-size: 1.5rem;
+}
+
+.scheduleClassTime {
+  align-self: right;
+  margin-top: auto;
+}
+
+.individualClassNumberAndParticipants {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 0 1rem 0.5rem 1rem;
+}
+
+.individualClassParticipants {
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.participantInfo {
+  margin: 0.5rem auto 0.5rem 5rem;
+}
+
+.participantSong {
+  margin: 0 auto 0.5rem 7rem;
 }

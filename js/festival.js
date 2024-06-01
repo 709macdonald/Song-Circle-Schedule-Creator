@@ -61,14 +61,12 @@ function loadDateInputs() {
   // Insert second row
   var row2 = table.insertRow();
   var cell2_1 = row2.insertCell(0);
-  cell2_1.className = "dateInput";
   var cell2_2 = row2.insertCell(1);
-  cell2_2.className = "dateInput";
   var cell2_3 = row2.insertCell(2);
-  cell2_3.className = "dateInput";
 
   var dateInputElement = document.createElement("input");
   dateInputElement.type = "date";
+  dateInputElement.className = "dateInput";
   dateInputElement.id = "festivalDate" + i;
   dateInputElement.placeholder = "Select a date";
   dateInputElement.addEventListener("input", () => {
@@ -86,6 +84,7 @@ function loadDateInputs() {
   cell2_1.appendChild(dateInputElement);
 
   var startTimeInputElement = document.createElement("input");
+  startTimeInputElement.className = "timeInput";
   startTimeInputElement.type = "time";
   startTimeInputElement.id = "festivalStartTime" + i;
   startTimeInputElement.addEventListener("input", () => {
@@ -106,6 +105,7 @@ function loadDateInputs() {
   cell2_2.appendChild(startTimeInputElement);
 
   var endTimeInputElement = document.createElement("input");
+  endTimeInputElement.className = "timeInput";
   endTimeInputElement.type = "time";
   endTimeInputElement.id = "festivalEndTime" + i;
   endTimeInputElement.addEventListener("input", () => {

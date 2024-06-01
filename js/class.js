@@ -65,3 +65,61 @@ function populateClassesFromStorage() {
     classes.inBetweenTime = savedClasses.inBetweenTime;
   }
 }
+
+// Function to format the date and time
+function formatDateTime(date) {
+  return date.toLocaleString();
+}
+
+function createClassDisplay(scheduleArray) {
+  const parentDiv = document.getElementById("googlesheetClasses");
+
+  scheduleArray.forEach((schedule) => {
+    // Create a new div element with the class 'classDisplay'
+    const classDiv = document.createElement("div");
+    classDiv.className = "classDisplay-flex";
+
+    // Create and fill div elements for class details
+    const classNameDiv = document.createElement("div");
+    classNameDiv.className = "className";
+    classNameDiv.textContent = `Class: ${schedule.classKey}`;
+
+    const classNumberDiv = document.createElement("div");
+    classNumberDiv.className = "classNumber";
+    classNumberDiv.textContent = `${classes.genre}`;
+
+    const participantsDiv = document.createElement("div");
+    participantsDiv.className = "participants";
+    participantsDiv.textContent = `${schedule.participants.length} Entriess`;
+
+    const totalTimeDiv = document.createElement("div");
+    totalTimeDiv.className = "totalTime";
+    totalTimeDiv.textContent = `${schedule.length} mins`;
+
+    const classTimeDiv = document.createElement("div");
+    classTimeDiv.className = "classDisplay-grid";
+
+    const startTimeDiv = document.createElement("div");
+    startTimeDiv.className = "startTime";
+    startTimeDiv.textContent = `Start: ${formatDateTime(schedule.startTime)}`;
+
+    const endTimeDiv = document.createElement("div");
+    endTimeDiv.className = "endTime";
+    endTimeDiv.textContent = `End: ${formatDateTime(schedule.endTime)}`;
+
+    const line = document.createElement("hr");
+
+    // Append the new div elements to the classDiv
+    classDiv.appendChild(classNameDiv);
+    classDiv.appendChild(classNumberDiv);
+    classDiv.appendChild(participantsDiv);
+    classDiv.appendChild(totalTimeDiv);
+    classTimeDiv.appendChild(startTimeDiv);
+    classTimeDiv.appendChild(endTimeDiv);
+
+    // Append the classDiv to the parent div
+    parentDiv.appendChild(classDiv);
+    parentDiv.appendChild(classTimeDiv);
+    parentDiv.appendChild(line);
+  });
+}

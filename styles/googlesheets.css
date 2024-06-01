@@ -1,7 +1,26 @@
-.googlesheetTitleDiv {
+.googleSheetOverviewDiv {
   background-color: #cbb8a9;
   padding: 1rem;
   margin: 0.5rem;
   border-radius: 20px;
   border: 2px solid #6f686d;
+  margin-bottom: 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  min-height: 6rem;
+}
+
+.googlesheetButton {
+  min-width: 3rem;
+  min-height: 3rem;
+  border-radius: 1rem;
+  background-color: #f0f0f0;
+  padding: 0;
+  border: 2px solid #6f686d;
+}
+
+.uploadLabel {
+  margin-left: 1rem;
+  font-family: Arial, sans-serif; /* Use Arial as  default font */
+  font-size: 1.5rem;
+  color: #333; /* Dark gray text color */
 }

@@ -28,7 +28,7 @@
               class="svg-icon"
               alt="back"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 512"
+              viewBox="0 0 300 512"
               width="25"
               height="25"
             >
@@ -42,15 +42,26 @@
             <label for="festivalName" class="festivalLabel"
               >Festival Name:
             </label>
-            <input type="text" id="festivalName" class="festivalInputs" />
+            <input
+              type="text"
+              id="festivalName"
+              class="festivalInputs"
+              placeholder="Kiwanis Music Festival"
+            />
           </div>
-          <br />
           <div class="labelAndInput">
             <label for="festivalVenue" class="festivalLabel">Venue: </label>
-            <input type="text" id="festivalVenue" class="festivalInputs" />
+            <input
+              type="text"
+              id="festivalVenue"
+              class="festivalInputs"
+              placeholder="Carnegie Hall"
+            />
           </div>
+          <hr />
+
           <div class="datesTable">
-            <table id="festivalDatesTable">
+            <table id="festivalDatesTable" class="festival-grid">
               <!--Dynamically Add Dates-->
             </table>
           </div>
@@ -65,9 +76,7 @@
                 class="festival-svg-icon"
                 alt="back"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 256 512"
-                width="25"
-                height="25"
+                viewBox="0 0 420 512"
               >
                 <use xlink:href="./images/calendar-plus.svg#icon"></use>
               </svg>
@@ -82,7 +91,7 @@
                 class="festival-svg-icon"
                 alt="back"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 256 512"
+                viewBox="0 0 420 512"
                 width="25"
                 height="25"
               >
@@ -103,7 +112,7 @@
               class="svg-icon"
               alt="back"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 512"
+              viewBox="0 0 300 512"
               width="25"
               height="25"
             >
@@ -115,92 +124,137 @@
         <div id="classUserInput" class="UserInputDiv" style="display: none">
           <div class="labelAndInput">
             <label for="classGenre" class="label">Class/Genre: </label>
-            <input type="text" id="classGenre" class="bigInputs" />
+            <input
+              type="text"
+              id="classGenre"
+              class="classInputs"
+              placeholder="Musical Theatre"
+            />
           </div>
+          <hr />
           <div class="labelAndInput">
             <label for="performanceLength" class="label"
               >Performance Length:
             </label>
-            <input type="text" id="performanceLength" class="bigInputs" />
+            <input
+              type="text"
+              id="performanceLength"
+              class="classInputs"
+              placeholder="minutes"
+            />
           </div>
-          <br />
-          <label for="adjTime" class="label">Adjudication Writing Time: </label>
-          <input type="text" id="adjTime" class="bigInputs" />
-          <br />
-          <label for="classAdjTime" class="label"
-            >Class Adjudication Time:
-          </label>
-          <input type="text" id="classAdjTime" class="bigInputs" />
-          <br />
-          <label for="bufferTime" class="label">Buffer Time: </label>
-          <input type="text" id="bufferTime" class="bigInputs" />
-          <br />
-          <label for="inBetweenTime" class="label"
-            >Time Between Classes:
-          </label>
-          <input type="text" id="inBetweenTime" class="bigInputs" />
-          <br />
-          <div id="googlesheetClasses">
-            <div class="classDisplay">
-              <hr />
-            </div>
+          <div class="labelAndInput">
+            <label for="adjTime" class="label"
+              >Adjudication Writing Time:
+            </label>
+            <input
+              type="text"
+              id="adjTime"
+              class="classInputs"
+              placeholder="minutes"
+            />
+          </div>
+          <div class="labelAndInput">
+            <label for="classAdjTime" class="label"
+              >Class Adjudication Time:
+            </label>
+            <input
+              type="text"
+              id="classAdjTime"
+              class="classInputs"
+              placeholder="minutes"
+            />
+          </div>
+          <div class="labelAndInput">
+            <label for="bufferTime" class="label">Buffer Time: </label>
+            <input
+              type="text"
+              id="bufferTime"
+              class="classInputs"
+              placeholder="minutes"
+            />
+          </div>
+          <div class="labelAndInput">
+            <label for="inBetweenTime" class="label"
+              >Time Between Classes:
+            </label>
+            <input
+              type="text"
+              id="inBetweenTime"
+              class="classInputs"
+              placeholder="minutes"
+            />
+          </div>
+          <div id="googlesheetClasses" class="googlesheetClasses">
+            <hr />
           </div>
         </div>
-
         <!-- GOOGLE SHEET SECTION -->
-        <div id="googleSheetUpload" class="googlesheetTitleDiv">
-          <input
-            type="file"
-            id="fileInput"
-            accept=".xlsx, .xls, .csv"
-            style="display: none"
-            onchange="handleFileUpload(event)"
-          />
-          <button
-            id="uploadGoogleSheet"
-            class="mainButton"
-            onclick="triggerFileInput()"
-            aria-label="Upload Google Sheet"
-          >
-            <svg
-              class="svg-icon"
-              alt="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 512"
-              width="25"
-              height="25"
+        <div id="googleSheetUpload" class="googleSheetOverviewDiv">
+          <div class="googleSheetTitleDiv">
+            <input
+              type="file"
+              id="fileInput"
+              accept=".xlsx, .xls, .csv"
+              style="display: none"
+              onchange="handleFileUpload(event), displayFileName()"
+            />
+            <button
+              id="uploadGoogleSheet"
+              class="googlesheetButton"
+              onclick="triggerFileInput()"
+              aria-label="Upload Google Sheet"
             >
-              <use xlink:href="./images/file-lines.svg#icon"></use>
-            </svg>
-          </button>
-          <label for="uploadGoogleSheet" class="uploadLabel"
-            >Upload Google Sheet</label
-          >
+              <svg
+                class="googlesheet-svg"
+                alt="back"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 351 512"
+                width="25"
+                height="25"
+              >
+                <use xlink:href="./images/file-lines.svg#icon"></use>
+              </svg>
+            </button>
+            <label for="uploadGoogleSheet" class="uploadLabel"
+              >Upload Google Sheet</label
+            >
+          </div>
+          <p id="fileNameDisplay">
+            Please fill out all fields before selecting your file
+          </p>
         </div>
       </div>
-      <div class="schedule grid-col-span-2">
+      <div class="scheduleFlex grid-col-span-2">
         <div id="scheduleTitleDiv">
-          <span class="scheduleTitle">Schedule Title</span>
-          <br />
-          <span class="scheduleVenue">Schedule Venue</span>
-          <span class="scheduleStartDate">DATE</span>
+          <span id="scheduleTitle" class="scheduleTitle">Schedule Title</span>
+          <div class="scheduleVenueAndDate">
+            <span id="scheduleVenue">Schedule Venue</span>
+            <span id="scheduleStartDate">DATE</span>
+          </div>
         </div>
-        <div id="individualClass">
-          <div class="individualClassDates">
+        <div class="individualClass" id="individualClass">
+          <div class="individualClassTimeAndDate">
             <span class="scheduleClassTime">TIME</span>
             <span class="scheduleClassDate">DATE</span>
-            <br />
+          </div>
+          <div class="individualClassNumberAndParticipants">
             <span class="scheduleClassNumber">Class Num</span>
             <span class="scheduleClassNoParticipants">X Participants</span>
           </div>
           <div class="individualClassParticipants">
-            <span class="participantClassPosition">X</span>
-            <span class="participantName">Firstname LastName</span>
-            <br />
-            <span class="participantSongTitle">SongTitle</span>
-            <span> by </span>
-            <span class="participantSongComposer">Composer</span>
+            <div class="participantInfo">
+              <span class="participantClassPosition">X</span>
+              <span class="participantFirstName">FirstName</span>
+              <span class="participantLastName">LastName</span>
+            </div>
+            <div class="participantSong">
+              <span class="participantSongTitle">SongTitle</span>
+              <span> by </span>
+              <span class="participantSongComposer">Composer</span>
+            </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -209,6 +263,6 @@
     <script src="js/class.js"></script>
     <script src="js/googlesheet.js"></script>
     <script src="js/sorting.js"></script>
-    <script src="js/organizeTimes.js"></script>
+    <script src="js/schedule.js"></script>
   </body>
 </html>

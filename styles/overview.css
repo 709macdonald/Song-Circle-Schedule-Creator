@@ -8,7 +8,3 @@ body {
   grid-template-columns: repeat(3, 1fr);
   height: 100vh; /* Make the grid container span the full viewport height */
 }
-
-.grid-col-span-2 {
-  grid-column: span 2;
-}

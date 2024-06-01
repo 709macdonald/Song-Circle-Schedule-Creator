@@ -32,10 +32,13 @@ function handleFileUpload(event) {
       // Convert the sheet data into an array of items
       const entries = jsonSheet.map((row) => ({
         Name: row[0],
-        SongTitle: row[1],
-        Genre: row[2],
-        ClassNumber: row[3],
-        Age: row[4],
+        LastName: row[1],
+        SongTitle: row[2],
+        Composer: row[3],
+        Genre: row[4],
+        ClassNumber: row[5],
+        Age: row[6],
+        Email: row[7],
       }));
 
       console.log(entries);
@@ -47,9 +50,27 @@ function handleFileUpload(event) {
       getClasses();
       participantsIntoClasses();
       classLength();
+      displayFileName();
+      populateSchedule();
     };
     reader.readAsBinaryString(file);
   } else {
     alert("No file selected!");
+  }
+}
+
+function displayFileName() {
+  const fileInput = document.getElementById("fileInput");
+  const fileNameDisplay = document.getElementById("fileNameDisplay");
+
+  // Check if any file is selected
+  if (fileInput.files.length > 0) {
+    // Get the file object
+    const file = fileInput.files[0];
+    // Display the file name
+    fileNameDisplay.textContent = `Uploaded file: ${file.name}`;
+  } else {
+    // If no file is selected, clear the display
+    fileNameDisplay.textContent = "No File Chosen, Please Reload Page";
   }
 }
