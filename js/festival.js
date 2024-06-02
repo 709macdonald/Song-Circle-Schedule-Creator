@@ -17,7 +17,6 @@ function updateFestivalData() {
   const festivalName = document.getElementById("festivalName").value;
   const festivalVenue = document.getElementById("festivalVenue").value;
 
-  // Ensure the dates array is not lost during update
   festival.name = festivalName;
   festival.venue = festivalVenue;
 
@@ -58,7 +57,6 @@ function loadDateLabels() {
 function loadDateInputs() {
   var table = document.getElementById("festivalDatesTable");
 
-  // Insert second row
   var row2 = table.insertRow();
   var cell2_1 = row2.insertCell(0);
   var cell2_2 = row2.insertCell(1);
@@ -125,7 +123,6 @@ function loadDateInputs() {
   });
   cell2_3.appendChild(endTimeInputElement);
 
-  // Ensure the festival.dates array has a corresponding entry for the new inputs
   if (!festival.dates[i]) {
     festival.dates.push({
       date: "",
@@ -138,21 +135,16 @@ function loadDateInputs() {
 }
 
 function deleteDateInputs() {
-  // Check if there's more than one row
   if (festival.dates.length > 1) {
     var table = document.getElementById("festivalDatesTable");
     var lastRowIndex = table.rows.length - 1;
 
-    // Remove the last row from the table
     table.deleteRow(lastRowIndex);
 
-    // Remove data from the array
-    festival.dates.pop(); // Remove the last element directly
+    festival.dates.pop();
 
-    // Decrement i
     i--;
 
-    // Update local storage after removing the row
     localStorage.setItem("festival", JSON.stringify(festival));
   } else {
     console.log("Cannot delete the last row.");

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>People and Venue Information</title>
+    <title>Song Circle Schedule Creator</title>
     <link rel="stylesheet" href="styles/overview.css" />
     <link rel="stylesheet" href="styles/sidebar.css" />
     <link rel="stylesheet" href="styles/schedule.css" />
@@ -190,12 +190,12 @@
           </div>
         </div>
       </div>
-      <!-- GOOGLE SHEET SECTION -->
-      <div
-        id="googleSheetUpload"
-        class="googleSheetOverviewDiv googleSheet-col-span-2"
-      >
+      <!-- TOP BAR SECTION -->
+      <div id="googleSheetUpload" class="topBarDiv topBar-col-span-2">
         <div class="googleSheetTitleDiv">
+          <label for="uploadGoogleSheet" class="uploadLabel"
+            >Upload Google Sheet</label
+          >
           <input
             type="file"
             id="fileInput"
@@ -213,21 +213,37 @@
               class="googlesheet-svg"
               alt="back"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 230 512"
+              viewBox="0 10 350 512"
               width="25"
               height="25"
             >
               <use xlink:href="./images/file-lines.svg#icon"></use>
             </svg>
           </button>
-          <label for="uploadGoogleSheet" class="uploadLabel"
-            >Upload Google Sheet</label
-          >
+          <p id="fileNameDisplay">Select Your File</p>
         </div>
-        <p id="fileNameDisplay">
-          Please fill out all fields before selecting your file
-        </p>
-        <button onclick="generatePDF()">Export to PDF</button>
+
+        <div class="exportButtonDiv">
+          <label for="genetatePDF" class="uploadLabel">Download PDF</label>
+          <button
+            id="generatePDF"
+            class="googlesheetButton"
+            onclick="generatePDF()"
+            aria-label="Download P D F"
+          >
+            <svg
+              class="googlesheet-svg"
+              alt="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 10 500 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/file-pdf.svg#icon"></use>
+            </svg>
+          </button>
+          <p id="PDFParagraph">Export To PDF</p>
+        </div>
       </div>
 
       <div class="scheduleFlex grid-col-span-2" id="scheduleContainer">

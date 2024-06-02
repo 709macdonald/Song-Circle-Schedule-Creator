@@ -35,8 +35,6 @@ function updateClassData() {
   localStorage.setItem("classes", JSON.stringify(classes));
 }
 
-// CLASS NUMBERS AND AGES
-
 // RELOAD CLASSES
 
 document.addEventListener("DOMContentLoaded", populateClassesFromStorage);
@@ -66,7 +64,8 @@ function populateClassesFromStorage() {
   }
 }
 
-// Function to format the date and time
+// CREATE DISPLAY IN CLASS PULLDOWN
+
 function formatDateTime(date) {
   return date.toLocaleString();
 }
@@ -75,11 +74,9 @@ function createClassDisplay(scheduleArray) {
   const parentDiv = document.getElementById("googlesheetClasses");
 
   scheduleArray.forEach((schedule) => {
-    // Create a new div element with the class 'classDisplay'
     const classDiv = document.createElement("div");
     classDiv.className = "classDisplay-flex";
 
-    // Create and fill div elements for class details
     const classNameDiv = document.createElement("div");
     classNameDiv.className = "className";
     classNameDiv.textContent = `Class: ${schedule.classKey}`;
@@ -109,7 +106,6 @@ function createClassDisplay(scheduleArray) {
 
     const line = document.createElement("hr");
 
-    // Append the new div elements to the classDiv
     classDiv.appendChild(classNameDiv);
     classDiv.appendChild(classNumberDiv);
     classDiv.appendChild(participantsDiv);
@@ -117,7 +113,6 @@ function createClassDisplay(scheduleArray) {
     classTimeDiv.appendChild(startTimeDiv);
     classTimeDiv.appendChild(endTimeDiv);
 
-    // Append the classDiv to the parent div
     parentDiv.appendChild(classDiv);
     parentDiv.appendChild(classTimeDiv);
     parentDiv.appendChild(line);

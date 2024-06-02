@@ -2,7 +2,6 @@ function triggerFileInput() {
   document.getElementById("fileInput").click();
 }
 
-// Handle the file upload process
 function handleFileUpload(event) {
   const file = event.target.files[0];
 
@@ -21,7 +20,6 @@ function handleFileUpload(event) {
     reader.onload = function (e) {
       const data = e.target.result;
 
-      // Parse the file data using SheetJS
       const workbook = XLSX.read(data, { type: "binary" });
       const firstSheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[firstSheetName];
@@ -29,7 +27,6 @@ function handleFileUpload(event) {
 
       console.log(jsonSheet);
 
-      // Convert the sheet data into an array of items
       const entries = jsonSheet.map((row) => ({
         Name: row[0],
         LastName: row[1],
