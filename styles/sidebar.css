@@ -1,6 +1,12 @@
+.sidebar-row-span-5 {
+  grid-row: span 5;
+  grid-column: span 2;
+}
+
 .sidebar {
   background-color: #b3b492;
   border-radius: 20px;
+  overflow: hidden; /* Prevents overflow in all directions */
 }
 
 .sidebarDropdownTitle {
@@ -14,7 +20,6 @@
   margin-bottom: 0;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
-
 .dropdownButton {
   min-width: 3rem;
   min-height: 3rem;
@@ -23,6 +28,7 @@
   padding: 0;
   display: flex;
   border: 2px solid #6f686d;
+  border-radius: 50px;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
@@ -56,5 +62,6 @@
   font-family: Arial, sans-serif; /* Use Arial as  default font */
   font-size: 1rem;
   color: #333; /* Dark gray text color */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Horizontal offset, vertical offset, blur radius, and color */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  max-height: 30rem; /* Set a max-height to enable scrolling */
 }

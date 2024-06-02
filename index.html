@@ -16,7 +16,7 @@
   <body>
     <div class="grid-container">
       <!-- FESTIVAL SECTION -->
-      <div class="sidebar">
+      <div class="sidebar sidebar-row-span-5">
         <div id="festivalTitle" class="sidebarDropdownTitle">
           <button
             id="festivalDropdownButton"
@@ -28,7 +28,7 @@
               class="svg-icon"
               alt="back"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 300 512"
+              viewBox="0 0 250 512"
               width="25"
               height="25"
             >
@@ -189,80 +189,58 @@
             <hr />
           </div>
         </div>
-        <!-- GOOGLE SHEET SECTION -->
-        <div id="googleSheetUpload" class="googleSheetOverviewDiv">
-          <div class="googleSheetTitleDiv">
-            <input
-              type="file"
-              id="fileInput"
-              accept=".xlsx, .xls, .csv"
-              style="display: none"
-              onchange="handleFileUpload(event), displayFileName()"
-            />
-            <button
-              id="uploadGoogleSheet"
-              class="googlesheetButton"
-              onclick="triggerFileInput()"
-              aria-label="Upload Google Sheet"
-            >
-              <svg
-                class="googlesheet-svg"
-                alt="back"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 351 512"
-                width="25"
-                height="25"
-              >
-                <use xlink:href="./images/file-lines.svg#icon"></use>
-              </svg>
-            </button>
-            <label for="uploadGoogleSheet" class="uploadLabel"
-              >Upload Google Sheet</label
-            >
-          </div>
-          <p id="fileNameDisplay">
-            Please fill out all fields before selecting your file
-          </p>
-        </div>
       </div>
-      <div class="scheduleFlex grid-col-span-2">
-        <div id="scheduleTitleDiv">
-          <span id="scheduleTitle" class="scheduleTitle">Schedule Title</span>
-          <div class="scheduleVenueAndDate">
-            <span id="scheduleVenue">Schedule Venue</span>
-            <span id="scheduleStartDate">DATE</span>
-          </div>
+      <!-- GOOGLE SHEET SECTION -->
+      <div
+        id="googleSheetUpload"
+        class="googleSheetOverviewDiv googleSheet-col-span-2"
+      >
+        <div class="googleSheetTitleDiv">
+          <input
+            type="file"
+            id="fileInput"
+            accept=".xlsx, .xls, .csv"
+            style="display: none"
+            onchange="handleFileUpload(event), displayFileName()"
+          />
+          <button
+            id="uploadGoogleSheet"
+            class="googlesheetButton"
+            onclick="triggerFileInput()"
+            aria-label="Upload Google Sheet"
+          >
+            <svg
+              class="googlesheet-svg"
+              alt="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 230 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/file-lines.svg#icon"></use>
+            </svg>
+          </button>
+          <label for="uploadGoogleSheet" class="uploadLabel"
+            >Upload Google Sheet</label
+          >
         </div>
-        <div class="individualClass" id="individualClass">
-          <div class="individualClassTimeAndDate">
-            <span class="scheduleClassTime">TIME</span>
-            <span class="scheduleClassDate">DATE</span>
-          </div>
-          <div class="individualClassNumberAndParticipants">
-            <span class="scheduleClassNumber">Class Num</span>
-            <span class="scheduleClassNoParticipants">X Participants</span>
-          </div>
-          <div class="individualClassParticipants">
-            <div class="participantInfo">
-              <span class="participantClassPosition">X</span>
-              <span class="participantFirstName">FirstName</span>
-              <span class="participantLastName">LastName</span>
-            </div>
-            <div class="participantSong">
-              <span class="participantSongTitle">SongTitle</span>
-              <span> by </span>
-              <span class="participantSongComposer">Composer</span>
-            </div>
-          </div>
-        </div>
-        </div>
+        <p id="fileNameDisplay">
+          Please fill out all fields before selecting your file
+        </p>
+        <button onclick="generatePDF()">Export to PDF</button>
+      </div>
+
+      <div class="scheduleFlex grid-col-span-2" id="scheduleContainer">
+        <!--ADD DIV's HERE-->
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.0/html2pdf.bundle.min.js"></script>
     <script src="js/overview.js"></script>
     <script src="js/festival.js"></script>
     <script src="js/class.js"></script>
     <script src="js/googlesheet.js"></script>
     <script src="js/sorting.js"></script>
     <script src="js/schedule.js"></script>
+    <script src="js/export.js"></script>
   </body>
 </html>

@@ -1,125 +1,172 @@
-function populateSchedule() {
-  const scheduleTitle = "Schedule Title";
-  const scheduleVenue = "Schedule Venue";
-  const scheduleStartDate = "DATE"; // Placeholder for the actual date
-
-  // Create and populate the schedule title div
+function populateScheduleTitle() {
   const scheduleTitleDiv = document.createElement("div");
   scheduleTitleDiv.id = "scheduleTitleDiv";
 
   const scheduleTitleSpan = document.createElement("span");
-  scheduleTitleSpan.id = "scheduleTitle";
   scheduleTitleSpan.className = "scheduleTitle";
-  scheduleTitleSpan.textContent = scheduleTitle;
-
-  const scheduleVenueAndDateDiv = document.createElement("div");
-  scheduleVenueAndDateDiv.className = "scheduleVenueAndDate";
-
-  const scheduleVenueSpan = document.createElement("span");
-  scheduleVenueSpan.id = "scheduleVenue";
-  scheduleVenueSpan.textContent = scheduleVenue;
-
-  const scheduleStartDateSpan = document.createElement("span");
-  scheduleStartDateSpan.id = "scheduleStartDate";
-  scheduleStartDateSpan.textContent = scheduleStartDate;
-
-  scheduleVenueAndDateDiv.appendChild(scheduleVenueSpan);
-  scheduleVenueAndDateDiv.appendChild(scheduleStartDateSpan);
-
+  scheduleTitleSpan.textContent = festival.name;
   scheduleTitleDiv.appendChild(scheduleTitleSpan);
-  scheduleTitleDiv.appendChild(scheduleVenueAndDateDiv);
 
-  document.body.appendChild(scheduleTitleDiv);
+  const scheduleVenueAndDate = document.createElement("div");
+  scheduleVenueAndDate.className = "scheduleVenueAndDate";
 
-  // Create and populate the individual class div
-  finishedSchedule.forEach((singleClass) => {
+  const scheduleVenue = document.createElement("span");
+  scheduleVenue.textContent = festival.venue;
+  scheduleVenueAndDate.appendChild(scheduleVenue);
+
+  const startTimeString = festival.dates[0].date;
+  console.log(startTimeString);
+
+  const [year, month, day] = startTimeString.split("-");
+  const startDate = new Date(year, month - 1, day);
+
+  const dateOptions = {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
+
+  const dateString = startDate.toLocaleDateString("en-US", dateOptions);
+
+  const scheduleStartDate = document.createElement("span");
+  scheduleStartDate.textContent = dateString;
+  scheduleVenueAndDate.appendChild(scheduleStartDate);
+
+  scheduleTitleDiv.appendChild(scheduleVenueAndDate);
+
+  const targetDiv = document.getElementById("scheduleContainer");
+
+  targetDiv.appendChild(scheduleTitleDiv);
+}
+
+let scheduleI = 0;
+
+function populateScheduleClasses() {
+  finishedSchedule.forEach((Class) => {
     const individualClassDiv = document.createElement("div");
     individualClassDiv.className = "individualClass";
-    individualClassDiv.id = "individualClass";
+    individualClassDiv.id = `individualClass_${scheduleI}`;
+    console.log(individualClassDiv.id);
 
     const individualClassTimeAndDateDiv = document.createElement("div");
     individualClassTimeAndDateDiv.className = "individualClassTimeAndDate";
 
-    const scheduleClassTimeSpan = document.createElement("span");
-    scheduleClassTimeSpan.className = "scheduleClassTime";
-    scheduleClassTimeSpan.textContent = `${singleClass.startTime.getHours()}:${singleClass.startTime.getMinutes()}`;
+    const startTimeString = Class.startTime;
+    const startDate = new Date(startTimeString);
 
-    const scheduleClassDateSpan = document.createElement("span");
-    scheduleClassDateSpan.className = "scheduleClassDate";
-    scheduleClassDateSpan.textContent = singleClass.startTime.toDateString();
+    const dateOptions = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    const timeOptions = {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    };
+    const dateString = startDate.toLocaleDateString("en-US", dateOptions);
+    const timeString = startDate.toLocaleTimeString("en-US", timeOptions);
 
-    individualClassTimeAndDateDiv.appendChild(scheduleClassTimeSpan);
-    individualClassTimeAndDateDiv.appendChild(scheduleClassDateSpan);
+    const scheduleClassTime = document.createElement("span");
+    scheduleClassTime.className = "scheduleClassTime";
+    scheduleClassTime.textContent = timeString;
+    individualClassTimeAndDateDiv.appendChild(scheduleClassTime);
+
+    const scheduleClassDate = document.createElement("span");
+    scheduleClassDate.className = "scheduleClassDate";
+    scheduleClassDate.textContent = dateString;
+    individualClassTimeAndDateDiv.appendChild(scheduleClassDate);
+
+    individualClassDiv.appendChild(individualClassTimeAndDateDiv);
 
     const individualClassNumberAndParticipantsDiv =
       document.createElement("div");
     individualClassNumberAndParticipantsDiv.className =
       "individualClassNumberAndParticipants";
 
-    const scheduleClassNumberSpan = document.createElement("span");
-    scheduleClassNumberSpan.className = "scheduleClassNumber";
-    scheduleClassNumberSpan.textContent = `Class Num: ${singleClass.classKey}`;
+    const scheduleClassNumber = document.createElement("span");
+    scheduleClassNumber.className = "scheduleClassNumber";
+    scheduleClassNumber.textContent = Class.classKey;
 
-    const scheduleClassNoParticipantsSpan = document.createElement("span");
-    scheduleClassNoParticipantsSpan.className = "scheduleClassNoParticipants";
-    scheduleClassNoParticipantsSpan.textContent = `${singleClass.participants.length} Participants`;
+    individualClassNumberAndParticipantsDiv.appendChild(scheduleClassNumber);
+
+    const scheduleClassNoParticipants = document.createElement("span");
+    scheduleClassNoParticipants.className = "scheduleClassNoParticipants";
+    scheduleClassNoParticipants.textContent =
+      Class.participants.length + " Entries";
 
     individualClassNumberAndParticipantsDiv.appendChild(
-      scheduleClassNumberSpan
+      scheduleClassNoParticipants
     );
-    individualClassNumberAndParticipantsDiv.appendChild(
-      scheduleClassNoParticipantsSpan
-    );
+    individualClassDiv.appendChild(individualClassNumberAndParticipantsDiv);
 
+    const targetDiv = document.getElementById("scheduleContainer");
+
+    targetDiv.appendChild(individualClassDiv);
+    populateParticipants();
+    scheduleI++;
+    console.log(scheduleI);
+  });
+}
+
+function populateParticipants() {
+  let classPosition = 1;
+  finishedSchedule[scheduleI].participants.forEach((participant, index) => {
     const individualClassParticipantsDiv = document.createElement("div");
     individualClassParticipantsDiv.className = "individualClassParticipants";
 
-    singleClass.participants.forEach((participant, index) => {
-      const participantInfoDiv = document.createElement("div");
-      participantInfoDiv.className = "participantInfo";
+    const participantInfoDiv = document.createElement("div");
+    participantInfoDiv.className = "participantInfo";
 
-      const participantClassPositionSpan = document.createElement("span");
-      participantClassPositionSpan.className = "participantClassPosition";
-      participantClassPositionSpan.textContent = index + 1;
+    const participantClassPositionsSpan = document.createElement("span");
+    participantClassPositionsSpan.className = "participantClassPosition";
+    participantClassPositionsSpan.textContent = classPosition;
+    classPosition++;
 
-      const participantFirstNameSpan = document.createElement("span");
-      participantFirstNameSpan.className = "participantFirstName";
-      participantFirstNameSpan.textContent = participant.Name;
+    participantInfoDiv.appendChild(participantClassPositionsSpan);
 
-      const participantLastNameSpan = document.createElement("span");
-      participantLastNameSpan.className = "participantLastName";
-      participantLastNameSpan.textContent = participant.LastName;
+    const participantFirstNameSpan = document.createElement("span");
+    participantFirstNameSpan.className = "participantFirstName";
+    participantFirstNameSpan.textContent =
+      "    " + finishedSchedule[scheduleI].participants[index].Name;
 
-      participantInfoDiv.appendChild(participantClassPositionSpan);
-      participantInfoDiv.appendChild(participantFirstNameSpan);
-      participantInfoDiv.appendChild(participantLastNameSpan);
+    participantInfoDiv.appendChild(participantFirstNameSpan);
 
-      const participantSongDiv = document.createElement("div");
-      participantSongDiv.className = "participantSong";
+    const participantLastNameSpan = document.createElement("span");
+    participantLastNameSpan.className = "participantLastName";
+    participantLastNameSpan.textContent =
+      " " + finishedSchedule[scheduleI].participants[index].LastName;
 
-      const participantSongTitleSpan = document.createElement("span");
-      participantSongTitleSpan.className = "participantSongTitle";
-      participantSongTitleSpan.textContent = participant.SongTitle;
+    participantInfoDiv.appendChild(participantLastNameSpan);
 
-      const bySpan = document.createElement("span");
-      bySpan.textContent = " by ";
+    const participantSongDiv = document.createElement("div");
+    participantSongDiv.className = "participantSong";
 
-      const participantSongComposerSpan = document.createElement("span");
-      participantSongComposerSpan.className = "participantSongComposer";
-      participantSongComposerSpan.textContent = participant.Composer;
+    const participantSongTitleSpan = document.createElement("span");
+    participantSongTitleSpan.className = "participantSongTitle";
+    participantSongTitleSpan.textContent =
+      finishedSchedule[scheduleI].participants[index].SongTitle;
 
-      participantSongDiv.appendChild(participantSongTitleSpan);
-      participantSongDiv.appendChild(bySpan);
-      participantSongDiv.appendChild(participantSongComposerSpan);
+    participantSongDiv.appendChild(participantSongTitleSpan);
 
-      individualClassParticipantsDiv.appendChild(participantInfoDiv);
-      individualClassParticipantsDiv.appendChild(participantSongDiv);
-    });
+    const participantSongComposerSpan = document.createElement("span");
+    participantSongComposerSpan.className = "participantSongComposer";
+    participantSongComposerSpan.textContent =
+      "  by  " + finishedSchedule[scheduleI].participants[index].composer;
 
-    individualClassDiv.appendChild(individualClassTimeAndDateDiv);
-    individualClassDiv.appendChild(individualClassNumberAndParticipantsDiv);
+    participantSongDiv.appendChild(participantSongComposerSpan);
+
+    // FOR TH END
+
+    individualClassParticipantsDiv.appendChild(participantInfoDiv);
+    individualClassParticipantsDiv.appendChild(participantSongDiv);
+
+    const individualClassDiv = document.getElementById(
+      `individualClass_${scheduleI}`
+    );
+
     individualClassDiv.appendChild(individualClassParticipantsDiv);
-
-    document.body.appendChild(individualClassDiv);
   });
 }

@@ -176,4 +176,6 @@ function combineSchedule(classStartTimes, classParticipants) {
 
   console.log("Finished Schedule", finishedSchedule); // Logging finishedSchedule inside the function
   createClassDisplay(finishedSchedule);
+  populateScheduleTitle();
+  populateScheduleClasses();
 }

@@ -1,10 +1,14 @@
-body {
+html body {
   background-color: #6f686d;
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevent page from scrolling */
 }
 
 .grid-container {
   display: grid;
   gap: 5px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr); /* 5 equal rows */
   height: 100vh; /* Make the grid container span the full viewport height */
 }

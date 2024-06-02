@@ -4,10 +4,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .grid-col-span-2 {
-  grid-column: span 2;
+  grid-column: 3 / span 4;
+  grid-row: 2 / span 4;
 }
 
 #scheduleTitleDiv,
@@ -43,13 +45,14 @@
 .individualClassTimeAndDate {
   font-family: Arial, sans-serif;
   display: flex;
+  flex-direction: column;
   margin: 1rem;
 }
 
 .scheduleClassDate {
   align-self: center;
   margin-left: auto;
-  margin-right: 48%;
+  margin-right: auto;
   font-size: 1.5rem;
 }
 
@@ -77,4 +80,8 @@
 
 .participantSong {
   margin: 0 auto 0.5rem 7rem;
+}
+
+.individualClass > div:last-child {
+  margin-bottom: 2rem;
 }

@@ -51,7 +51,6 @@ function handleFileUpload(event) {
       participantsIntoClasses();
       classLength();
       displayFileName();
-      populateSchedule();
     };
     reader.readAsBinaryString(file);
   } else {
