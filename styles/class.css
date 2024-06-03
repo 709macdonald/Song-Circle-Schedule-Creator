@@ -32,3 +32,8 @@
   justify-self: end;
   grid-row: 3;
 }
+
+.datesTable {
+  overflow-x: auto;
+  margin: 0 auto 0 auto;
+}

@@ -19,10 +19,11 @@
   background-color: #f0f0f0;
   padding: 0;
   border: 2px solid #6f686d;
+  margin: 1rem auto 0 auto;
 }
 
 .uploadLabel {
-  margin-left: 1rem;
+  margin: 1rem auto 0 auto;
   font-family: Arial, sans-serif; /* Use Arial as  default font */
   font-size: 1.5rem;
   color: #333; /* Dark gray text color */
