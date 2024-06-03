@@ -24,14 +24,14 @@
 
 .uploadLabel {
   margin: 1rem auto 0 auto;
-  font-family: Arial, sans-serif; /* Use Arial as  default font */
+  font-family: Arial, sans-serif;
   font-size: 1.5rem;
-  color: #333; /* Dark gray text color */
+  color: #333;
 }
 
 .googlesheetClasses {
   overflow: scroll;
-  max-height: 12rem; /* Horizontal offset, vertical offset, blur radius, and color */
+  max-height: 12rem;
 }
 
 .googleSheetTitleDiv {
