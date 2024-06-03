@@ -65,3 +65,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: center;
 }
+
+.festival-grid {
+  color: var(--primary-color);
+  font-family: var(--font);
+}

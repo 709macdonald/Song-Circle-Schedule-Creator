@@ -1,0 +1,26 @@
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  max-width: 8rem;
+  margin-bottom: 10rem;
+}
+
+.tooltip.active {
+  display: block;
+}
+
+.tooltip2 {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  max-width: 8rem;
+}
