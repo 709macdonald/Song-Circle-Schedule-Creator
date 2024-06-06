@@ -1,49 +1,16 @@
-html body {
-  background-color: var(--bg-color);
-  position: relative;
-  height: 100%;
-  margin: 0;
-  overflow: hidden; /* Prevent page from scrolling */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.grid-container {
-  display: grid;
-  gap: 5px;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(5, 1fr); /* 5 equal rows */
-  height: 100vh; /* Make the grid container span the full viewport height */
-  z-index: 1;
+.mainbar-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 50%;
 }
 
-.sidebarDropdownTitle {
-  position: relative; /* Position relative to contain the absolute positioned dropdown */
-}
-
-.UserInputDiv {
-  position: absolute;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  top: 100%;
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  display: none; /* Hidden by default */
-}
-
-.UserInputDiv.show {
-  display: block; /* Display when dropdown is open */
-}
-
-:root {
-  --primary-color: #14110f;
-  --secondary-color: #34312d;
-  --bg-color: #f3f3f4;
-  --font-color: #14110f;
-  --font: Arial, sans-serif;
-  --head-color: #f3f3f4;
-  --main-text: 1rem;
-  --head-1: 1.618rem;
-  --head-2: 2.618;
-  --head-3: 2.618;
+.infoDiv {
 }

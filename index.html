@@ -14,35 +14,19 @@
     <link rel="stylesheet" href="styles/pop-ups.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   </head>
-  <html>
-    <div class="topBar-flex">
-      <div class="festivalSectionDiv">
-        <div id="festivalTitle" class="sidebarDropdownTitle">
-          <button
-            id="festivalDropdownButton"
-            class="dropdownButton"
-            onclick="toggleDropdownInfo('festival')"
-            aria-label="Toggle Festival Info"
-          >
-            <svg
-              class="svg-icon"
-              alt="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 250 512"
-              width="25"
-              height="25"
-            >
-              <use xlink:href="./images/caret-right.svg#icon"></use>
-            </svg>
-          </button>
-          <label class="infoTitle">Festival Information</label>
+  <body>
+    <div class="mainbar-flex">
+      <!--FESTIVAL SECTION-->
+      <div class="infoDiv" id="festivalInfo">
+        <div class="titleDiv">
+          <label class="title">Festival Information</label>
         </div>
-        <div id="class info"></div>
-        <div id="festivalUserInput" class="UserInputDiv" style="display: none">
-          <div class="labelAndInput">
+
+        <div class="UserInputDiv">
+          <div class="labelAndInputDiv">
             <label for="festivalName" class="festivalLabel"
-              >Festival Name:
-            </label>
+              >Festival Name:</label
+            >
             <input
               type="text"
               id="festivalName"
@@ -50,8 +34,8 @@
               placeholder="Kiwanis Music Festival"
             />
           </div>
-          <div class="labelAndInput">
-            <label for="festivalVenue" class="festivalLabel">Venue: </label>
+          <div class="labelAndInputDiv">
+            <label for="festivalVenue" class="festivalLabel">Venue:</label>
             <input
               type="text"
               id="festivalVenue"
@@ -59,8 +43,7 @@
               placeholder="Carnegie Hall"
             />
           </div>
-          <hr />
-          <div class="datesTable">
+          <div class="datesTableDiv">
             <table id="festivalDatesTable" class="festival-grid">
               <!--Dynamically Add Dates-->
             </table>
@@ -74,7 +57,7 @@
             >
               <svg
                 class="festival-svg-icon"
-                alt="back"
+                aria-label="back"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 420 512"
               >
@@ -89,7 +72,7 @@
             >
               <svg
                 class="festival-svg-icon"
-                alt="back"
+                aria-label="back"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 420 512"
                 width="25"
@@ -99,180 +82,202 @@
               </svg>
             </button>
           </div>
-        </div>
-      </div>
-      <div class="classSectionDiv">
-              <!--CLASS SECTION-->
-      <div id="ClasslTitle" class="sidebarDropdownTitle">
-        <button
-          id="classDropdownButton"
-          class="dropdownButton"
-          onclick="toggleDropdownInfo('class')"
-          aria-label="Toggle Class Info"
-        >
-          <svg
-            class="svg-icon"
-            alt="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 300 512"
-            width="25"
-            height="25"
+          <button
+            id="festivalDoneButton"
+            class="doneButton"
+            onclick="toggleDropdownInfo('festival')"
+            aria-label="Toggle Festival Info"
           >
-            <use xlink:href="./images/caret-right.svg#icon"></use>
-          </svg>
-        </button>
-        <label class="infoTitle">Class Information</label>
-      </div>
-      <div id="classUserInput" class="UserInputDiv" style="display: none">
-        <div class="labelAndInput">
-          <label for="classGenre" class="label">Class/Genre: </label>
-          <input
-            type="text"
-            id="classGenre"
-            class="classInputs"
-            placeholder="Musical Theatre"
-          />
-        </div>
-        <hr />
-        <div class="labelAndInput">
-          <label for="performanceLength" class="label"
-            >Performance Length:
-          </label>
-          <input
-            type="text"
-            id="performanceLength"
-            class="classInputs"
-            placeholder="minutes"
-            onmouseover="showToolTip('input1')"
-            onmouseout="hideToolTip('input1')"
-          />
-          <div class="tooltip" id="tooltip-input1">
-            On average, how long does each participant have to perform?
-            <span style="font-style: italic">Enter value in minutes.</span>
-          </div>
-        </div>
-        <div class="labelAndInput">
-          <label for="adjTime" class="label">Adjudication Writing Time: </label>
-          <input
-            type="text"
-            id="adjTime"
-            class="classInputs"
-            placeholder="minutes"
-            onmouseover="showToolTip('input2')"
-            onmouseout="hideToolTip('input2')"
-          />
-          <div class="tooltip" id="tooltip-input2">
-            On average, how long will your adjudicator write between students?
-            <span style="font-style: italic">Enter value in minutes.</span>
-          </div>
-        </div>
-        <div class="labelAndInput">
-          <label for="classAdjTime" class="label"
-            >Class Adjudication Time:
-          </label>
-          <input
-            type="text"
-            id="classAdjTime"
-            class="classInputs"
-            placeholder="minutes"
-            onmouseover="showToolTip('input3')"
-            onmouseout="hideToolTip('input3')"
-          />
-          <div class="tooltip" id="tooltip-input3">
-            How long can your adjudicator address the class at the end?
-            <span style="font-style: italic">Enter value in minutes.</span>
-          </div>
-        </div>
-        <div class="labelAndInput">
-          <label for="bufferTime" class="label">Buffer Time: </label>
-          <input
-            type="text"
-            id="bufferTime"
-            class="classInputs"
-            placeholder="minutes"
-            onmouseover="showToolTip('input4')"
-            onmouseout="hideToolTip('input4')"
-          />
-          <div class="tooltip" id="tooltip-input4">
-            Include a buffer time if classes tend to run late.
-            <span style="font-style: italic"
-              >Enter value in minutes. Enter 0 if unwanted</span
+            <svg
+              class="svg-icon"
+              aria-label="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 250 512"
+              width="25"
+              height="25"
             >
-          </div>
-        </div>
-        <div class="labelAndInput">
-          <label for="inBetweenTime" class="label"
-            >Time Between Classes:
-          </label>
-          <input
-            type="text"
-            id="inBetweenTime"
-            class="classInputs"
-            placeholder="minutes"
-            onmouseover="showToolTip('input5')"
-            onmouseout="hideToolTip('input5')"
-          />
-          <div class="tooltip" id="tooltip-input5">
-            How long does it take to switch over classes?
-            <span style="font-style: italic">Enter value in minutes.</span>
-          </div>
-        </div>
-        <div id="googlesheetClasses" class="googlesheetClasses">
-          <hr />
+              <use xlink:href="./images/caret-right.svg#icon"></use>
+            </svg>
+          </button>
         </div>
       </div>
+
+      <!--CLASS SECTION-->
+      <div class="infoDiv" id="classInfo">
+        <div class="titleDiv">
+          <label class="infoTitle">Class Information</label>
         </div>
-        <div class="googleSheetDiv">
-          <div class="googleSheetTitleDiv">
+
+        <div class="userInputDiv">
+          <div class="labelAndInput">
+            <label for="classGenre" class="label">Class/Genre:</label>
             <input
-              type="file"
-              id="fileInput"
-              accept=".xlsx, .xls, .csv"
-              style="display: none"
-              onchange="handleFileUpload(event)"
+              type="text"
+              id="classGenre"
+              class="classInputs"
+              placeholder="Musical Theatre"
             />
-            <button
-              id="uploadGoogleSheet"
-              class="googlesheetButton"
-              onclick="triggerFileInput()"
-              aria-label="Upload Google Sheet"
-              onmouseover="showToolTip('input6')"
-              onmouseout="hideToolTip('input6')"
+          </div>
+          <div class="labelAndInputDiv">
+            <label for="performanceLength" class="label"
+              >Performance Length:</label
             >
-              <div class="tooltip2" id="tooltip-input6">
-                Upload your Google Sheet with NO HEADER and in the following
-                order. First Name, Last Name, Song Title, Composer, Class Genre,
-                Class Number, Participant Age, Email
-                <span style="font-style: italic">Enter value in minutes.</span>
-              </div>
-              <svg
-                class="googlesheet-svg"
-                alt="back"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 10 350 512"
-                width="25"
-                height="25"
+            <input
+              type="text"
+              id="performanceLength"
+              class="classInputs"
+              placeholder="minutes"
+              onmouseover="showToolTip('input1')"
+              onmouseout="hideToolTip('input1')"
+            />
+            <div class="tooltip" id="tooltip-input1">
+              On average, how long does each participant have to perform?
+              <span style="font-style: italic">Enter value in minutes.</span>
+            </div>
+          </div>
+          <div class="labelAndInputDiv">
+            <label for="adjTime" class="label"
+              >Adjudication Writing Time:</label
+            >
+            <input
+              type="text"
+              id="adjTime"
+              class="classInputs"
+              placeholder="minutes"
+              onmouseover="showToolTip('input2')"
+              onmouseout="hideToolTip('input2')"
+            />
+            <div class="tooltip" id="tooltip-input2">
+              On average, how long will your adjudicator write between students?
+              <span style="font-style: italic">Enter value in minutes.</span>
+            </div>
+          </div>
+          <div class="labelAndInputDiv">
+            <label for="classAdjTime" class="label"
+              >Class Adjudication Time:</label
+            >
+            <input
+              type="text"
+              id="classAdjTime"
+              class="classInputs"
+              placeholder="minutes"
+              onmouseover="showToolTip('input3')"
+              onmouseout="hideToolTip('input3')"
+            />
+            <div class="tooltip" id="tooltip-input3">
+              How long can your adjudicator address the class at the end?
+              <span style="font-style: italic">Enter value in minutes.</span>
+            </div>
+          </div>
+          <div class="labelAndInputDiv">
+            <label for="bufferTime" class="label">Buffer Time:</label>
+            <input
+              type="text"
+              id="bufferTime"
+              class="classInputs"
+              placeholder="minutes"
+              onmouseover="showToolTip('input4')"
+              onmouseout="hideToolTip('input4')"
+            />
+            <div class="tooltip" id="tooltip-input4">
+              Include a buffer time if classes tend to run late.
+              <span style="font-style: italic"
+                >Enter value in minutes. Enter 0 if unwanted</span
               >
-                <use xlink:href="./images/file-lines.svg#icon"></use>
-              </svg>
-            </button>
-            <label for="uploadGoogleSheet" class="uploadLabel"
+            </div>
+          </div>
+          <div class="labelAndInputDiv">
+            <label for="inBetweenTime" class="label"
+              >Time Between Classes:</label
+            >
+            <input
+              type="text"
+              id="inBetweenTime"
+              class="classInputs"
+              placeholder="minutes"
+              onmouseover="showToolTip('input5')"
+              onmouseout="hideToolTip('input5')"
+            />
+            <div class="tooltip" id="tooltip-input5">
+              How long does it take to switch over classes?
+              <span style="font-style: italic">Enter value in minutes.</span>
+            </div>
+          </div>
+          <button
+            id="classDropdownButton"
+            class="dropdownButton"
+            onclick="toggleDropdownInfo('class')"
+            aria-label="Toggle Class Info"
+          >
+            <svg
+              class="svg-icon"
+              aria-label="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 300 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/caret-right.svg#icon"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!--GOOGLE SHEET SECTION-->
+      <div class="infoDiv" id="googleSheetInfo">
+        <div class="titleDiv">
+          <label for="uploadGoogleSheet" class="uploadLabel"
             >Upload Google Sheet</label
           >
-                  </div>
-
         </div>
-        <div id="export">
-          <div class="exportButtonDiv">
-            <button
-            id="generatePDF"
+
+        <div class="userInputDiv">
+          <input
+            type="file"
+            id="fileInput"
+            accept=".xlsx, .xls, .csv"
+            style="display: none"
+            onchange="handleFileUpload(event)"
+          />
+          <button
+            id="uploadGoogleSheet"
             class="googlesheetButton"
-            onclick="generatePDF()"
-            aria-label="Download P D F"
+            onclick="triggerFileInput()"
+            aria-label="Upload Google Sheet"
+            onmouseover="showToolTip('input6')"
+            onmouseout="hideToolTip('input6')"
           >
             <svg
               class="googlesheet-svg"
-              alt="back"
+              aria-label="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 10 350 512"
+              width="25"
+              height="25"
+            >
+              <use xlink:href="./images/file-lines.svg#icon"></use>
+            </svg>
+          </button>
+          <div>
+            Upload your Google Sheet with NO HEADER and in the following order:
+            First Name, Last Name, Song Title, Composer, Class Genre, Class
+            Number, Participant Age, Email
+          </div>
+        </div>
+      </div>
+
+      <!--EXPORT SECTION-->
+      <div id="export">
+        <div class="exportButtonDiv">
+          <button
+            id="generatePDF"
+            class="googlesheetButton"
+            onclick="generatePDF()"
+            aria-label="Download PDF"
+          >
+            <svg
+              class="googlesheet-svg"
+              aria-label="back"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 10 500 512"
               width="25"
@@ -281,16 +286,16 @@
               <use xlink:href="./images/file-pdf.svg#icon"></use>
             </svg>
           </button>
-            <label for="genetatePDF" class="uploadLabel">Download PDF</label>
-          </div>
+          <label for="genetatePDF" class="uploadLabel">Download PDF</label>
         </div>
       </div>
-    <div class="grid-container">
-      <!-- TOP BAR SECTION -->
+
+      <!-- SCHEDULE SECTION -->
       <div class="scheduleFlex grid-col-span-2" id="scheduleContainer">
         <!--ADD DIV's HERE-->
       </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.0/html2pdf.bundle.min.js"></script>
     <script src="js/overview.js"></script>
     <script src="js/festival.js"></script>
