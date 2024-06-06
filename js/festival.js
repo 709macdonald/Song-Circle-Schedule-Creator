@@ -1,6 +1,8 @@
 let festival = {
   name: "",
+  classGenre: "",
   venue: "",
+  venueAddress: "",
   dates: [],
 };
 let i = 0;
@@ -15,12 +17,18 @@ festivalUserInput.addEventListener("input", function (event) {
 
 function updateFestivalData() {
   const festivalName = document.getElementById("festivalName").value;
+  const festivalClassGenre = document.getElementById("classGenre").value;
   const festivalVenue = document.getElementById("festivalVenue").value;
+  const venueAddress = document.getElementById("venueAddress").value;
 
   festival.name = festivalName;
+  festival.classGenre = festivalClassGenre;
   festival.venue = festivalVenue;
+  festival.venueAddress = venueAddress;
 
   localStorage.setItem("festival", JSON.stringify(festival));
+
+  console.log(festival);
 }
 
 // FESTIVAL DATES

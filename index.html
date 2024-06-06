@@ -21,85 +21,110 @@
         <div class="titleDiv">
           <label class="title">Festival Information</label>
         </div>
+        <div
+          class="UserInputDiv festivalUserInputDiv-grid"
+          id="festivalUserInput"
+        >
+          <div class="festivalInputs-flex">
+            <div class="labelAndInputDiv">
+              <label for="festivalName" class="festivalLabel"
+                >Festival Name:</label
+              >
+              <input
+                type="text"
+                id="festivalName"
+                class="festivalInputs"
+                placeholder="Kiwanis Music Festival"
+              />
+            </div>
+            <div class="labelAndInputDiv">
+              <label for="classGenre" class="label">Class/Genre:</label>
+              <input
+                type="text"
+                id="classGenre"
+                class="festivalInputs"
+                placeholder="Musical Theatre"
+              />
+            </div>
+            <div class="labelAndInputDiv">
+              <label for="festivalVenue" class="festivalLabel">Venue:</label>
+              <input
+                type="text"
+                id="festivalVenue"
+                class="festivalInputs"
+                placeholder="Carnegie Hall"
+              />
+            </div>
+            <div class="labelAndInputDiv">
+              <label for="venueAddress" class="festivalLabel"
+                >Venue Address:</label
+              >
+              <input
+                type="text"
+                id="venueAddress"
+                class="festivalInputs"
+                placeholder="1872 Westeria Lane"
+              />
+            </div>
+          </div>
 
-        <div class="UserInputDiv">
-          <div class="labelAndInputDiv">
-            <label for="festivalName" class="festivalLabel"
-              >Festival Name:</label
-            >
-            <input
-              type="text"
-              id="festivalName"
-              class="festivalInputs"
-              placeholder="Kiwanis Music Festival"
-            />
-          </div>
-          <div class="labelAndInputDiv">
-            <label for="festivalVenue" class="festivalLabel">Venue:</label>
-            <input
-              type="text"
-              id="festivalVenue"
-              class="festivalInputs"
-              placeholder="Carnegie Hall"
-            />
-          </div>
-          <div class="datesTableDiv">
-            <table id="festivalDatesTable" class="festival-grid">
-              <!--Dynamically Add Dates-->
-            </table>
-          </div>
-          <div class="festivalTableButtonsDiv">
-            <button
-              class="festivalButtons"
-              id="addNewDate"
-              onclick="loadDateInputs()"
-              aria-label="Add New Date"
-            >
-              <svg
-                class="festival-svg-icon"
-                aria-label="back"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 420 512"
+          <div class="festivalDatesTable-flex">
+            <table id="festivalDatesTable"></table>
+            <div class="festivalTableButtonsDiv">
+              <button
+                class="festivalButtons"
+                id="deleteLastDate"
+                onclick="deleteDateInputs()"
+                aria-label="Delete Last Date"
               >
-                <use xlink:href="./images/calendar-plus.svg#icon"></use>
-              </svg>
-            </button>
-            <button
-              class="festivalButtons"
-              id="deleteLastDate"
-              onclick="deleteDateInputs()"
-              aria-label="Delete Last Date"
-            >
-              <svg
-                class="festival-svg-icon"
-                aria-label="back"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 420 512"
-                width="25"
-                height="25"
+                <svg
+                  class="festival-svg-icon"
+                  aria-label="back"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 420 512"
+                  width="25"
+                  height="25"
+                >
+                  <use xlink:href="./images/calendar-plus.svg#icon"></use>
+                </svg>
+              </button>
+              <button
+                class="festivalButtons"
+                id="deleteLastDate"
+                onclick="deleteDateInputs()"
+                aria-label="Delete Last Date"
               >
-                <use xlink:href="./images/calendar-minus.svg#icon"></use>
-              </svg>
-            </button>
+                <svg
+                  class="festival-svg-icon"
+                  aria-label="back"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 420 512"
+                  width="25"
+                  height="25"
+                >
+                  <use xlink:href="./images/calendar-minus.svg#icon"></use>
+                </svg>
+              </button>
+            </div>
           </div>
-          <button
-            id="festivalDoneButton"
-            class="doneButton"
-            onclick="toggleDropdownInfo('festival')"
-            aria-label="Toggle Festival Info"
-          >
-            <svg
-              class="svg-icon"
-              aria-label="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 250 512"
-              width="25"
-              height="25"
-            >
-              <use xlink:href="./images/caret-right.svg#icon"></use>
-            </svg>
-          </button>
         </div>
+        <button
+          id="festivalDoneButton"
+          class="doneButton"
+          onclick="toggleDropdownInfo('festival')"
+          aria-label="Toggle Festival Info"
+        >
+          <svg
+            class="svg-icon"
+            aria-label="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 250 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/caret-right.svg#icon"></use>
+          </svg>
+        </button>
       </div>
 
       <!--CLASS SECTION-->
@@ -109,26 +134,25 @@
         </div>
 
         <div class="userInputDiv">
-          <div class="labelAndInput">
-            <label for="classGenre" class="label">Class/Genre:</label>
-            <input
-              type="text"
-              id="classGenre"
-              class="classInputs"
-              placeholder="Musical Theatre"
-            />
-          </div>
           <div class="labelAndInputDiv">
-            <label for="performanceLength" class="label"
+            <label
+              for="performanceLength"
+              class="label"
+              onmouseover="showToolTip('input1')"
+              onmouseout="hideToolTip('input1')"
               >Performance Length:</label
             >
             <input
               type="text"
-              id="performanceLength"
+              id="performanceLengthMin"
               class="classInputs"
-              placeholder="minutes"
-              onmouseover="showToolTip('input1')"
-              onmouseout="hideToolTip('input1')"
+              placeholder="m"
+            />
+            <input
+              type="text"
+              id="performanceLengthSec"
+              class="classInputs"
+              placeholder="s"
             />
             <div class="tooltip" id="tooltip-input1">
               On average, how long does each participant have to perform?
@@ -136,16 +160,24 @@
             </div>
           </div>
           <div class="labelAndInputDiv">
-            <label for="adjTime" class="label"
+            <label
+              for="adjTime"
+              class="label"
+              onmouseover="showToolTip('input2')"
+              onmouseout="hideToolTip('input2')"
               >Adjudication Writing Time:</label
             >
             <input
               type="text"
-              id="adjTime"
+              id="adjTimeMins"
               class="classInputs"
-              placeholder="minutes"
-              onmouseover="showToolTip('input2')"
-              onmouseout="hideToolTip('input2')"
+              placeholder="m"
+            />
+            <input
+              type="text"
+              id="adjTimeSecs"
+              class="classInputs"
+              placeholder="s"
             />
             <div class="tooltip" id="tooltip-input2">
               On average, how long will your adjudicator write between students?
@@ -153,16 +185,24 @@
             </div>
           </div>
           <div class="labelAndInputDiv">
-            <label for="classAdjTime" class="label"
+            <label
+              for="classAdjTime"
+              class="label"
+              onmouseover="showToolTip('input3')"
+              onmouseout="hideToolTip('input3')"
               >Class Adjudication Time:</label
             >
             <input
               type="text"
-              id="classAdjTime"
+              id="classAdjTimeMins"
               class="classInputs"
-              placeholder="minutes"
-              onmouseover="showToolTip('input3')"
-              onmouseout="hideToolTip('input3')"
+              placeholder="m"
+            />
+            <input
+              type="text"
+              id="classAdjTimeSecs"
+              class="classInputs"
+              placeholder="s"
             />
             <div class="tooltip" id="tooltip-input3">
               How long can your adjudicator address the class at the end?
@@ -170,14 +210,24 @@
             </div>
           </div>
           <div class="labelAndInputDiv">
-            <label for="bufferTime" class="label">Buffer Time:</label>
-            <input
-              type="text"
-              id="bufferTime"
-              class="classInputs"
-              placeholder="minutes"
+            <label
+              for="bufferTime"
+              class="label"
               onmouseover="showToolTip('input4')"
               onmouseout="hideToolTip('input4')"
+              >Buffer Time:</label
+            >
+            <input
+              type="text"
+              id="bufferTimeMins"
+              class="classInputs"
+              placeholder="m"
+            />
+            <input
+              type="text"
+              id="bufferTimeSecs"
+              class="classInputs"
+              placeholder="s"
             />
             <div class="tooltip" id="tooltip-input4">
               Include a buffer time if classes tend to run late.
@@ -187,16 +237,24 @@
             </div>
           </div>
           <div class="labelAndInputDiv">
-            <label for="inBetweenTime" class="label"
+            <label
+              for="inBetweenTime"
+              class="label"
+              onmouseover="showToolTip('input5')"
+              onmouseout="hideToolTip('input5')"
               >Time Between Classes:</label
             >
             <input
               type="text"
-              id="inBetweenTime"
+              id="inBetweenTimeMins"
               class="classInputs"
-              placeholder="minutes"
-              onmouseover="showToolTip('input5')"
-              onmouseout="hideToolTip('input5')"
+              placeholder="m"
+            />
+            <input
+              type="text"
+              id="inBetweenTimeSecs"
+              class="classInputs"
+              placeholder="s"
             />
             <div class="tooltip" id="tooltip-input5">
               How long does it take to switch over classes?

@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--BG-color);
 }
 
 .mainbar-flex {
@@ -9,8 +10,41 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 50%;
+  max-width: 80%;
 }
 
 .infoDiv {
+  border: 1px solid var(--primary-black);
+  border-radius: 0.5rem;
+  min-width: 30rem;
+  width: 40rem;
+  background-color: var(--Secondary-BG-color);
+  font-size: var(--font-reg);
+  font-family: var(--font-family);
+}
+
+.titleDiv {
+  font-size: var(--font-large);
+  margin: 1rem auto 1rem 1rem;
+}
+
+.labelAndInputDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem 0.2rem 1rem;
+}
+
+:root {
+  --primary-black: #212529;
+  --secondary-black: #343a40;
+  --BG-color: #f8f9fa;
+  --Secondary-BG-color: #e9ecef;
+  --grayed-out: #adb5bd;
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-reg: 1rem;
+  --font-med: 1.618rem;
+  --font-large: 2.617rem;
+  --font-big: 1.116;
 }
