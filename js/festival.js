@@ -170,10 +170,14 @@ function populateFestivalFromStorage() {
     const savedFestival = JSON.parse(savedFestivalString);
 
     document.getElementById("festivalName").value = savedFestival.name;
+    document.getElementById("classGenre").value = savedFestival.classGenre;
     document.getElementById("festivalVenue").value = savedFestival.venue;
+    document.getElementById("venueAddress").value = savedFestival.venueAddress;
 
     festival.name = savedFestival.name;
+    festival.classGenre = savedFestival.classGenre;
     festival.venue = savedFestival.venue;
+    festival.venueAddress = savedFestival.venueAddress;
   }
 }
 

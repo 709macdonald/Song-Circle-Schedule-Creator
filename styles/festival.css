@@ -3,10 +3,15 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.labelAndInputDiv-flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem 0.2rem 1rem;
+}
+
 .festivalInputs-flex {
   display: flex;
   flex-direction: column;
-
   justify-self: center;
 }
 

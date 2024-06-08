@@ -5,6 +5,10 @@ body {
   background-color: var(--BG-color);
 }
 
+input {
+  font-family: var(--font-family);
+}
+
 .mainbar-flex {
   display: flex;
   flex-direction: column;
@@ -24,14 +28,19 @@ body {
 }
 
 .titleDiv {
-  font-size: var(--font-large);
+  font-size: var(--font-med);
   margin: 1rem auto 1rem 1rem;
 }
 
-.labelAndInputDiv {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 1rem 0.2rem 1rem;
+.titleNo {
+  font-size: var(--font-large);
+}
+
+.doneButton {
+  border: 1px solid var(--primary-black);
+  border-radius: 0.2rem;
+  margin: 1rem auto 1rem 3rem;
+  font-size: var(--font-reg);
 }
 
 :root {
@@ -43,8 +52,8 @@ body {
 
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
+  --font-small: 0.619rem;
   --font-reg: 1rem;
   --font-med: 1.618rem;
   --font-large: 2.617rem;
-  --font-big: 1.116;
 }

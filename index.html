@@ -19,14 +19,26 @@
       <!--FESTIVAL SECTION-->
       <div class="infoDiv" id="festivalInfo">
         <div class="titleDiv">
-          <label class="title">Festival Information</label>
+          <label class="titleNo">1.</label>
+          <label>Festival Information</label>|
+          <svg
+            class="festival-svg-icon"
+            aria-label="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 420 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/thumbs-up.svg#icon"></use>
+          </svg>
         </div>
+
         <div
           class="UserInputDiv festivalUserInputDiv-grid"
           id="festivalUserInput"
         >
           <div class="festivalInputs-flex">
-            <div class="labelAndInputDiv">
+            <div class="labelAndInputDiv-flex">
               <label for="festivalName" class="festivalLabel"
                 >Festival Name:</label
               >
@@ -37,7 +49,7 @@
                 placeholder="Kiwanis Music Festival"
               />
             </div>
-            <div class="labelAndInputDiv">
+            <div class="labelAndInputDiv-flex">
               <label for="classGenre" class="label">Class/Genre:</label>
               <input
                 type="text"
@@ -46,7 +58,7 @@
                 placeholder="Musical Theatre"
               />
             </div>
-            <div class="labelAndInputDiv">
+            <div class="labelAndInputDiv-flex">
               <label for="festivalVenue" class="festivalLabel">Venue:</label>
               <input
                 type="text"
@@ -55,7 +67,7 @@
                 placeholder="Carnegie Hall"
               />
             </div>
-            <div class="labelAndInputDiv">
+            <div class="labelAndInputDiv-flex">
               <label for="venueAddress" class="festivalLabel"
                 >Venue Address:</label
               >
@@ -74,7 +86,7 @@
               <button
                 class="festivalButtons"
                 id="deleteLastDate"
-                onclick="deleteDateInputs()"
+                onclick="loadDateInputs()"
                 aria-label="Delete Last Date"
               >
                 <svg
@@ -108,177 +120,176 @@
             </div>
           </div>
         </div>
+
         <button
           id="festivalDoneButton"
           class="doneButton"
           onclick="toggleDropdownInfo('festival')"
           aria-label="Toggle Festival Info"
         >
-          <svg
-            class="svg-icon"
-            aria-label="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 250 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/caret-right.svg#icon"></use>
-          </svg>
+          DONE
         </button>
       </div>
 
       <!--CLASS SECTION-->
       <div class="infoDiv" id="classInfo">
         <div class="titleDiv">
+          <label class="titleNo">2.</label>
           <label class="infoTitle">Class Information</label>
+          <svg
+            class="festival-svg-icon"
+            aria-label="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 420 512"
+            width="25"
+            height="25"
+          >
+            <use xlink:href="./images/thumbs-up.svg#icon"></use>
+          </svg>
         </div>
 
-        <div class="userInputDiv">
-          <div class="labelAndInputDiv">
-            <label
-              for="performanceLength"
-              class="label"
-              onmouseover="showToolTip('input1')"
-              onmouseout="hideToolTip('input1')"
-              >Performance Length:</label
-            >
-            <input
-              type="text"
-              id="performanceLengthMin"
-              class="classInputs"
-              placeholder="m"
-            />
-            <input
-              type="text"
-              id="performanceLengthSec"
-              class="classInputs"
-              placeholder="s"
-            />
-            <div class="tooltip" id="tooltip-input1">
-              On average, how long does each participant have to perform?
-              <span style="font-style: italic">Enter value in minutes.</span>
-            </div>
-          </div>
-          <div class="labelAndInputDiv">
-            <label
-              for="adjTime"
-              class="label"
-              onmouseover="showToolTip('input2')"
-              onmouseout="hideToolTip('input2')"
-              >Adjudication Writing Time:</label
-            >
-            <input
-              type="text"
-              id="adjTimeMins"
-              class="classInputs"
-              placeholder="m"
-            />
-            <input
-              type="text"
-              id="adjTimeSecs"
-              class="classInputs"
-              placeholder="s"
-            />
-            <div class="tooltip" id="tooltip-input2">
-              On average, how long will your adjudicator write between students?
-              <span style="font-style: italic">Enter value in minutes.</span>
-            </div>
-          </div>
-          <div class="labelAndInputDiv">
-            <label
-              for="classAdjTime"
-              class="label"
-              onmouseover="showToolTip('input3')"
-              onmouseout="hideToolTip('input3')"
-              >Class Adjudication Time:</label
-            >
-            <input
-              type="text"
-              id="classAdjTimeMins"
-              class="classInputs"
-              placeholder="m"
-            />
-            <input
-              type="text"
-              id="classAdjTimeSecs"
-              class="classInputs"
-              placeholder="s"
-            />
-            <div class="tooltip" id="tooltip-input3">
-              How long can your adjudicator address the class at the end?
-              <span style="font-style: italic">Enter value in minutes.</span>
-            </div>
-          </div>
-          <div class="labelAndInputDiv">
-            <label
-              for="bufferTime"
-              class="label"
-              onmouseover="showToolTip('input4')"
-              onmouseout="hideToolTip('input4')"
-              >Buffer Time:</label
-            >
-            <input
-              type="text"
-              id="bufferTimeMins"
-              class="classInputs"
-              placeholder="m"
-            />
-            <input
-              type="text"
-              id="bufferTimeSecs"
-              class="classInputs"
-              placeholder="s"
-            />
-            <div class="tooltip" id="tooltip-input4">
-              Include a buffer time if classes tend to run late.
-              <span style="font-style: italic"
-                >Enter value in minutes. Enter 0 if unwanted</span
+        <div class="classWrapper-flex">
+          <div class="classUserInputDiv" id="classUserInput">
+            <div class="labelAndInputDiv-Grid">
+              <label
+                for="performanceLength"
+                class="label"
+                onmouseover="showToolTip('input1')"
+                onmouseout="hideToolTip('input1')"
+                >Performance Length:</label
               >
+              <input
+                type="text"
+                id="performanceLengthMin"
+                class="classInputs"
+                placeholder="m"
+              />
+              <input
+                type="text"
+                id="performanceLengthSecs"
+                class="classInputs"
+                placeholder="s"
+              />
+              <div class="tooltip" id="tooltip-input1">
+                On average, how long does each participant have to perform?
+                <span style="font-style: italic">Enter value in minutes.</span>
+              </div>
+            </div>
+            <div class="labelAndInputDiv-Grid">
+              <label
+                for="adjTime"
+                class="label"
+                onmouseover="showToolTip('input2')"
+                onmouseout="hideToolTip('input2')"
+                >Adjudication Writing Time:</label
+              >
+              <input
+                type="text"
+                id="adjTimeMins"
+                class="classInputs"
+                placeholder="m"
+              />
+              <input
+                type="text"
+                id="adjTimeSecs"
+                class="classInputs"
+                placeholder="s"
+              />
+              <div class="tooltip" id="tooltip-input2">
+                On average, how long will your adjudicator write between
+                students?
+                <span style="font-style: italic">Enter value in minutes.</span>
+              </div>
+            </div>
+            <div class="labelAndInputDiv-Grid">
+              <label
+                for="classAdjTime"
+                class="label"
+                onmouseover="showToolTip('input3')"
+                onmouseout="hideToolTip('input3')"
+                >Class Adjudication Time:</label
+              >
+              <input
+                type="text"
+                id="classAdjTimeMins"
+                class="classInputs"
+                placeholder="m"
+              />
+              <input
+                type="text"
+                id="classAdjTimeSecs"
+                class="classInputs"
+                placeholder="s"
+              />
+              <div class="tooltip" id="tooltip-input3">
+                How long can your adjudicator address the class at the end?
+                <span style="font-style: italic">Enter value in minutes.</span>
+              </div>
+            </div>
+            <div class="labelAndInputDiv-Grid">
+              <label
+                for="bufferTime"
+                class="label"
+                onmouseover="showToolTip('input4')"
+                onmouseout="hideToolTip('input4')"
+                >Buffer Time:</label
+              >
+              <input
+                type="text"
+                id="bufferTimeMins"
+                class="classInputs"
+                placeholder="m"
+              />
+              <input
+                type="text"
+                id="bufferTimeSecs"
+                class="classInputs"
+                placeholder="s"
+              />
+              <div class="tooltip" id="tooltip-input4">
+                Include a buffer time if classes tend to run late.
+                <span style="font-style: italic"
+                  >Enter value in minutes. Enter 0 if unwanted</span
+                >
+              </div>
+            </div>
+            <div class="labelAndInputDiv-Grid">
+              <label
+                for="inBetweenTime"
+                class="label"
+                onmouseover="showToolTip('input5')"
+                onmouseout="hideToolTip('input5')"
+                >Time Between Classes:</label
+              >
+              <input
+                type="text"
+                id="inBetweenTimeMins"
+                class="classInputs"
+                placeholder="m"
+              />
+              <input
+                type="text"
+                id="inBetweenTimeSecs"
+                class="classInputs"
+                placeholder="s"
+              />
+              <div class="tooltip" id="tooltip-input5">
+                How long does it take to switch over classes?
+                <span style="font-style: italic">Enter value in minutes.</span>
+              </div>
             </div>
           </div>
-          <div class="labelAndInputDiv">
-            <label
-              for="inBetweenTime"
-              class="label"
-              onmouseover="showToolTip('input5')"
-              onmouseout="hideToolTip('input5')"
-              >Time Between Classes:</label
-            >
-            <input
-              type="text"
-              id="inBetweenTimeMins"
-              class="classInputs"
-              placeholder="m"
-            />
-            <input
-              type="text"
-              id="inBetweenTimeSecs"
-              class="classInputs"
-              placeholder="s"
-            />
-            <div class="tooltip" id="tooltip-input5">
-              How long does it take to switch over classes?
-              <span style="font-style: italic">Enter value in minutes.</span>
-            </div>
-          </div>
-          <button
-            id="classDropdownButton"
-            class="dropdownButton"
-            onclick="toggleDropdownInfo('class')"
-            aria-label="Toggle Class Info"
-          >
-            <svg
-              class="svg-icon"
-              aria-label="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 300 512"
-              width="25"
-              height="25"
-            >
-              <use xlink:href="./images/caret-right.svg#icon"></use>
-            </svg>
-          </button>
+          <div class="descriptionDisplayDiv" id="descriptionDisplay"></div>
         </div>
+
+        <button
+          id="festivalDoneButton"
+          class="doneButton"
+          onclick="toggleDropdownInfo('festival')"
+          aria-label="Toggle Festival Info"
+        >
+          DONE
+        </button>
       </div>
 
       <!--GOOGLE SHEET SECTION-->
