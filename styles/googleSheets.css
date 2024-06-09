@@ -1,0 +1,15 @@
+.googleSheet-userInputDiv-flex {
+  display: flex;
+}
+
+.googlesheetButton {
+  margin: auto auto auto auto;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 2rem;
+}
+
+.googleSheetTextDiv {
+  max-width: 60%;
+  margin: auto auto auto 0;
+}

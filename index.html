@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/schedule.css" />
     <link rel="stylesheet" href="styles/class.css" />
     <link rel="stylesheet" href="styles/festival.css" />
-    <link rel="stylesheet" href="styles/topbar.css" />
+    <link rel="stylesheet" href="styles/googleSheets.css" />
     <link rel="stylesheet" href="styles/schedule.css" />
     <link rel="stylesheet" href="styles/pop-ups.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -307,7 +307,7 @@
           </svg>
         </div>
 
-        <div class="userInputDiv">
+        <div class="googleSheet-userInputDiv-flex">
           <input
             type="file"
             id="fileInput"
@@ -320,26 +320,38 @@
             class="googlesheetButton"
             onclick="triggerFileInput()"
             aria-label="Upload Google Sheet"
-            onmouseover="showToolTip('input6')"
-            onmouseout="hideToolTip('input6')"
           >
             <svg
               class="googlesheet-svg"
               aria-label="back"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 10 350 512"
-              width="25"
-              height="25"
+              viewBox="0 10 360 512"
+              width="7rem"
+              height="7rem"
             >
               <use xlink:href="./images/file-lines.svg#icon"></use>
             </svg>
           </button>
-          <div>
-            Upload your Google Sheet with NO HEADER and in the following order:
-            First Name, Last Name, Song Title, Composer, Class Genre, Class
-            Number, Participant Age, Email
+          <div class="googleSheetTextDiv">
+            Your Google Sheet should contain
+            <span style="font-weight: bold">NO HEADER</span>
+            and be organized in the following order. <br /><br />
+            1.First Name
+            <br />2.Last Name <br />3.Song Title <br />4.Composer
+            <br />5.Performance Length
+            <span style="font-style: italic">IN SECONDS</span><br />6.Class
+            Genre <br />7.Class Number <br />8.Participant Age <br />9.Email
           </div>
         </div>
+
+        <button
+          id="festivalDoneButton"
+          class="doneButton"
+          onclick="toggleDropdownInfo('festival')"
+          aria-label="Toggle Festival Info"
+        >
+          DONE
+        </button>
       </div>
 
       <!--EXPORT SECTION-->
@@ -373,13 +385,12 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.0/html2pdf.bundle.min.js"></script>
-    <script src="js/overview.js"></script>
     <script src="js/festival.js"></script>
     <script src="js/class.js"></script>
+    <script src="js/pop-ups.js"></script>
     <script src="js/googlesheet.js"></script>
     <script src="js/sorting.js"></script>
     <script src="js/schedule.js"></script>
     <script src="js/export.js"></script>
-    <script src="js/pop-ups.js"></script>
   </body>
 </html>

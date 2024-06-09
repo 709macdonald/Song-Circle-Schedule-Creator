@@ -32,10 +32,11 @@ function handleFileUpload(event) {
         LastName: row[1],
         SongTitle: row[2],
         Composer: row[3],
-        Genre: row[4],
-        ClassNumber: row[5],
-        Age: row[6],
-        Email: row[7],
+        PerformanceLength: row[4],
+        Genre: row[5],
+        ClassNumber: row[6],
+        Age: row[7],
+        Email: row[8],
       }));
 
       console.log(entries);
@@ -59,14 +60,10 @@ function displayFileName() {
   const fileInput = document.getElementById("fileInput");
   const fileNameDisplay = document.getElementById("fileNameDisplay");
 
-  // Check if any file is selected
   if (fileInput.files.length > 0) {
-    // Get the file object
     const file = fileInput.files[0];
-    // Display the file name
     fileNameDisplay.textContent = `Uploaded file: ${file.name}`;
   } else {
-    // If no file is selected, clear the display
     fileNameDisplay.textContent = "No File Chosen, Please Reload Page";
   }
 }
