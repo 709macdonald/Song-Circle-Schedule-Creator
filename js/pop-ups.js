@@ -1,33 +1,17 @@
-function showToolTip(inputId) {
-  var tooltipId = "tooltip-" + inputId;
-  var tooltip = document.getElementById(tooltipId);
-  tooltip.classList.add("active");
-  updateTooltipPosition(inputId);
-}
-
-function hideToolTip(inputId) {
-  var tooltipId = "tooltip-" + inputId;
-  var tooltip = document.getElementById(tooltipId);
-  tooltip.classList.remove("active");
-}
-
-function updateTooltipPosition(elementId) {
-  var tooltipId = "tooltip-" + elementId;
-  var tooltip = document.getElementById(tooltipId);
-  if (!tooltip) {
-    console.error("Tooltip element not found with id:", tooltipId);
-    return;
+document.addEventListener("DOMContentLoaded", (event) => {
+  function showDescription(descriptionId) {
+    const description = document.getElementById(descriptionId).innerHTML;
+    document.getElementById("descriptionDisplay").innerHTML = description;
   }
 
-  var element = document.getElementById(elementId);
-  if (!element) {
-    console.error("Element not found with id:", elementId);
-    return;
+  function clearDescription() {
+    document.getElementById("descriptionDisplay").innerHTML = "";
   }
 
-  var elementRect = element.getBoundingClientRect();
-  tooltip.style.position = "absolute";
-  tooltip.style.top =
-    elementRect.top + elementRect.height + window.pageYOffset + "px";
-  tooltip.style.left = elementRect.left + window.pageXOffset + "px";
-}
+  const labels = document.querySelectorAll(".label");
+  labels.forEach((label, index) => {
+    const tooltipId = `tooltip-input${index + 1}`;
+    label.addEventListener("mouseover", () => showDescription(tooltipId));
+    label.addEventListener("mouseout", clearDescription);
+  });
+});
