@@ -77,6 +77,6 @@
   margin: 0 auto 0.5rem 7rem;
 }
 
-.individualClass > div:last-child {
+.scheduleFlex > div:last-child {
   margin-bottom: 2rem;
 }
