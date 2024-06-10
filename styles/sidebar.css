@@ -1,3 +1,69 @@
-.sidebar {
+.sidebar-flex {
+  display: flex;
+  flex-direction: column;
   background-color: var(--gray-out);
+}
+
+.sideBarHead {
+  margin: 1rem auto 0 1rem;
+  font-size: var(--font-med);
+  font-family: var(--font-family);
+}
+
+.sideBarP {
+  margin: 0 auto 0 1rem;
+  font-size: var(--font-reg);
+  font-family: var(--font-family);
+}
+
+.linkButton {
+  width: 3rem;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  color: inherit; /* Inherits text color from parent */
+  cursor: pointer;
+}
+
+/* EXPORT SECTION */
+
+.exportButtonDiv {
+  margin: 1rem auto 1rem 1rem;
+  font-size: var(--font-med);
+}
+
+.exportButton {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.4rem;
+}
+
+.pdfDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 15rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.icsDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 15rem;
+}
+
+.calTextDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.calFile {
+  margin: 0 auto 0 0;
+  font-style: italic;
+  font-size: var(--font-reg);
 }

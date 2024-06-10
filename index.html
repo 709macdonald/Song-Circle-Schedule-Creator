@@ -16,31 +16,110 @@
   </head>
   <body>
     <div class="wrapper-grid">
-      <div class="sidebar">
-        <!--EXPORT SECTION-->
-        <div id="export" style="display: none">
-          <div class="exportButtonDiv">
-            <button
-              id="generatePDF"
-              class="googlesheetButton"
-              onclick="generatePDF()"
-              aria-label="Download PDF"
-            >
-              <svg
-                class="googlesheet-svg"
-                aria-label="back"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 10 500 512"
-                width="25"
-                height="25"
-              >
-                <use xlink:href="./images/file-pdf.svg#icon"></use>
-              </svg>
-            </button>
-            <label for="genetatePDF" class="uploadLabel">Download PDF</label>
-          </div>
-          <button id="downloadICalButton">exportIcal</button>
+      <div class="sidebar-flex">
+        <!--SONG CIRCLE TITLE-->
+        <p class="sideBarHead">Schedule Creator</p>
+        <!--DESCRIPTION OF APP-->
+        <p class="sideBarP">
+          Create schedules for your festival in 4 easy steps.
+          <br />
+          Step 1: Fill out your festival information.
+          <br />
+          Step 2: Fill out your class information.
+          <br />
+          Step 3: Upload Google Sheet with Class Participants.
+          <br />
+          Step 4: Save Your Schedule as a PDF or Calendar file.
+        </p>
+        <!--GOOGLE SHEET LAYOUT ORDER-->
+        <div class="sideBarP">
+          Your Google Sheet should contain
+          <span style="font-weight: bold">NO HEADER</span>
+          and be organized in the following order. <br /><br />
+          1.First Name
+          <br />2.Last Name <br />3.Song Title <br />4.Composer
+          <br />5.Performance Length
+          <span style="font-style: italic">IN SECONDS</span><br />6.Class
+          Genre <br />7.Class Number <br />8.Participant Age <br />9.Email
         </div>
+          <!--LINK TO MY LINKEDIN AND GITHUB-->
+          <P style="font-style: italic;">Created By: Peter MacDonald</P>
+          <button onclick="window.open('https://www.linkedin.com/in/peter-macdonald-1630a4178/', '_blank')" class="linkButton">
+            <svg
+            class="googlesheet-svg"
+            aria-label="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 10 500 512"
+            width="35"
+            height="35"
+          >
+            <use xlink:href="./images/linkedin.svg#icon"></use>
+          </svg>
+          </button>
+          <button onclick="window.open('https://github.com/709macdonald', '_blank')" class="linkButton">
+            <svg
+            class="googlesheet-svg"
+            aria-label="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 10 500 512"
+            width="35"
+            height="35"
+          >
+            <use xlink:href="./images/gitHub.svg#icon"></use>
+          </svg>
+          </button>
+          <!--EXPORT SECTION-->
+        </p>
+
+        <div id="export" class="exportDiv" style="display: none">
+          <div class="exportButtonDiv">
+            <div class="pdfDiv">
+              <button
+                id="generatePDF"
+                class="exportButton"
+                onclick="generatePDF()"
+                aria-label="Download PDF"
+              >
+                <svg
+                  class="googlesheet-svg"
+                  aria-label="back"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 490 512"
+                  width="35"
+                  height="35"
+                >
+                  <use xlink:href="./images/file-pdf.svg#icon"></use>
+                </svg>
+              </button>
+              <label for="genetatePDF" class="uploadLabel">Download PDF</label>
+            </div>
+            <div class="icsDiv">
+              <button
+                id="downloadICalButton"
+                class="exportButton"
+                aria-label="Download Calendar File"
+              >
+                <svg
+                  class="googlesheet-svg"
+                  aria-label="back"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 10 500 512"
+                  width="35"
+                  height="35"
+                >
+                  <use xlink:href="./images/calendar-check.svg#icon"></use>
+                </svg>
+              </button>
+              <div id="calTextDiv">
+                <label for="downloadICalButton" class="uploadLabel"
+                  >Download .ICS
+                </label>
+                <p class="calFile">Calendar File</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sideBarP">Reload page to restart.</p>
       </div>
       <div class="mainbar-flex mainbar-grid" id="mainBar-Hide">
         <!--FESTIVAL SECTION-->
