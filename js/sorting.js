@@ -1,7 +1,7 @@
 let participants = [];
 let finalClassList = [];
 let classParticipants = {};
-const schedule = [];
+const classLengths = [];
 var classStartTimes = [];
 let finishedSchedule = [];
 
@@ -31,7 +31,12 @@ function classLength() {
   console.log(classes);
   Object.keys(classParticipants).forEach((classKey) => {
     let numOfParticipants = classParticipants[classKey].participants.length;
-    const individualPerformanceLength = parseInt(classes.performanceLength, 10);
+    let totalPerformanceLength = 0;
+
+    classParticipants[classKey].participants.forEach((participant) => {
+      totalPerformanceLength += parseInt(participant.PerformanceLength, 10); // Corrected property name
+    });
+
     const adjudicationWritingTime = parseInt(
       classes.adjudicationWritingTime,
       10
@@ -39,72 +44,78 @@ function classLength() {
     const classAdjudicationTime = parseInt(classes.classAdjudicationTime, 10);
     const bufferTime = parseInt(classes.bufferTime, 10);
 
-    const totalPerformanceLength =
-      numOfParticipants * individualPerformanceLength;
     const totalAdjudicationWritingTime =
       numOfParticipants * adjudicationWritingTime;
-    const totalClassLength =
-      totalPerformanceLength +
+    const totalPerformanceLengthInSeconds = totalPerformanceLength;
+    const totalClassLengthInSeconds =
+      totalPerformanceLengthInSeconds +
       totalAdjudicationWritingTime +
       classAdjudicationTime +
       bufferTime;
 
     console.log(
-      `Total length of class ${classKey}: ${totalClassLength} minutes`
+      `Total length of class ${classKey}: ${totalClassLengthInSeconds} seconds`
     );
 
-    schedule.push({ classKey, totalClassLength });
+    classLengths.push({
+      classKey,
+      totalClassLength: totalClassLengthInSeconds,
+    });
   });
 
-  console.log("Schedule info", schedule);
+  console.log("Schedule info", classLengths);
   console.log("festival info", festival);
-  myValues();
+  findClassStartTimes();
 
-  return schedule;
+  return classLengths;
 }
 
-function myValues() {
-  let festivalStartDate = festival.dates[0].date;
-  let festivalStartTime = festival.dates[0].startTime;
+function findClassStartTimes() {
+  if (!festival || !festival.dates || festival.dates.length === 0) {
+    console.error("Error: Festival dates are missing or empty.");
+    return;
+  }
+
+  let festivalStartDate = festival.dates[0]?.date;
+  let festivalStartTime = festival.dates[0]?.startTime;
   let lastDayCounter = festival.dates.length - 1;
-  let festivalEndDate = festival.dates[lastDayCounter].date;
+  let festivalEndDate = festival.dates[lastDayCounter]?.date;
 
-  if (festival && festival.dates && festival.dates.length > 0) {
-    festivalStartDate = festival.dates[0]?.date;
-    festivalStartTime = festival.dates[0]?.startTime;
-    lastDayCounter = festival.dates.length - 1;
-    festivalEndDate = festival.dates[lastDayCounter]?.date;
+  if (festivalStartDate && festivalStartTime && festivalEndDate) {
+    let festivalStartDateTime = festivalStartDate + "T" + festivalStartTime;
+    let startTime = new Date(festivalStartDateTime);
+    let cumulativeTime = startTime.getTime();
+    let classStartTimes = [];
 
-    var festivalStartDateTime = festivalStartDate + "T" + festivalStartTime;
+    for (let i = 0; i < classLengths.length; i++) {
+      let classLength = classLengths[i].totalClassLength; // class length in seconds
+      let inBetweenTime = classes.inBetweenTime; // in-between time should also be in seconds if it was previously in minutes
 
-    var startTime = new Date(festivalStartDateTime);
+      let classStartTime = new Date(cumulativeTime);
 
-    var cumulativeTime = startTime.getTime();
-
-    var classStartTimes = [];
-    for (var i = 0; i < schedule.length; i++) {
-      var classLength = schedule[i].totalClassLength;
-      var inBetweenTime = classes.inBetweenTime;
-
-      var classStartTime = new Date(cumulativeTime);
-
-      var currentDayIndex = festival.dates.findIndex(
+      let currentDayIndex = festival.dates.findIndex(
         (date) => date.date === classStartTime.toISOString().split("T")[0]
       );
-      var endTimeCurrentDay = new Date(
+
+      if (currentDayIndex === -1) {
+        console.error("Error: Current day index not found.");
+        break;
+      }
+
+      let endTimeCurrentDay = new Date(
         festival.dates[currentDayIndex].date +
           "T" +
           festival.dates[currentDayIndex].endTime
       );
 
       if (
-        classStartTime.getTime() + classLength * 60 * 1000 >
+        classStartTime.getTime() + classLength * 1000 >
         endTimeCurrentDay.getTime()
       ) {
-        var nextDateIndex = currentDayIndex + 1;
+        let nextDateIndex = currentDayIndex + 1;
 
         if (nextDateIndex < festival.dates.length) {
-          var nextDateStartTime = festival.dates[nextDateIndex].startTime;
+          let nextDateStartTime = festival.dates[nextDateIndex].startTime;
           classStartTime = new Date(
             festival.dates[nextDateIndex].date + "T" + nextDateStartTime
           );
@@ -121,19 +132,21 @@ function myValues() {
       }
 
       classStartTimes.push({
-        classKey: schedule[i].classKey,
+        classKey: classLengths[i].classKey,
         startTime: classStartTime,
         length: classLength,
       });
 
-      cumulativeTime += classLength * 60 * 1000;
-      cumulativeTime += inBetweenTime * 60 * 1000;
+      cumulativeTime += classLength * 1000; // convert class length to milliseconds
+      cumulativeTime += inBetweenTime * 1000; // convert in-between time to milliseconds
     }
 
     console.log("Classes and Start Times", classStartTimes);
     combineSchedule(classStartTimes, classParticipants);
   } else {
-    console.error("Error: Festival dates are missing or empty.");
+    console.error(
+      "Error: Festival start date, start time, or end date is missing."
+    );
   }
 }
 
@@ -142,7 +155,8 @@ function combineSchedule(classStartTimes, classParticipants) {
     const { classKey, startTime, length } = classTime;
     const participants = classParticipants[classKey]?.participants || [];
 
-    const endTime = new Date(startTime.getTime() + length * 60 * 1000);
+    // Convert length from seconds to milliseconds
+    const endTime = new Date(startTime.getTime() + length * 1000);
 
     return {
       classKey,
@@ -154,7 +168,6 @@ function combineSchedule(classStartTimes, classParticipants) {
   });
 
   console.log("Finished Schedule", finishedSchedule);
-  createClassDisplay(finishedSchedule);
   populateScheduleTitle();
   populateScheduleClasses();
 }

@@ -15,372 +15,387 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   </head>
   <body>
-    <div class="mainbar-flex">
-      <!--FESTIVAL SECTION-->
-      <div class="infoDiv" id="festivalInfo">
-        <div class="titleDiv">
-          <label class="titleNo">1.</label>
-          <label>Festival Information</label>|
-          <svg
-            class="festival-svg-icon"
-            aria-label="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 420 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/thumbs-up.svg#icon"></use>
-          </svg>
-        </div>
-
-        <div
-          class="UserInputDiv festivalUserInputDiv-grid"
-          id="festivalUserInput"
-        >
-          <div class="festivalInputs-flex">
-            <div class="labelAndInputDiv-flex">
-              <label for="festivalName" class="festivalLabel"
-                >Festival Name:</label
-              >
-              <input
-                type="text"
-                id="festivalName"
-                class="festivalInputs"
-                placeholder="Kiwanis Music Festival"
-              />
-            </div>
-            <div class="labelAndInputDiv-flex">
-              <label for="classGenre" class="festivalLabel">Class/Genre:</label>
-              <input
-                type="text"
-                id="classGenre"
-                class="festivalInputs"
-                placeholder="Musical Theatre"
-              />
-            </div>
-            <div class="labelAndInputDiv-flex">
-              <label for="festivalVenue" class="festivalLabel">Venue:</label>
-              <input
-                type="text"
-                id="festivalVenue"
-                class="festivalInputs"
-                placeholder="Carnegie Hall"
-              />
-            </div>
-            <div class="labelAndInputDiv-flex">
-              <label for="venueAddress" class="festivalLabel"
-                >Venue Address:</label
-              >
-              <input
-                type="text"
-                id="venueAddress"
-                class="festivalInputs"
-                placeholder="1872 Westeria Lane"
-              />
-            </div>
+    <div class="wrapper-grid">
+      <div class="sidebar"></div>
+      <div class="mainbar-flex mainbar-grid">
+        <!--FESTIVAL SECTION-->
+        <div class="infoDiv" id="festivalInfo">
+          <div class="titleDiv" id="festivalTitle">
+            <label class="titleNo">1.</label>
+            <label>Festival Information</label>|
+            <svg
+              class="festival-svg-icon"
+              aria-label="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 420 512"
+              id="festivalThumb"
+              width="25"
+              height="25"
+              style="display: none"
+            >
+              <use xlink:href="./images/thumbs-up.svg#icon"></use>
+            </svg>
           </div>
 
-          <div class="festivalDatesTable-flex">
-            <table id="festivalDatesTable"></table>
-            <div class="festivalTableButtonsDiv">
-              <button
-                class="festivalButtons"
-                id="deleteLastDate"
-                onclick="loadDateInputs()"
-                aria-label="Delete Last Date"
-              >
-                <svg
-                  class="festival-svg-icon"
-                  aria-label="back"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 420 512"
-                  width="25"
-                  height="25"
-                >
-                  <use xlink:href="./images/calendar-plus.svg#icon"></use>
-                </svg>
-              </button>
-              <button
-                class="festivalButtons"
-                id="deleteLastDate"
-                onclick="deleteDateInputs()"
-                aria-label="Delete Last Date"
-              >
-                <svg
-                  class="festival-svg-icon"
-                  aria-label="back"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 420 512"
-                  width="25"
-                  height="25"
-                >
-                  <use xlink:href="./images/calendar-minus.svg#icon"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <button
-          id="festivalDoneButton"
-          class="doneButton"
-          onclick="toggleDropdownInfo('festival')"
-          aria-label="Toggle Festival Info"
-        >
-          DONE
-        </button>
-      </div>
-
-      <!--CLASS SECTION-->
-      <div class="infoDiv" id="classInfo">
-        <div class="titleDiv">
-          <label class="titleNo">2.</label>
-          <label class="infoTitle">Class Information</label>
-          <svg
-            class="festival-svg-icon"
-            aria-label="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 420 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/thumbs-up.svg#icon"></use>
-          </svg>
-        </div>
-
-        <div class="classWrapper-flex">
-          <div class="classUserInputDiv" id="classUserInput">
-            <div class="labelAndInputDiv-classFlex">
-              <label for="performanceLength" class="label"
-                >Performance Length:</label
-              >
-              <div class="classInputWrapper">
-                <input
-                  type="text"
-                  id="performanceLengthMin"
-                  class="classInputs"
-                  placeholder="m"
-                />
-                <div>:</div>
-                <input
-                  type="text"
-                  id="performanceLengthSecs"
-                  class="classInputs"
-                  placeholder="s"
-                />
-              </div>
-              <div class="tooltip" id="tooltip-input1">
-                On average, how long does each participant have to perform?
-                <span style="font-style: italic">Enter value in minutes.</span>
-              </div>
-            </div>
-            <div class="labelAndInputDiv-classFlex">
-              <label for="adjTime" class="label"
-                >Adjudication Writing Time:</label
-              >
-              <div class="classInputWrapper">
-                <input
-                  type="text"
-                  id="adjTimeMins"
-                  class="classInputs"
-                  placeholder="m"
-                />
-                <div>:</div>
-                <input
-                  type="text"
-                  id="adjTimeSecs"
-                  class="classInputs"
-                  placeholder="s"
-                />
-                <div class="tooltip" id="tooltip-input2">
-                  On average, how long will your adjudicator write between
-                  students?
-                  <span style="font-style: italic"
-                    >Enter value in minutes.</span
+          <div id="festivalHiddenDiv" style="display: block">
+            <div
+              class="UserInputDiv festivalUserInputDiv-grid"
+              id="festivalUserInput"
+            >
+              <div class="festivalInputs-flex">
+                <div class="labelAndInputDiv-flex">
+                  <label for="festivalName" class="festivalLabel"
+                    >Festival Name:</label
                   >
+                  <input
+                    type="text"
+                    id="festivalName"
+                    class="festivalInputs"
+                    placeholder="Kiwanis Music Festival"
+                  />
+                </div>
+                <div class="labelAndInputDiv-flex">
+                  <label for="classGenre" class="festivalLabel"
+                    >Class/Genre:</label
+                  >
+                  <input
+                    type="text"
+                    id="classGenre"
+                    class="festivalInputs"
+                    placeholder="Musical Theatre"
+                  />
+                </div>
+                <div class="labelAndInputDiv-flex">
+                  <label for="festivalVenue" class="festivalLabel"
+                    >Venue:</label
+                  >
+                  <input
+                    type="text"
+                    id="festivalVenue"
+                    class="festivalInputs"
+                    placeholder="Carnegie Hall"
+                  />
+                </div>
+                <div class="labelAndInputDiv-flex">
+                  <label for="venueAddress" class="festivalLabel"
+                    >Venue Address:</label
+                  >
+                  <input
+                    type="text"
+                    id="venueAddress"
+                    class="festivalInputs"
+                    placeholder="1872 Westeria Lane"
+                  />
+                </div>
+              </div>
+
+              <div class="festivalDatesTable-flex">
+                <table id="festivalDatesTable"></table>
+                <div class="festivalTableButtonsDiv">
+                  <button
+                    class="festivalButtons"
+                    id="deleteLastDate"
+                    onclick="loadDateInputs()"
+                    aria-label="Delete Last Date"
+                  >
+                    <svg
+                      class="festival-svg-icon"
+                      aria-label="back"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 420 512"
+                      width="25"
+                      height="25"
+                    >
+                      <use xlink:href="./images/calendar-plus.svg#icon"></use>
+                    </svg>
+                  </button>
+                  <button
+                    class="festivalButtons"
+                    id="deleteLastDate"
+                    onclick="deleteDateInputs()"
+                    aria-label="Delete Last Date"
+                  >
+                    <svg
+                      class="festival-svg-icon"
+                      aria-label="back"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 420 512"
+                      width="25"
+                      height="25"
+                    >
+                      <use xlink:href="./images/calendar-minus.svg#icon"></use>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="labelAndInputDiv-classFlex">
-              <label for="classAdjTime" class="label"
-                >Class Adjudication Time:</label
-              >
-              <div class="classInputWrapper">
-                <input
-                  type="text"
-                  id="classAdjTimeMins"
-                  class="classInputs"
-                  placeholder="m"
-                />
-                <div>:</div>
-                <input
-                  type="text"
-                  id="classAdjTimeSecs"
-                  class="classInputs"
-                  placeholder="s"
-                />
-              </div>
-              <div class="tooltip" id="tooltip-input3">
-                How long can your adjudicator address the class at the end?
-                <span style="font-style: italic">Enter value in minutes.</span>
-              </div>
-            </div>
-            <div class="labelAndInputDiv-classFlex">
-              <label for="bufferTime" class="label">Buffer Time:</label>
-              <div class="classInputWrapper">
-                <input
-                  type="text"
-                  id="bufferTimeMins"
-                  class="classInputs"
-                  placeholder="m"
-                />
-                <div>:</div>
-                <input
-                  type="text"
-                  id="bufferTimeSecs"
-                  class="classInputs"
-                  placeholder="s"
-                />
-              </div>
-              <div class="tooltip" id="tooltip-input4">
-                Include a buffer time if classes tend to run late.
-                <span style="font-style: italic"
-                  >Enter value in minutes. Enter 0 if unwanted</span
-                >
-              </div>
-            </div>
-            <div class="labelAndInputDiv-classFlex">
-              <label for="inBetweenTime" class="label"
-                >Time Between Classes:</label
-              >
-              <div class="classInputWrapper">
-                <input
-                  type="text"
-                  id="inBetweenTimeMins"
-                  class="classInputs"
-                  placeholder="m"
-                />
-                <div>:</div>
-                <input
-                  type="text"
-                  id="inBetweenTimeSecs"
-                  class="classInputs"
-                  placeholder="s"
-                />
-              </div>
-              <div class="tooltip" id="tooltip-input5">
-                Include a buffer time if classes tend to run late.
-                <span style="font-style: italic">Enter value in minutes.</span>
-              </div>
-            </div>
-          </div>
-          <div class="descriptionDisplayDiv" id="descriptionDisplay"></div>
-        </div>
 
-        <button
-          id="festivalDoneButton"
-          class="doneButton"
-          onclick="toggleDropdownInfo('festival')"
-          aria-label="Toggle Festival Info"
-        >
-          DONE
-        </button>
-      </div>
-
-      <!--GOOGLE SHEET SECTION-->
-      <div class="infoDiv" id="googleSheetInfo">
-        <div class="titleDiv">
-          <label class="titleNo">3.</label>
-
-          <label for="uploadGoogleSheet" class="uploadLabel"
-            >Upload Google Sheet</label
-          >
-          <svg
-            class="festival-svg-icon"
-            aria-label="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 420 512"
-            width="25"
-            height="25"
-          >
-            <use xlink:href="./images/thumbs-up.svg#icon"></use>
-          </svg>
-        </div>
-
-        <div class="googleSheet-userInputDiv-flex">
-          <input
-            type="file"
-            id="fileInput"
-            accept=".xlsx, .xls, .csv"
-            style="display: none"
-            onchange="handleFileUpload(event)"
-          />
-          <button
-            id="uploadGoogleSheet"
-            class="googlesheetButton"
-            onclick="triggerFileInput()"
-            aria-label="Upload Google Sheet"
-          >
-            <svg
-              class="googlesheet-svg"
-              aria-label="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 10 360 512"
-              width="7rem"
-              height="7rem"
+            <button
+              id="festivalDoneButton"
+              class="doneButton"
+              onclick="showClassInformation()"
+              aria-label="Toggle Festival Info"
             >
-              <use xlink:href="./images/file-lines.svg#icon"></use>
-            </svg>
-          </button>
-          <div class="googleSheetTextDiv">
-            Your Google Sheet should contain
-            <span style="font-weight: bold">NO HEADER</span>
-            and be organized in the following order. <br /><br />
-            1.First Name
-            <br />2.Last Name <br />3.Song Title <br />4.Composer
-            <br />5.Performance Length
-            <span style="font-style: italic">IN SECONDS</span><br />6.Class
-            Genre <br />7.Class Number <br />8.Participant Age <br />9.Email
+              DONE
+            </button>
           </div>
         </div>
 
-        <button
-          id="festivalDoneButton"
-          class="doneButton"
-          onclick="toggleDropdownInfo('festival')"
-          aria-label="Toggle Festival Info"
-        >
-          DONE
-        </button>
-      </div>
-
-      <!--EXPORT SECTION-->
-      <div id="export">
-        <div class="exportButtonDiv">
-          <button
-            id="generatePDF"
-            class="googlesheetButton"
-            onclick="generatePDF()"
-            aria-label="Download PDF"
-          >
+        <!--CLASS SECTION-->
+        <div class="infoDiv" id="classInfo">
+          <div class="titleDiv" id="classTitle" style="color: var(--gray-out)">
+            <label class="titleNo">2.</label>
+            <label class="infoTitle">Class Information</label>
             <svg
-              class="googlesheet-svg"
+              class="festival-svg-icon"
+              id="classThumb"
               aria-label="back"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 10 500 512"
+              viewBox="0 0 420 512"
               width="25"
               height="25"
+              style="display: none"
             >
-              <use xlink:href="./images/file-pdf.svg#icon"></use>
+              <use xlink:href="./images/thumbs-up.svg#icon"></use>
             </svg>
-          </button>
-          <label for="genetatePDF" class="uploadLabel">Download PDF</label>
-        </div>
-      </div>
+          </div>
 
-      <!-- SCHEDULE SECTION -->
-      <div class="scheduleFlex grid-col-span-2" id="scheduleContainer">
-        <!--ADD DIV's HERE-->
+          <div id="classHiddenDiv" style="display: none">
+            <div class="classWrapper-flex">
+              <div class="classUserInputDiv" id="classUserInput">
+                <div class="labelAndInputDiv-classFlex">
+                  <label for="performanceLength" class="label"
+                    >Max Performance Length:</label
+                  >
+                  <div class="classInputWrapper">
+                    <input
+                      type="text"
+                      id="performanceLengthMin"
+                      class="classInputs"
+                      placeholder="m"
+                    />
+                    <div>:</div>
+                    <input
+                      type="text"
+                      id="performanceLengthSecs"
+                      class="classInputs"
+                      placeholder="s"
+                    />
+                  </div>
+                  <div class="tooltip" id="tooltip-input1">
+                    Whats the MAX amount of time a student can perform.
+                    <span style="font-style: italic"
+                      >We get individual students performance times from your
+                      Google Sheet.</span
+                    >
+                  </div>
+                </div>
+                <div class="labelAndInputDiv-classFlex">
+                  <label for="adjTime" class="label"
+                    >Adjudication Writing Time:</label
+                  >
+                  <div class="classInputWrapper">
+                    <input
+                      type="text"
+                      id="adjTimeMins"
+                      class="classInputs"
+                      placeholder="m"
+                    />
+                    <div>:</div>
+                    <input
+                      type="text"
+                      id="adjTimeSecs"
+                      class="classInputs"
+                      placeholder="s"
+                    />
+                    <div class="tooltip" id="tooltip-input2">
+                      How long will your adjudicator have for each individual
+                      student?
+                    </div>
+                  </div>
+                </div>
+                <div class="labelAndInputDiv-classFlex">
+                  <label for="classAdjTime" class="label"
+                    >Class Adjudication Time:</label
+                  >
+                  <div class="classInputWrapper">
+                    <input
+                      type="text"
+                      id="classAdjTimeMins"
+                      class="classInputs"
+                      placeholder="m"
+                    />
+                    <div>:</div>
+                    <input
+                      type="text"
+                      id="classAdjTimeSecs"
+                      class="classInputs"
+                      placeholder="s"
+                    />
+                  </div>
+                  <div class="tooltip" id="tooltip-input3">
+                    How long can your adjudicator address the class?
+                  </div>
+                </div>
+                <div class="labelAndInputDiv-classFlex">
+                  <label for="bufferTime" class="label">Buffer Time:</label>
+                  <div class="classInputWrapper">
+                    <input
+                      type="text"
+                      id="bufferTimeMins"
+                      class="classInputs"
+                      placeholder="m"
+                    />
+                    <div>:</div>
+                    <input
+                      type="text"
+                      id="bufferTimeSecs"
+                      class="classInputs"
+                      placeholder="s"
+                    />
+                  </div>
+                  <div class="tooltip" id="tooltip-input4">
+                    Buffer Times can be used for anything. Opening address,
+                    closing remarks.
+                    <span style="font-style: italic">
+                      Include a buffer time if classes tend to run late.
+                    </span>
+                  </div>
+                </div>
+                <div class="labelAndInputDiv-classFlex">
+                  <label for="inBetweenTime" class="label"
+                    >Time Between Classes:</label
+                  >
+                  <div class="classInputWrapper">
+                    <input
+                      type="text"
+                      id="inBetweenTimeMins"
+                      class="classInputs"
+                      placeholder="m"
+                    />
+                    <div>:</div>
+                    <input
+                      type="text"
+                      id="inBetweenTimeSecs"
+                      class="classInputs"
+                      placeholder="s"
+                    />
+                  </div>
+                  <div class="tooltip" id="tooltip-input5">
+                    How long will the break between your classes be? Consider
+                    time it takes for people to move in and out of your space.
+                  </div>
+                </div>
+              </div>
+              <div class="descriptionDisplayDiv" id="descriptionDisplay"></div>
+            </div>
+
+            <button
+              id="festivalDoneButton"
+              class="doneButton"
+              onclick="showGoogleSheetInformation()"
+              aria-label="Toggle Festival Info"
+            >
+              DONE
+            </button>
+          </div>
+        </div>
+
+        <!--GOOGLE SHEET SECTION-->
+        <div class="infoDiv" id="googleSheetInfo">
+          <div
+            class="titleDiv"
+            id="googleSheetTitle"
+            style="color: var(--gray-out)"
+          >
+            <label class="titleNo">3.</label>
+
+            <label for="uploadGoogleSheet" class="uploadLabel"
+              >Upload Google Sheet</label
+            >
+          </div>
+
+          <div id="googleSheetHiddenDiv" style="display: none">
+            <div class="googleSheet-userInputDiv-flex">
+              <div class="googleSheetButtonDiv">
+                <input
+                  type="file"
+                  id="fileInput"
+                  accept=".xlsx, .xls, .csv"
+                  style="display: none"
+                  onchange="handleFileUpload(event)"
+                />
+                <button
+                  id="uploadGoogleSheet"
+                  class="googlesheetButton"
+                  onclick="triggerFileInput()"
+                  aria-label="Upload Google Sheet"
+                >
+                  <svg
+                    class="googlesheet-svg"
+                    aria-label="back"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 10 360 512"
+                    width="7rem"
+                    height="7rem"
+                  >
+                    <use xlink:href="./images/file-lines.svg#icon"></use>
+                  </svg>
+                </button>
+                <div id="fileNameDisplay"></div>
+              </div>
+
+              <div class="googleSheetTextDiv">
+                Your Google Sheet should contain
+                <span style="font-weight: bold">NO HEADER</span>
+                and be organized in the following order. <br /><br />
+                1.First Name
+                <br />2.Last Name <br />3.Song Title <br />4.Composer
+                <br />5.Performance Length
+                <span style="font-style: italic">IN SECONDS</span><br />6.Class
+                Genre <br />7.Class Number <br />8.Participant Age <br />9.Email
+              </div>
+            </div>
+
+            <button
+              id="festivalDoneButton"
+              class="doneButton"
+              onclick="showSchedule()"
+              aria-label="Toggle Festival Info"
+            >
+              DONE
+            </button>
+          </div>
+        </div>
+
+        <!-- SCHEDULE SECTION -->
+        <div class="scheduleFlex" id="scheduleContainer" style="display: none">
+          <!--ADD DIV's HERE-->
+        </div>
+
+        <!--EXPORT SECTION-->
+        <div id="export" style="display: none">
+          <div class="exportButtonDiv">
+            <button
+              id="generatePDF"
+              class="googlesheetButton"
+              onclick="generatePDF()"
+              aria-label="Download PDF"
+            >
+              <svg
+                class="googlesheet-svg"
+                aria-label="back"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 10 500 512"
+                width="25"
+                height="25"
+              >
+                <use xlink:href="./images/file-pdf.svg#icon"></use>
+              </svg>
+            </button>
+            <label for="genetatePDF" class="uploadLabel">Download PDF</label>
+          </div>
+        </div>
       </div>
     </div>
 

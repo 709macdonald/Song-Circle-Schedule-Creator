@@ -1,12 +1,16 @@
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: var(--BG-color);
+  margin: 0;
 }
 
-input {
-  font-family: var(--font-family);
+.wrapper-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100vh;
+}
+
+.mainbar-grid {
+  grid-column: span 3;
 }
 
 .mainbar-flex {
@@ -14,10 +18,19 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 80%;
+  justify-self: center;
+  width: 100vh;
+  max-height: 100vh;
+  margin: 0 auto auto auto;
+  overflow-y: auto;
+}
+
+input {
+  font-family: var(--font-family);
 }
 
 .infoDiv {
+  margin: 1rem auto 1rem auto;
   border: 1px solid var(--primary-black);
   border-radius: 0.5rem;
   min-width: 30rem;
@@ -30,6 +43,9 @@ input {
 .titleDiv {
   font-size: var(--font-med);
   margin: 1rem auto 1rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .titleNo {
@@ -46,6 +62,7 @@ input {
 :root {
   --primary-black: #212529;
   --secondary-black: #343a40;
+  --gray-out: #c1cad6;
   --BG-color: #f8f9fa;
   --Secondary-BG-color: #e9ecef;
   --grayed-out: #adb5bd;

@@ -13,3 +13,7 @@
   max-width: 60%;
   margin: auto auto auto 0;
 }
+
+.googleSheetButtonDiv {
+  margin: auto 2rem auto 2rem;
+}
