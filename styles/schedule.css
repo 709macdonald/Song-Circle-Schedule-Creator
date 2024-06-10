@@ -1,3 +1,10 @@
+.scheduleGrid {
+  grid-column: span 3;
+  overflow-y: auto;
+  max-width: 80%;
+  justify-self: center;
+}
+
 .scheduleFlex {
   min-width: 42rem;
 }

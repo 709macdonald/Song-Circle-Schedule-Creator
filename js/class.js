@@ -64,8 +64,6 @@ function populateClassesFromStorage() {
   if (savedClassesString) {
     const savedClasses = JSON.parse(savedClassesString);
 
-    document.getElementById("classGenre").value = savedClasses.genre;
-
     function setMinutesAndSeconds(elementIdMins, elementIdSecs, totalSeconds) {
       const mins = Math.floor(totalSeconds / 60);
       const secs = totalSeconds % 60;

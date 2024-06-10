@@ -23,23 +23,26 @@ function handleFileUpload(event) {
       const workbook = XLSX.read(data, { type: "binary" });
       const firstSheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[firstSheetName];
+
       const jsonSheet = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-      console.log(jsonSheet);
+      const headerRow = jsonSheet[0];
+      const dataRows = jsonSheet.slice(1);
 
-      const entries = jsonSheet.map((row) => ({
-        Name: row[0],
-        LastName: row[1],
-        SongTitle: row[2],
-        Composer: row[3],
-        PerformanceLength: row[4],
-        Genre: row[5],
-        ClassNumber: row[6],
-        Age: row[7],
-        Email: row[8],
+      const entries = dataRows.map((row) => ({
+        Name: row[1],
+        LastName: row[2],
+        SongTitle: row[3],
+        Composer: row[4],
+        PerformanceLength: row[5],
+        Genre: row[6],
+        ClassNumber: row[7],
+        Age: row[8],
+        Email: row[9],
       }));
 
       console.log(entries);
+
       alert("File uploaded and processed successfully!");
 
       participants = entries;
