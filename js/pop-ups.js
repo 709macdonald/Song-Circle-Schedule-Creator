@@ -32,11 +32,13 @@ function showSchedule() {
   const classDiv = document.getElementById("classInfo");
   const festivalDiv = document.getElementById("festivalInfo");
   const scheduleDiv = document.getElementById("scheduleContainer");
+  const exportButton = document.getElementById("export");
 
   googleSheetDiv.style.display = "none";
   classDiv.style.display = "none";
   festivalDiv.style.display = "none";
   scheduleDiv.style.display = "block";
+  exportButton.style.display = "block";
 }
 
 // CLASS INFORMATION POP-UPS

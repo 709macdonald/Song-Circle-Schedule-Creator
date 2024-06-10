@@ -16,7 +16,32 @@
   </head>
   <body>
     <div class="wrapper-grid">
-      <div class="sidebar"></div>
+      <div class="sidebar">
+        <!--EXPORT SECTION-->
+        <div id="export" style="display: none">
+          <div class="exportButtonDiv">
+            <button
+              id="generatePDF"
+              class="googlesheetButton"
+              onclick="generatePDF()"
+              aria-label="Download PDF"
+            >
+              <svg
+                class="googlesheet-svg"
+                aria-label="back"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 10 500 512"
+                width="25"
+                height="25"
+              >
+                <use xlink:href="./images/file-pdf.svg#icon"></use>
+              </svg>
+            </button>
+            <label for="genetatePDF" class="uploadLabel">Download PDF</label>
+          </div>
+          <button id="downloadICalButton">exportIcal</button>
+        </div>
+      </div>
       <div class="mainbar-flex mainbar-grid">
         <!--FESTIVAL SECTION-->
         <div class="infoDiv" id="festivalInfo">
@@ -371,30 +396,6 @@
         <!-- SCHEDULE SECTION -->
         <div class="scheduleFlex" id="scheduleContainer" style="display: none">
           <!--ADD DIV's HERE-->
-        </div>
-
-        <!--EXPORT SECTION-->
-        <div id="export" style="display: none">
-          <div class="exportButtonDiv">
-            <button
-              id="generatePDF"
-              class="googlesheetButton"
-              onclick="generatePDF()"
-              aria-label="Download PDF"
-            >
-              <svg
-                class="googlesheet-svg"
-                aria-label="back"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 10 500 512"
-                width="25"
-                height="25"
-              >
-                <use xlink:href="./images/file-pdf.svg#icon"></use>
-              </svg>
-            </button>
-            <label for="genetatePDF" class="uploadLabel">Download PDF</label>
-          </div>
         </div>
       </div>
     </div>
