@@ -1,7 +1,7 @@
 .sidebar-flex {
   display: flex;
   flex-direction: column;
-  background-color: var(--gray-out);
+  background-color: var(--Secondary-BG-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 1); /* Drop shadow */
   transition: box-shadow 0.3s ease; /* Smooth transition for shadow change */
 }
@@ -16,13 +16,14 @@
 }
 
 .descritpion {
-  margin: 1rem auto 1rem 1em;
+  margin: 1rem 1rem 1rem 2em;
   font-family: var(--font-family);
-  font-size: var(--font-reg);
+  font-size: var(--font-small);
+  font-weight: bold;
 }
 
 .steps {
-  margin: 0.5rem auto 0.2rem 1.5rem;
+  margin: 0.5rem auto 0.2rem 2.5rem;
   font-family: var(--font-family);
   font-size: var(--font-small);
 }
@@ -34,7 +35,7 @@
 /* EXPORT SECTION */
 
 .exportButtonDiv {
-  margin: 6rem auto 1rem 1rem;
+  margin: 1rem auto 1rem 2rem;
   font-size: var(--font-reg);
   font-family: var(--font-family);
 }
@@ -43,6 +44,8 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 0.4rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Drop shadow */
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow change */
 }
 
 .uploadLabel {
