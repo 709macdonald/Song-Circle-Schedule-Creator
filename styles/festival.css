@@ -1,24 +1,50 @@
-.festivalUserInputDiv-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
 .labelAndInputDiv-flex {
   display: flex;
-  justify-content: space-between;
-  margin: 0 1rem 0.2rem 1rem;
+  flex-direction: column;
+  margin: 0.5rem 1rem 0.2rem 1rem;
 }
 
 .festivalInputs-flex {
   display: flex;
   flex-direction: column;
-  justify-self: center;
 }
 
-.festivalDatesTable-flex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 1rem auto auto;
+#festivalDatesTable {
+  margin-top: 2rem;
+  table-layout: fixed;
+}
+
+.festivalLabel {
+  margin: 0 auto 0.4rem 0;
+}
+
+.venueLabels {
+  padding-left: 1rem;
+}
+
+.dateInput,
+.timeInput {
+  margin: 0.5rem 1rem 1rem 1rem;
+  min-width: 7rem;
+}
+
+.labelSpace {
+  margin-top: 1rem;
+}
+
+.festivalTableButtonsDiv {
+  margin-left: 1rem;
+}
+
+.festivalButtons {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: var(--BG-color);
+  width: auto;
+  height: 2.4rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }

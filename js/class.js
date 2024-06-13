@@ -1,5 +1,4 @@
 let classes = {
-  maxPerformanceLength: 0,
   adjudicationWritingTime: 0,
   classAdjudicationTime: 0,
   bufferTime: 0,
@@ -17,12 +16,7 @@ classUserInput.addEventListener("input", function (event) {
 });
 
 function updateClassData() {
-  var maxPerformanceLengthMins =
-    parseInt(document.getElementById("performanceLengthMin").value, 10) || 0;
-  var maxPerformanceLengthSecs =
-    parseInt(document.getElementById("performanceLengthSecs").value, 10) || 0;
-  var adjTimeMins =
-    parseInt(document.getElementById("adjTimeMins").value, 10) || 0;
+  parseInt(document.getElementById("adjTimeMins").value, 10) || 0;
   var adjTimeSecs =
     parseInt(document.getElementById("adjTimeSecs").value, 10) || 0;
   var classAdjTimeMins =
@@ -38,8 +32,6 @@ function updateClassData() {
   var inBetweenTimeSecs =
     parseInt(document.getElementById("inBetweenTimeSecs").value, 10) || 0;
 
-  var maxPerformanceLength =
-    maxPerformanceLengthMins * 60 + maxPerformanceLengthSecs;
   var adjTime = adjTimeMins * 60 + adjTimeSecs;
   var classAdjTime = classAdjTimeMins * 60 + classAdjTimeSecs;
   var bufferTime = bufferTimeMins * 60 + bufferTimeSecs;
@@ -70,12 +62,6 @@ function populateClassesFromStorage() {
       document.getElementById(elementIdMins).value = mins;
       document.getElementById(elementIdSecs).value = secs;
     }
-
-    setMinutesAndSeconds(
-      "performanceLengthMin",
-      "performanceLengthSecs",
-      savedClasses.maxPerformanceLength
-    );
     setMinutesAndSeconds(
       "adjTimeMins",
       "adjTimeSecs",
@@ -97,8 +83,6 @@ function populateClassesFromStorage() {
       savedClasses.inBetweenTime
     );
 
-    classes.genre = savedClasses.genre;
-    classes.maxPerformanceLength = savedClasses.maxPerformanceLength;
     classes.adjudicationWritingTime = savedClasses.adjudicationWritingTime;
     classes.classAdjudicationTime = savedClasses.classAdjudicationTime;
     classes.bufferTime = savedClasses.bufferTime;

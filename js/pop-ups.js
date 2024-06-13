@@ -7,7 +7,7 @@ function showClassInformation() {
 
   festivalDiv.style.display = "none";
   classDiv.style.display = "block";
-  festivalThumb.style.display = "block";
+  festivalThumb.style.display = "none";
   festivalTitle.style.color = "var(--gray-out)";
   classTitle.style.color = "var(--primary-black)";
 }
@@ -22,7 +22,7 @@ function showGoogleSheetInformation() {
 
   classDiv.style.display = "none";
   googleSheetDiv.style.display = "block";
-  classThumb.style.display = "block";
+  classThumb.style.display = "none";
   classTitle.style.color = "var(--gray-out)";
   googleSheetTitle.style.color = "var(--primary-black)";
 }
@@ -47,6 +47,7 @@ function showSchedule() {
 
 document.addEventListener("DOMContentLoaded", (event) => {
   function showDescription(descriptionId) {
+    console.log("Show Me");
     const description = document.getElementById(descriptionId).innerHTML;
     document.getElementById("descriptionDisplay").innerHTML = description;
   }
@@ -55,7 +56,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("descriptionDisplay").innerHTML = "";
   }
 
-  const labels = document.querySelectorAll(".label");
+  const labels = document.querySelectorAll(".popUpLabel");
   labels.forEach((label, index) => {
     const tooltipId = `tooltip-input${index + 1}`;
     label.addEventListener("mouseover", () => showDescription(tooltipId));

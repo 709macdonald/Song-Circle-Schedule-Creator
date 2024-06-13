@@ -90,7 +90,7 @@ function loadDateInputs() {
   cell2_1.appendChild(dateInputElement);
 
   var startTimeInputElement = document.createElement("input");
-  startTimeInputElement.className = "timeInput";
+  startTimeInputElement.className = "dateInput";
   startTimeInputElement.type = "time";
   startTimeInputElement.id = "festivalStartTime" + i;
   startTimeInputElement.addEventListener("input", () => {
@@ -111,7 +111,7 @@ function loadDateInputs() {
   cell2_2.appendChild(startTimeInputElement);
 
   var endTimeInputElement = document.createElement("input");
-  endTimeInputElement.className = "timeInput";
+  endTimeInputElement.className = "dateInput";
   endTimeInputElement.type = "time";
   endTimeInputElement.id = "festivalEndTime" + i;
   endTimeInputElement.addEventListener("input", () => {
@@ -216,3 +216,34 @@ function populateDatesFromStorage() {
   }
   deleteDateInputs();
 }
+
+// FESTIVAL DONE BUTTON
+
+document.addEventListener("DOMContentLoaded", function () {
+  const inputFields = document.querySelectorAll(
+    "#festivalUserInput .festivalInputs"
+  );
+  const doneButton = document.getElementById("festivalDoneButton");
+
+  // Function to check if all input fields are filled
+  function checkInputs() {
+    let allFilled = true;
+    inputFields.forEach((input) => {
+      if (input.value.trim() === "") {
+        input.classList.add("input-error");
+        allFilled = false;
+      } else {
+        input.classList.remove("input-error");
+      }
+    });
+    doneButton.disabled = !allFilled;
+  }
+
+  // Add event listeners to each input field
+  inputFields.forEach((input) => {
+    input.addEventListener("input", checkInputs);
+  });
+
+  // Initial check in case the inputs are pre-filled
+  checkInputs();
+});

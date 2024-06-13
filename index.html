@@ -18,59 +18,37 @@
     <div class="wrapper-grid">
       <div class="sidebar-flex">
         <!--SONG CIRCLE TITLE-->
-        <p class="sideBarHead">Schedule Creator</p>
+        <p class="sideBarHead">Music Festival Scheduling Tool</p>
         <!--DESCRIPTION OF APP-->
-        <p class="sideBarP">
-          Create schedules for your festival in 4 easy steps.
-          <br />
-          Step 1: Fill out your festival information.
-          <br />
-          Step 2: Fill out your class information.
-          <br />
-          Step 3: Upload Google Sheet with Class Participants.
-          <br />
-          Step 4: Save Your Schedule as a PDF or Calendar file.
-        </p>
-        <!--GOOGLE SHEET LAYOUT ORDER-->
-        <div class="sideBarP">
-          Your Google Sheet should contain
-          <span style="font-weight: bold">NO HEADER</span>
-          and be organized in the following order. <br /><br />
-          1.First Name
-          <br />2.Last Name <br />3.Song Title <br />4.Composer
-          <br />5.Performance Length
-          <span style="font-style: italic">IN SECONDS</span><br />6.Class
-          Genre <br />7.Class Number <br />8.Participant Age <br />9.Email
+        <div class="appDescripton">
+          <div class="descritpion">
+            Create easy schedules for music competitions.
+          </div>
+          <div class="steps">Step 1: Fill out your festival information.</div>
+          <div class="steps">Step 2: Fill out your class information.</div>
+          <div class="steps">Step 3: Upload participants spreadsheet.</div>
+          <div class="steps">Step 4: Save Your Schedule</div>
+          <div class="steps">Reload page to restart.</div>
         </div>
-          <!--LINK TO MY LINKEDIN AND GITHUB-->
-          <P style="font-style: italic;">Created By: Peter MacDonald</P>
-          <button onclick="window.open('https://www.linkedin.com/in/peter-macdonald-1630a4178/', '_blank')" class="linkButton">
-            <svg
-            class="googlesheet-svg"
-            aria-label="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 10 500 512"
-            width="35"
-            height="35"
-          >
-            <use xlink:href="./images/linkedin.svg#icon"></use>
-          </svg>
-          </button>
-          <button onclick="window.open('https://github.com/709macdonald', '_blank')" class="linkButton">
-            <svg
-            class="googlesheet-svg"
-            aria-label="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 10 500 512"
-            width="35"
-            height="35"
-          >
-            <use xlink:href="./images/gitHub.svg#icon"></use>
-          </svg>
-          </button>
-          <!--EXPORT SECTION-->
-        </p>
+        <!--GOOGLE SHEET LAYOUT ORDER-->
+        <div class="sheetDescriptionDiv">
+          <div class="descritpion">
+            We <span style="font-weight: bold">STRONGLY</span> reccomend using
+            <span style="font-style: italic">Google Forms</span> to register and
+            create your spreadsheet.
+          </div>
+          <div class="descritpion">
+            Make sure your spreadsheet is in the following order with a header.
+          </div>
 
+          <div class="steps">
+            1.Submission Time <br />2.First Name <br />3.Last Name <br />4.Song
+            Title <br />5.Composer <br />6.Performance Length
+            <span style="font-style: italic">IN SECONDS</span><br />7.Class
+            Genre <br />8.Class Number <br />9.Participant Age <br />10.Email
+          </div>
+        </div>
+        <!--EXPORT SECTION-->
         <div id="export" class="exportDiv" style="display: none">
           <div class="exportButtonDiv">
             <div class="pdfDiv">
@@ -103,7 +81,7 @@
                   class="googlesheet-svg"
                   aria-label="back"
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 10 500 512"
+                  viewBox="0 10 430 512"
                   width="35"
                   height="35"
                 >
@@ -119,14 +97,49 @@
             </div>
           </div>
         </div>
-        <p class="sideBarP">Reload page to restart.</p>
+        <!--LINK TO MY LINKEDIN AND GITHUB-->
+        <div class="creator-flex">
+          <p class="name" style="font-style: italic">
+            Created By: Peter MacDonald
+          </p>
+          <button
+            onclick="window.open('https://www.linkedin.com/in/peter-macdonald-1630a4178/', '_blank')"
+            class="linkButton"
+          >
+            <svg
+              class="googlesheet-svg"
+              aria-label="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 10 500 512"
+              width="20"
+              height="20"
+            >
+              <use xlink:href="./images/linkedin.svg#icon"></use>
+            </svg>
+          </button>
+          <button
+            onclick="window.open('https://github.com/709macdonald', '_blank')"
+            class="linkButton"
+          >
+            <svg
+              class="googlesheet-svg"
+              aria-label="back"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 10 500 512"
+              width="20"
+              height="20"
+            >
+              <use xlink:href="./images/gitHub.svg#icon"></use>
+            </svg>
+          </button>
+        </div>
       </div>
+
       <div class="mainbar-flex mainbar-grid" id="mainBar-Hide">
         <!--FESTIVAL SECTION-->
         <div class="infoDiv" id="festivalInfo">
           <div class="titleDiv" id="festivalTitle">
-            <label class="titleNo">1.</label>
-            <label>Festival Information</label>|
+            <label>1. Festival Information</label>
             <svg
               class="festival-svg-icon"
               aria-label="back"
@@ -142,8 +155,11 @@
           </div>
 
           <div id="festivalHiddenDiv" style="display: block">
+            <div class="divDescription">
+              Fill out the information for your festival now.
+            </div>
             <div
-              class="UserInputDiv festivalUserInputDiv-grid"
+              class="userInputDiv festivalUserInputDiv-grid"
               id="festivalUserInput"
             >
               <div class="festivalInputs-flex">
@@ -159,7 +175,7 @@
                   />
                 </div>
                 <div class="labelAndInputDiv-flex">
-                  <label for="classGenre" class="festivalLabel"
+                  <label for="classGenre" class="festivalLabel labelSpace"
                     >Class/Genre:</label
                   >
                   <input
@@ -170,7 +186,7 @@
                   />
                 </div>
                 <div class="labelAndInputDiv-flex">
-                  <label for="festivalVenue" class="festivalLabel"
+                  <label for="festivalVenue" class="festivalLabel labelSpace"
                     >Venue:</label
                   >
                   <input
@@ -181,7 +197,7 @@
                   />
                 </div>
                 <div class="labelAndInputDiv-flex">
-                  <label for="venueAddress" class="festivalLabel"
+                  <label for="venueAddress" class="festivalLabel labelSpace"
                     >Venue Address:</label
                   >
                   <input
@@ -193,7 +209,7 @@
                 </div>
               </div>
 
-              <div class="festivalDatesTable-flex">
+              <div class="festivalDatesTable-flex labelSpace">
                 <table id="festivalDatesTable"></table>
                 <div class="festivalTableButtonsDiv">
                   <button
@@ -265,40 +281,16 @@
           </div>
 
           <div id="classHiddenDiv" style="display: none">
+            <div class="divDescription">
+              Fill out the information for your classes now.
+            </div>
             <div class="classWrapper-flex">
               <div class="classUserInputDiv" id="classUserInput">
-                <div class="labelAndInputDiv-classFlex">
-                  <label for="performanceLength" class="label"
-                    >Max Performance Length:</label
-                  >
-                  <div class="classInputWrapper">
-                    <input
-                      type="text"
-                      id="performanceLengthMin"
-                      class="classInputs"
-                      placeholder="m"
-                    />
-                    <div>:</div>
-                    <input
-                      type="text"
-                      id="performanceLengthSecs"
-                      class="classInputs"
-                      placeholder="s"
-                    />
-                  </div>
-                  <div class="tooltip" id="tooltip-input1">
-                    Whats the MAX amount of time a student can perform.
-                    <span style="font-style: italic"
-                      >We get individual students performance times from your
-                      Google Sheet.</span
-                    >
-                  </div>
-                </div>
-                <div class="labelAndInputDiv-classFlex">
-                  <label for="adjTime" class="label"
+                <div class="labelAndInputDiv-flex">
+                  <label for="adjTime" class="festivalLabel popUpLabel"
                     >Adjudication Writing Time:</label
                   >
-                  <div class="classInputWrapper">
+                  <div class="classInputs-flex">
                     <input
                       type="text"
                       id="adjTimeMins"
@@ -312,17 +304,19 @@
                       class="classInputs"
                       placeholder="s"
                     />
-                    <div class="tooltip" id="tooltip-input2">
+                    <div class="tooltip" id="tooltip-input1">
                       How long will your adjudicator have for each individual
                       student?
                     </div>
                   </div>
                 </div>
-                <div class="labelAndInputDiv-classFlex">
-                  <label for="classAdjTime" class="label"
+                <div class="labelAndInputDiv-flex">
+                  <label
+                    for="classAdjTime"
+                    class="festivalLabel labelSpace popUpLabel"
                     >Class Adjudication Time:</label
                   >
-                  <div class="classInputWrapper">
+                  <div class="classInputs-flex">
                     <input
                       type="text"
                       id="classAdjTimeMins"
@@ -337,13 +331,17 @@
                       placeholder="s"
                     />
                   </div>
-                  <div class="tooltip" id="tooltip-input3">
+                  <div class="tooltip" id="tooltip-input2">
                     How long can your adjudicator address the class?
                   </div>
                 </div>
-                <div class="labelAndInputDiv-classFlex">
-                  <label for="bufferTime" class="label">Buffer Time:</label>
-                  <div class="classInputWrapper">
+                <div class="labelAndInputDiv-flex">
+                  <label
+                    for="bufferTime"
+                    class="festivalLabel labelSpace popUpLabel"
+                    >Buffer Time:</label
+                  >
+                  <div class="classInputs-flex">
                     <input
                       type="text"
                       id="bufferTimeMins"
@@ -358,7 +356,7 @@
                       placeholder="s"
                     />
                   </div>
-                  <div class="tooltip" id="tooltip-input4">
+                  <div class="tooltip" id="tooltip-input3">
                     Buffer Times can be used for anything. Opening address,
                     closing remarks.
                     <span style="font-style: italic">
@@ -366,11 +364,13 @@
                     </span>
                   </div>
                 </div>
-                <div class="labelAndInputDiv-classFlex">
-                  <label for="inBetweenTime" class="label"
+                <div class="labelAndInputDiv-flex">
+                  <label
+                    for="inBetweenTime"
+                    class="festivalLabel labelSpace popUpLabel"
                     >Time Between Classes:</label
                   >
-                  <div class="classInputWrapper">
+                  <div class="classInputs-flex">
                     <input
                       type="text"
                       id="inBetweenTimeMins"
@@ -385,7 +385,7 @@
                       placeholder="s"
                     />
                   </div>
-                  <div class="tooltip" id="tooltip-input5">
+                  <div class="tooltip" id="tooltip-input4">
                     How long will the break between your classes be? Consider
                     time it takes for people to move in and out of your space.
                   </div>
@@ -420,6 +420,9 @@
           </div>
 
           <div id="googleSheetHiddenDiv" style="display: none">
+            <div class="divDescription">
+              Upload your festival spreadsheet now.
+            </div>
             <div class="googleSheet-userInputDiv-flex">
               <div class="googleSheetButtonDiv">
                 <input
@@ -446,18 +449,20 @@
                     <use xlink:href="./images/file-lines.svg#icon"></use>
                   </svg>
                 </button>
-                <div id="fileNameDisplay"></div>
+                <div id="fileNameDisplay">Select Sheet When Ready</div>
               </div>
 
               <div class="googleSheetTextDiv">
-                Your Google Sheet should contain
-                <span style="font-weight: bold">NO HEADER</span>
-                and be organized in the following order. <br /><br />
-                1.First Name
-                <br />2.Last Name <br />3.Song Title <br />4.Composer
-                <br />5.Performance Length
-                <span style="font-style: italic">IN SECONDS</span><br />6.Class
-                Genre <br />7.Class Number <br />8.Participant Age <br />9.Email
+                We <span style="font-weight: bold">STRONGLY</span> reccomend
+                using <span style="font-style: italic">Google Forms</span> for
+                this process. <br />
+                Make sure your spreadsheet is in the following order.
+                <br /><br />
+                1.Submission Time <br />2.First Name <br />3.Last Name
+                <br />4.Song Title <br />5.Composer <br />6.Performance Length
+                <span style="font-style: italic">IN SECONDS</span><br />7.Class
+                Genre <br />8.Class Number <br />9.Participant Age
+                <br />10.Email
               </div>
             </div>
 
@@ -472,6 +477,7 @@
           </div>
         </div>
       </div>
+
       <!-- SCHEDULE SECTION -->
       <div
         class="scheduleFlex scheduleGrid"

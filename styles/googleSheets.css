@@ -3,7 +3,7 @@
 }
 
 .googlesheetButton {
-  margin: auto auto auto auto;
+  margin: 2rem auto auto auto;
   width: 10rem;
   height: 10rem;
   border-radius: 2rem;
@@ -11,9 +11,18 @@
 
 .googleSheetTextDiv {
   max-width: 60%;
-  margin: auto auto auto 0;
+  margin: 2rem auto auto 0;
+  font-family: var(--font-family);
+  font-size: var(--font-reg);
 }
 
 .googleSheetButtonDiv {
   margin: auto 2rem auto 2rem;
+}
+
+#fileNameDisplay {
+  margin-top: 1rem;
+  font-family: var(--font-family);
+  font-size: var(--font-small);
+  max-width: 10rem;
 }
