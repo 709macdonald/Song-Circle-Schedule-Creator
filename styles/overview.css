@@ -24,7 +24,7 @@ body {
 
 input {
   font-family: var(--font-family);
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   border: 1px solid var(--border-color);
   height: 2rem;
   padding: 0 0 0 1rem;
@@ -35,7 +35,7 @@ input {
 .infoDiv {
   margin: 1rem auto 1rem auto;
   border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   min-width: 30rem;
   width: 80%;
   background-color: var(--BG-color);

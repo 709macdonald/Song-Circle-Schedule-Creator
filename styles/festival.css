@@ -34,8 +34,10 @@
 #festivalDatesTable {
   font-family: var(--font-family);
   margin-top: 2rem;
+  margin-left: 1rem;
   table-layout: fixed;
   border-collapse: collapse;
+  border-radius: 0.4rem;
 }
 
 #festivalDatesTable th,
@@ -56,7 +58,7 @@
 }
 
 #festivalDatesTable tr:nth-child(odd) {
-  background-color: #ffffff;
+  background-color: #fafafa;
 }
 
 #festivalDatesTable input,
@@ -67,20 +69,23 @@
 }
 
 .venueLabels {
-  font-size: var(--font-reg);
-  padding-left: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  font-size: var(--font-small);
+}
+
+.venueLabels > * {
+  margin-left: 1rem; /* Apply margin-left to all direct children of .venueLabels */
 }
 
 .dateInput {
-  margin: 0.5rem 2rem 0.5rem 0.5rem;
+  font-size: var(--font-small);
+  margin: 0.1rem 2rem 0.1rem 0.5rem;
   min-width: 7rem;
   cursor: pointer;
 }
 
 .timeInput {
-  margin: 0.5rem 2rem 0.5rem 0.5rem;
+  font-size: var(--font-small);
+  margin: 0.1rem 2rem 0.1rem 0.5rem;
   min-width: 7rem;
   padding-right: 1rem;
   cursor: pointer;
