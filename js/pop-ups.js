@@ -8,7 +8,7 @@ function showClassInformation() {
   festivalDiv.style.display = "none";
   classDiv.style.display = "block";
   festivalThumb.style.display = "none";
-  festivalTitle.style.color = "var(--gray-out)";
+  festivalTitle.style.color = "var(--green)";
   classTitle.style.color = "var(--primary-black)";
 }
 
@@ -23,7 +23,7 @@ function showGoogleSheetInformation() {
   classDiv.style.display = "none";
   googleSheetDiv.style.display = "block";
   classThumb.style.display = "none";
-  classTitle.style.color = "var(--gray-out)";
+  classTitle.style.color = "var(--green)";
   googleSheetTitle.style.color = "var(--primary-black)";
 }
 

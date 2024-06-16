@@ -61,7 +61,7 @@ input {
 .doneButton {
   border: 1px solid var(--border-color);
   border-radius: 1rem;
-  background-color: var(--primary-black);
+  background-color: var(--green);
   color: var(--BG-color);
   margin: 3rem auto 1rem 3rem;
   font-size: var(--font-reg);
@@ -79,6 +79,7 @@ input {
   --Secondary-BG-color: #f0f1f3;
   --grayed-out: #abb0b4;
   --border-color: #e1e1e1;
+  --green: #35a34e;
 
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neu  e", Arial, sans-serif;
