@@ -42,15 +42,11 @@ Upload a spreadsheet (preferably from Google Forms) with participant details. En
 
 ## Installation
 
-No installation necessary. Simply open `index.html` in Google Chrome to run the application.
-
-## License
-
-This project is licensed under the MIT License. See LICENSE for details.
+No installation necessary.
 
 ## Contact
 
-For questions or support, contact Peter MacDonald at your@email.com.
+For questions or support, contact Peter MacDonald at 709macdonald@gmail.com.
 
 ---
 
