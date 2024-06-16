@@ -7,6 +7,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   height: 100vh;
+  position: relative;
 }
 
 .mainbar-grid {
@@ -91,4 +92,17 @@ input {
 
 .empty {
   border: 2px solid red;
+}
+
+.editButton {
+  grid-column: 2;
+  z-index: 1;
+  position: absolute;
+  margin: 1rem auto auto 1rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  z-index: 1;
+  position: absolute;
+  background-color: transparent;
+  border: none;
 }
