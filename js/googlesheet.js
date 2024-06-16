@@ -79,9 +79,9 @@ const finalSubmitButton = document.getElementById("googleSheetDoneButton");
 function validateFileInput() {
   if (!fileInput.files.length) {
     alert("Please upload a file first.");
+  } else {
+    showSchedule();
   }
-
-  showSchedule();
 }
 
 finalSubmitButton.addEventListener("click", function (event) {

@@ -7,6 +7,9 @@
   width: 10rem;
   height: 10rem;
   border-radius: 2rem;
+  background-color: var(--BG-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
 }
 
 .googleSheetTextDiv {

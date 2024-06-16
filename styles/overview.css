@@ -25,6 +25,8 @@ body {
 input {
   font-family: var(--font-family);
   border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+
   height: 2rem;
   padding: 0 0 0 1rem;
   background-color: var(--BG-color);
@@ -33,15 +35,15 @@ input {
 
 .infoDiv {
   margin: 1rem auto 1rem auto;
-  border: 1px solid var(--primary-black);
+  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   min-width: 30rem;
   width: 80%;
-  background-color: var(--primary-BG-color);
+  background-color: var(--BG-color);
   font-size: var(--font-small);
   font-family: var(--font-family);
   padding: 2rem 3rem 1rem 3rem;
-  box-shadow: 0 4px 6px rgba(1, 1, 0, 0.5); /* Drop shadow */
+  box-shadow: 0 4px 6px rgba(1, 1, 0, 0.1); /* Drop shadow */
   transition: box-shadow 0.3s ease; /* Smooth transition for shadow change */
 }
 
@@ -58,7 +60,7 @@ input {
 }
 
 .doneButton {
-  border: 1px solid var(--primary-black);
+  border: 1px solid var(--border-color);
   border-radius: 1rem;
   background-color: var(--primary-black);
   color: var(--BG-color);
@@ -79,6 +81,7 @@ input {
   --BG-color: #f8f9fa;
   --Secondary-BG-color: #f0f1f3;
   --grayed-out: #abb0b4;
+  --border-color: #e1e1e1;
 
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neu  e", Arial, sans-serif;
