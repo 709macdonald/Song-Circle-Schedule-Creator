@@ -34,6 +34,7 @@ Upload a spreadsheet (preferably from Google Forms) with participant details. En
 10. Email
 
 **Note:** Sorting and scheduling rely on accurate Class Numbers in the spreadsheet.
+**Note:** If no schedule shows up after processing this is likely due to spreadsheet formatting.
 
 ## Requirements
 
