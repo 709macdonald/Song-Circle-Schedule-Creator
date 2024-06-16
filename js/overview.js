@@ -1,5 +1,3 @@
-// FESTIVAL DONE BUTTON Check if everything is filled out.
-
 // MOBILE ALERT
 
 function isMobileDevice() {
@@ -11,4 +9,10 @@ function isMobileDevice() {
 
 if (isMobileDevice()) {
   alert("This site is optimized for Desktop");
+}
+
+// EDIT BUTTON
+
+function editButton() {
+  window.location.reload();
 }
