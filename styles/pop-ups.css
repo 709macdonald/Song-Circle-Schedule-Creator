@@ -3,6 +3,6 @@
 }
 
 .descriptionDisplayDiv {
-  background-color: var(--Secondary-BG-color);
-  padding: 1rem 1rem 1rem 1rem;
+  background-color: transparent;
+  max-width: 35rem;
 }
