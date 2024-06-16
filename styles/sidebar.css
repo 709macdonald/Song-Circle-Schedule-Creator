@@ -45,8 +45,8 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 0.4rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Drop shadow */
-  transition: box-shadow 0.3s ease; /* Smooth transition for shadow change */
+  border: 1px solid var(--border-color);
+  cursor: pointer;
 }
 
 .uploadLabel {

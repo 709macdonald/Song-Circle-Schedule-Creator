@@ -26,7 +26,6 @@ input {
   font-family: var(--font-family);
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
-
   height: 2rem;
   padding: 0 0 0 1rem;
   background-color: var(--BG-color);
@@ -43,8 +42,8 @@ input {
   font-size: var(--font-small);
   font-family: var(--font-family);
   padding: 2rem 3rem 1rem 3rem;
-  box-shadow: 0 4px 6px rgba(1, 1, 0, 0.1); /* Drop shadow */
-  transition: box-shadow 0.3s ease; /* Smooth transition for shadow change */
+  box-shadow: 0 4px 6px rgba(1, 1, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 .titleDiv {
@@ -69,9 +68,7 @@ input {
   font-weight: bold;
   height: 3rem;
   width: 6rem;
-  cursor: pointer; /* Cursor changes to pointer when hovering */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
-  transition: box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 :root {
