@@ -216,11 +216,12 @@ function populateDatesFromStorage() {
 }
 
 // DONE BUTTON
-
-const inputFields = document.querySelectorAll(".festivalInputs");
 const submitButton = document.getElementById("festivalDoneButton");
 
 function validateInputs() {
+  const inputFields = document.querySelectorAll(
+    ".festivalInputs, .dateInput, .timeInput"
+  );
   let allFilled = true;
 
   inputFields.forEach(function (input) {

@@ -91,7 +91,7 @@
               <button
                 id="generatePDF"
                 class="exportButton"
-                onclick="generatePDF()"
+                onmousedown="generatePDF()"
                 aria-label="Download PDF"
               >
                 <svg
@@ -111,6 +111,7 @@
               <button
                 id="downloadICalButton"
                 class="exportButton"
+                onmousedown="handleDownloadICalButtonClick()"
                 aria-label="Download Calendar File"
               >
                 <svg
@@ -317,7 +318,8 @@
 
           <div id="classHiddenDiv" style="display: none">
             <div class="divDescription">
-              Fill out the information for your classes now.
+              Fill out the information for your classes now in
+              <span style="font-style: italic">mins:secs.</span>
             </div>
             <div class="classWrapper-flex">
               <div class="classUserInputDiv" id="classUserInput">

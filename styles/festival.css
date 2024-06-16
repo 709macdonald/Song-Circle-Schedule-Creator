@@ -64,7 +64,6 @@
 #festivalDatesTable input,
 #festivalDatesTable select {
   box-sizing: border-box;
-  border: none;
   background-color: transparent;
 }
 

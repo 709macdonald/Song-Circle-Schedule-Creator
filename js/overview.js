@@ -23,12 +23,7 @@ function editButton() {
 
 function clearButton() {
   if (confirm("Are you sure you want to erase all data?")) {
-    classes = {
-      adjudicationWritingTime: 0,
-      classAdjudicationTime: 0,
-      bufferTime: 0,
-      inBetweenTime: 0,
-    };
+    localStorage.removeItem("classes");
 
     i2 = 0;
 
@@ -42,12 +37,9 @@ function clearButton() {
 
     i = 0;
 
-    localStorage.setItem("classes", JSON.stringify(classes));
     localStorage.setItem("festival", JSON.stringify(festival));
 
-    editButton();
+    window.location.reload();
+    localStorage.removeItem("classes");
   }
 }
-
-// Assuming you have a button with id "clearButton" in your HTML
-document.getElementById("clearButton").addEventListener("click", clearButton);
