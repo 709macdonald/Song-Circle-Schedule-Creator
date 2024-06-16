@@ -1,12 +1,11 @@
 .scheduleGrid {
   grid-column: span 3;
   overflow-y: auto;
-  max-width: 80%;
   justify-self: center;
 }
 
 .scheduleFlex {
-  min-width: 42rem;
+  min-width: 80%;
 }
 
 #scheduleTitleDiv,
@@ -19,6 +18,7 @@
   flex-direction: column;
   border-radius: 20px;
   border: 2px solid #6f686d;
+  padding: 1rem 2rem 2rem 2rem;
 }
 
 .scheduleTitle {
