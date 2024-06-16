@@ -46,20 +46,25 @@ function showSchedule() {
 // CLASS INFORMATION POP-UPS
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  function showDescription(descriptionId) {
-    console.log("Show Me");
-    const description = document.getElementById(descriptionId).innerHTML;
-    document.getElementById("descriptionDisplay").innerHTML = description;
+  function showDescription(descriptionId, tooltipContent) {
+    const descriptionDiv = document.getElementById(descriptionId);
+    descriptionDiv.innerHTML = tooltipContent;
   }
 
-  function clearDescription() {
-    document.getElementById("descriptionDisplay").innerHTML = "";
+  function clearDescription(descriptionId) {
+    const descriptionDiv = document.getElementById(descriptionId);
+    descriptionDiv.innerHTML = "";
   }
 
   const labels = document.querySelectorAll(".popUpLabel");
   labels.forEach((label, index) => {
+    const descriptionId = label.getAttribute("data-description");
     const tooltipId = `tooltip-input${index + 1}`;
-    label.addEventListener("mouseover", () => showDescription(tooltipId));
-    label.addEventListener("mouseout", clearDescription);
+    const tooltipContent = document.getElementById(tooltipId).innerHTML;
+
+    label.addEventListener("mouseover", () =>
+      showDescription(descriptionId, tooltipContent)
+    );
+    label.addEventListener("mouseout", () => clearDescription(descriptionId));
   });
 });

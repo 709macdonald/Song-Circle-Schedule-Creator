@@ -27,8 +27,6 @@ function updateFestivalData() {
   festival.venueAddress = venueAddress;
 
   localStorage.setItem("festival", JSON.stringify(festival));
-
-  console.log(festival);
 }
 
 // FESTIVAL DATES
@@ -217,33 +215,41 @@ function populateDatesFromStorage() {
   deleteDateInputs();
 }
 
-// FESTIVAL DONE BUTTON
+// DONE BUTTON
 
-document.addEventListener("DOMContentLoaded", function () {
-  const inputFields = document.querySelectorAll(
-    "#festivalUserInput .festivalInputs"
-  );
-  const doneButton = document.getElementById("festivalDoneButton");
+// Select all input fields and the submit button
+const inputFields = document.querySelectorAll(".festivalInputs");
+const submitButton = document.getElementById("festivalDoneButton");
 
-  // Function to check if all input fields are filled
-  function checkInputs() {
-    let allFilled = true;
-    inputFields.forEach((input) => {
-      if (input.value.trim() === "") {
-        input.classList.add("input-error");
-        allFilled = false;
-      } else {
-        input.classList.remove("input-error");
-      }
-    });
-    doneButton.disabled = !allFilled;
-  }
+// Function to validate inputs
+function validateInputs() {
+  let allFilled = true;
 
-  // Add event listeners to each input field
-  inputFields.forEach((input) => {
-    input.addEventListener("input", checkInputs);
+  inputFields.forEach(function (input) {
+    if (input.value.trim() === "") {
+      input.classList.add("empty");
+      allFilled = false;
+    } else {
+      input.classList.remove("empty");
+    }
   });
 
-  // Initial check in case the inputs are pre-filled
-  checkInputs();
+  if (allFilled) {
+    // Call your function only when all inputs are filled
+    showClassInformation();
+  } else {
+    alert("Please fill in all the fields.");
+  }
+}
+
+// Event listener for submit button click
+submitButton.addEventListener("click", function (event) {
+  event.preventDefault(); // Prevent the default button action
+  validateInputs(); // Call the validation function
 });
+
+// Example function to show class information
+function showClassInformation() {
+  console.log("Showing class information...");
+  // Implement your logic to show class information
+}

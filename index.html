@@ -260,7 +260,6 @@
             <button
               id="festivalDoneButton"
               class="doneButton"
-              onclick="showClassInformation()"
               aria-label="Toggle Festival Info"
             >
               DONE
@@ -293,118 +292,151 @@
             </div>
             <div class="classWrapper-flex">
               <div class="classUserInputDiv" id="classUserInput">
-                <div class="labelAndInputDiv-flex">
-                  <label for="adjTime" class="festivalLabel popUpLabel"
-                    >Adjudication Writing Time:</label
-                  >
-                  <div class="classInputs-flex">
-                    <input
-                      type="text"
-                      id="adjTimeMins"
-                      class="classInputs"
-                      placeholder="m"
-                    />
-                    <div>:</div>
-                    <input
-                      type="text"
-                      id="adjTimeSecs"
-                      class="classInputs"
-                      placeholder="s"
-                    />
-                    <div class="tooltip" id="tooltip-input1">
-                      How long will your adjudicator have for each individual
-                      student?
+                <div class="description-flex">
+                  <div class="labelAndInputDiv-flex">
+                    <label
+                      for="adjTime"
+                      class="festivalLabel popUpLabel"
+                      data-description="adjTimeDescription"
+                    >
+                      Adjudication Writing Time:
+                    </label>
+                    <div class="classInputs-flex">
+                      <input
+                        type="text"
+                        id="adjTimeMins"
+                        class="classInputs"
+                        placeholder="m"
+                      />
+                      <div>:</div>
+                      <input
+                        type="text"
+                        id="adjTimeSecs"
+                        class="classInputs"
+                        placeholder="s"
+                      />
+                      <div class="tooltip" id="tooltip-input1">
+                        How long will your adjudicator have for each individual
+                        student?
+                      </div>
                     </div>
                   </div>
+                  <div
+                    id="adjTimeDescription"
+                    class="descriptionDisplayDiv"
+                  ></div>
                 </div>
-                <div class="labelAndInputDiv-flex">
-                  <label
-                    for="classAdjTime"
-                    class="festivalLabel labelSpace popUpLabel"
-                    >Class Adjudication Time:</label
-                  >
-                  <div class="classInputs-flex">
-                    <input
-                      type="text"
-                      id="classAdjTimeMins"
-                      class="classInputs"
-                      placeholder="m"
-                    />
-                    <div>:</div>
-                    <input
-                      type="text"
-                      id="classAdjTimeSecs"
-                      class="classInputs"
-                      placeholder="s"
-                    />
+                <div class="description-flex">
+                  <div class="labelAndInputDiv-flex">
+                    <label
+                      for="classAdjTime"
+                      class="festivalLabel labelSpace popUpLabel"
+                      data-description="classAdjTimeDescription"
+                    >
+                      Class Adjudication Time:
+                    </label>
+                    <div class="classInputs-flex">
+                      <input
+                        type="text"
+                        id="classAdjTimeMins"
+                        class="classInputs"
+                        placeholder="m"
+                      />
+                      <div>:</div>
+                      <input
+                        type="text"
+                        id="classAdjTimeSecs"
+                        class="classInputs"
+                        placeholder="s"
+                      />
+                    </div>
+                    <div class="tooltip" id="tooltip-input2">
+                      How long can your adjudicator address the class?
+                    </div>
                   </div>
-                  <div class="tooltip" id="tooltip-input2">
-                    How long can your adjudicator address the class?
-                  </div>
+                  <div
+                    id="classAdjTimeDescription"
+                    class="descriptionDisplayDiv"
+                  ></div>
                 </div>
-                <div class="labelAndInputDiv-flex">
-                  <label
-                    for="bufferTime"
-                    class="festivalLabel labelSpace popUpLabel"
-                    >Buffer Time:</label
-                  >
-                  <div class="classInputs-flex">
-                    <input
-                      type="text"
-                      id="bufferTimeMins"
-                      class="classInputs"
-                      placeholder="m"
-                    />
-                    <div>:</div>
-                    <input
-                      type="text"
-                      id="bufferTimeSecs"
-                      class="classInputs"
-                      placeholder="s"
-                    />
+                <div class="description-flex">
+                  <div class="labelAndInputDiv-flex">
+                    <label
+                      for="bufferTime"
+                      class="festivalLabel labelSpace popUpLabel"
+                      data-description="bufferTimeDescription"
+                    >
+                      Buffer Time:
+                    </label>
+                    <div class="classInputs-flex">
+                      <input
+                        type="text"
+                        id="bufferTimeMins"
+                        class="classInputs"
+                        placeholder="m"
+                      />
+                      <div>:</div>
+                      <input
+                        type="text"
+                        id="bufferTimeSecs"
+                        class="classInputs"
+                        placeholder="s"
+                      />
+                    </div>
+                    <div class="tooltip" id="tooltip-input3">
+                      Buffer Times can be used for anything. Opening address,
+                      closing remarks.
+                      <span style="font-style: italic"
+                        >Include a buffer time if classes tend to run
+                        late.</span
+                      >
+                    </div>
                   </div>
-                  <div class="tooltip" id="tooltip-input3">
-                    Buffer Times can be used for anything. Opening address,
-                    closing remarks.
-                    <span style="font-style: italic">
-                      Include a buffer time if classes tend to run late.
-                    </span>
-                  </div>
+                  <div
+                    id="bufferTimeDescription"
+                    class="descriptionDisplayDiv"
+                  ></div>
                 </div>
-                <div class="labelAndInputDiv-flex">
-                  <label
-                    for="inBetweenTime"
-                    class="festivalLabel labelSpace popUpLabel"
-                    >Time Between Classes:</label
-                  >
-                  <div class="classInputs-flex">
-                    <input
-                      type="text"
-                      id="inBetweenTimeMins"
-                      class="classInputs"
-                      placeholder="m"
-                    />
-                    <div>:</div>
-                    <input
-                      type="text"
-                      id="inBetweenTimeSecs"
-                      class="classInputs"
-                      placeholder="s"
-                    />
+                <div class="description-flex">
+                  <div class="labelAndInputDiv-flex">
+                    <label
+                      for="inBetweenTime"
+                      class="festivalLabel labelSpace popUpLabel"
+                      data-description="timeBetweenDescription"
+                    >
+                      Time Between Classes:
+                    </label>
+                    <div class="classInputs-flex">
+                      <input
+                        type="text"
+                        id="inBetweenTimeMins"
+                        class="classInputs"
+                        placeholder="m"
+                      />
+                      <div>:</div>
+                      <input
+                        type="text"
+                        id="inBetweenTimeSecs"
+                        class="classInputs"
+                        placeholder="s"
+                      />
+                    </div>
+                    <div class="tooltip" id="tooltip-input4">
+                      How long will the break between your classes be? Consider
+                      time it takes for people to move in and out of your space.
+                    </div>
                   </div>
-                  <div class="tooltip" id="tooltip-input4">
-                    How long will the break between your classes be? Consider
-                    time it takes for people to move in and out of your space.
-                  </div>
+                  <div
+                    id="timeBetweenDescription"
+                    class="descriptionDisplayDiv"
+                  ></div>
                 </div>
               </div>
-              <div class="descriptionDisplayDiv" id="descriptionDisplay"></div>
             </div>
 
             <button
-              id="festivalDoneButton"
+              id="classDoneButton"
               class="doneButton"
-              onclick="showGoogleSheetInformation()"
               aria-label="Toggle Festival Info"
             >
               DONE
@@ -474,9 +506,8 @@
             </div>
 
             <button
-              id="festivalDoneButton"
+              id="googleSheetDoneButton"
               class="doneButton"
-              onclick="showSchedule()"
               aria-label="Toggle Festival Info"
             >
               DONE

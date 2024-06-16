@@ -89,3 +89,36 @@ function populateClassesFromStorage() {
     classes.inBetweenTime = savedClasses.inBetweenTime;
   }
 }
+
+// DONE BUTTON
+
+// Select all input fields and the submit button for the class section
+const classInputFields = document.querySelectorAll(".classInputs");
+const classSubmitButton = document.getElementById("classDoneButton");
+
+// Function to validate inputs for the class section
+function validateClassInputs() {
+  let allFilled = true;
+
+  classInputFields.forEach(function (input) {
+    if (input.value.trim() === "") {
+      input.classList.add("empty");
+      allFilled = false;
+    } else {
+      input.classList.remove("empty");
+    }
+  });
+
+  if (allFilled) {
+    // Call your function only when all inputs are filled
+    showGoogleSheetInformation();
+  } else {
+    alert("Please fill in all the fields.");
+  }
+}
+
+// Event listener for class submit button click
+classSubmitButton.addEventListener("click", function (event) {
+  event.preventDefault(); // Prevent the default button action
+  validateClassInputs(); // Call the validation function
+});
