@@ -88,7 +88,7 @@ function loadDateInputs() {
   cell2_1.appendChild(dateInputElement);
 
   var startTimeInputElement = document.createElement("input");
-  startTimeInputElement.className = "dateInput";
+  startTimeInputElement.className = "timeInput";
   startTimeInputElement.type = "time";
   startTimeInputElement.id = "festivalStartTime" + i;
   startTimeInputElement.addEventListener("input", () => {
@@ -109,7 +109,7 @@ function loadDateInputs() {
   cell2_2.appendChild(startTimeInputElement);
 
   var endTimeInputElement = document.createElement("input");
-  endTimeInputElement.className = "dateInput";
+  endTimeInputElement.className = "timeInput";
   endTimeInputElement.type = "time";
   endTimeInputElement.id = "festivalEndTime" + i;
   endTimeInputElement.addEventListener("input", () => {
@@ -217,11 +217,9 @@ function populateDatesFromStorage() {
 
 // DONE BUTTON
 
-// Select all input fields and the submit button
 const inputFields = document.querySelectorAll(".festivalInputs");
 const submitButton = document.getElementById("festivalDoneButton");
 
-// Function to validate inputs
 function validateInputs() {
   let allFilled = true;
 
@@ -235,21 +233,17 @@ function validateInputs() {
   });
 
   if (allFilled) {
-    // Call your function only when all inputs are filled
     showClassInformation();
   } else {
     alert("Please fill in all the fields.");
   }
 }
 
-// Event listener for submit button click
 submitButton.addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent the default button action
-  validateInputs(); // Call the validation function
+  event.preventDefault();
+  validateInputs();
 });
 
-// Example function to show class information
 function showClassInformation() {
   console.log("Showing class information...");
-  // Implement your logic to show class information
 }

@@ -9,23 +9,8 @@
   flex-direction: column;
 }
 
-#festivalDatesTable {
-  margin-top: 2rem;
-  table-layout: fixed;
-}
-
 .festivalLabel {
   margin: 0 auto 0.4rem 0;
-}
-
-.venueLabels {
-  padding-left: 1rem;
-}
-
-.dateInput,
-.timeInput {
-  margin: 0.5rem 1rem 1rem 1rem;
-  min-width: 7rem;
 }
 
 .labelSpace {
@@ -37,9 +22,7 @@
 }
 
 .festivalButtons {
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin: 1rem 0.5rem 0.5rem 0.5rem;
   background-color: var(--BG-color);
   width: auto;
   height: 2.4rem;
@@ -47,4 +30,59 @@
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+}
+
+#festivalDatesTable {
+  font-family: var(--font-family);
+  margin-top: 2rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+#festivalDatesTable th,
+#festivalDatesTable td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#festivalDatesTable tr {
+  border: 1px solid black;
+}
+
+#festivalDatesTable tr:nth-child(even) {
+  background-color: transparent;
+}
+
+#festivalDatesTable tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+#festivalDatesTable input,
+#festivalDatesTable select {
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+}
+
+.venueLabels {
+  font-size: var(--font-reg);
+  padding-left: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.dateInput {
+  margin: 0.5rem 2rem 0.5rem 0.5rem;
+  min-width: 7rem;
+  cursor: pointer;
+}
+
+.timeInput {
+  margin: 0.5rem 2rem 0.5rem 0.5rem;
+  min-width: 7rem;
+  padding-right: 1rem;
+  cursor: pointer;
 }

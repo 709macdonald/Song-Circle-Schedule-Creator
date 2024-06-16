@@ -73,23 +73,18 @@ function displayFileName() {
 
 // DONE BUTTON
 
-// Select the file input and the submit button for the final section
 const fileInput = document.getElementById("fileInput");
 const finalSubmitButton = document.getElementById("googleSheetDoneButton");
 
-// Function to validate file input for the final section
 function validateFileInput() {
   if (!fileInput.files.length) {
     alert("Please upload a file first.");
-    return; // Stop the function here if no file is selected
   }
 
-  // Call your function only when a file is selected
   showSchedule();
 }
 
-// Event listener for final submit button click
 finalSubmitButton.addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent the default button action
-  validateFileInput(); // Call the validation function
+  event.preventDefault();
+  validateFileInput();
 });
