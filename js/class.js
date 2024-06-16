@@ -16,7 +16,8 @@ classUserInput.addEventListener("input", function (event) {
 });
 
 function updateClassData() {
-  parseInt(document.getElementById("adjTimeMins").value, 10) || 0;
+  var adjTimeMins =
+    parseInt(document.getElementById("adjTimeMins").value, 10) || 0; // Fix: added var keyword
   var adjTimeSecs =
     parseInt(document.getElementById("adjTimeSecs").value, 10) || 0;
   var classAdjTimeMins =
@@ -37,7 +38,6 @@ function updateClassData() {
   var bufferTime = bufferTimeMins * 60 + bufferTimeSecs;
   var inBetweenTime = inBetweenTimeMins * 60 + inBetweenTimeSecs;
 
-  classes.maxPerformanceLength = maxPerformanceLength;
   classes.adjudicationWritingTime = adjTime;
   classes.classAdjudicationTime = classAdjTime;
   classes.bufferTime = bufferTime;
