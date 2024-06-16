@@ -94,15 +94,23 @@ input {
   border: 2px solid red;
 }
 
-.editButton {
+.editButton-Div {
   grid-column: 2;
   z-index: 1;
   position: absolute;
   margin: 1rem auto auto 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.editButton {
   min-width: 2rem;
   min-height: 2rem;
-  z-index: 1;
-  position: absolute;
   background-color: transparent;
   border: none;
+  cursor: pointer;
+}
+
+.editSVG {
+  fill: var(--grayed-out);
 }
