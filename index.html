@@ -325,15 +325,15 @@
               <div class="classUserInputDiv" id="classUserInput">
                 <div class="description-flex">
                   <div class="labelAndInputDiv-flex">
-                    <label
-                      for="adjTime"
+                    <div
                       class="festivalLabel popUpLabel"
                       data-description="adjTimeDescription"
                     >
                       Adjudication Writing Time:
-                    </label>
+                    </div>
                     <div class="classInputs-flex">
                       <input
+                        title="Adjudication writing time, minutes"
                         type="text"
                         id="adjTimeMins"
                         class="classInputs"
@@ -341,6 +341,7 @@
                       />
                       <div>:</div>
                       <input
+                        title="Adjudication writing time, seconds"
                         type="text"
                         id="adjTimeSecs"
                         class="classInputs"
@@ -359,15 +360,15 @@
                 </div>
                 <div class="description-flex">
                   <div class="labelAndInputDiv-flex">
-                    <label
-                      for="classAdjTime"
+                    <div
                       class="festivalLabel labelSpace popUpLabel"
                       data-description="classAdjTimeDescription"
                     >
                       Class Adjudication Time:
-                    </label>
+                    </div>
                     <div class="classInputs-flex">
                       <input
+                        title="Class adjudication time, minutes"
                         type="text"
                         id="classAdjTimeMins"
                         class="classInputs"
@@ -375,6 +376,7 @@
                       />
                       <div>:</div>
                       <input
+                        title="Class adjudication time, seconds"
                         type="text"
                         id="classAdjTimeSecs"
                         class="classInputs"
@@ -392,15 +394,15 @@
                 </div>
                 <div class="description-flex">
                   <div class="labelAndInputDiv-flex">
-                    <label
-                      for="bufferTime"
+                    <div
                       class="festivalLabel labelSpace popUpLabel"
                       data-description="bufferTimeDescription"
                     >
                       Buffer Time:
-                    </label>
+                    </div>
                     <div class="classInputs-flex">
                       <input
+                        title="Buffer time, minutes"
                         type="text"
                         id="bufferTimeMins"
                         class="classInputs"
@@ -408,6 +410,7 @@
                       />
                       <div>:</div>
                       <input
+                        title="Buffer time, minutes"
                         type="text"
                         id="bufferTimeSecs"
                         class="classInputs"
@@ -430,15 +433,15 @@
                 </div>
                 <div class="description-flex">
                   <div class="labelAndInputDiv-flex">
-                    <label
-                      for="inBetweenTime"
+                    <div
                       class="festivalLabel labelSpace popUpLabel"
                       data-description="timeBetweenDescription"
                     >
                       Time Between Classes:
-                    </label>
+                    </div>
                     <div class="classInputs-flex">
                       <input
+                        title="Time Between Classes, minutes"
                         type="text"
                         id="inBetweenTimeMins"
                         class="classInputs"
@@ -446,6 +449,7 @@
                       />
                       <div>:</div>
                       <input
+                        title="Time Between Classes, seconds"
                         type="text"
                         id="inBetweenTimeSecs"
                         class="classInputs"
@@ -484,9 +488,7 @@
           >
             <label class="titleNo">3.</label>
 
-            <label for="uploadGoogleSheet" class="uploadLabel"
-              >Upload Google Sheet</label
-            >
+            <label class="uploadLabel">Upload Google Sheet</label>
           </div>
 
           <div id="googleSheetHiddenDiv" style="display: none">
