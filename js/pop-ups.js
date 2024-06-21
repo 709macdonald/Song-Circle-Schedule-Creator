@@ -25,6 +25,7 @@ function showGoogleSheetInformation() {
   classThumb.style.display = "none";
   classTitle.style.color = "var(--green)";
   googleSheetTitle.style.color = "var(--primary-black)";
+  document.getElementById("uploadGoogleSheet").removeAttribute("disabled");
 }
 
 function showSchedule() {
