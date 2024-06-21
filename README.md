@@ -1,8 +1,8 @@
-# Music Festival Schedule Creator
+# Song Circle Schedule Creator
 
 **Get Coding Project**
 
-Music Festival Schedule Creator is a web-based application designed to simplify scheduling for singing competitions. It runs on any browser and is written in HTML, CSS, and client side JavaScript.
+Song Circle Schedule Creator is a web-based application designed to simplify scheduling for singing competitions. It runs on any browser and is written in HTML, CSS, and client side JavaScript.
 
 ## Overview
 
