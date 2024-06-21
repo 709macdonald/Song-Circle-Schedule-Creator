@@ -29,6 +29,11 @@ function handleFileUpload(event) {
       const headerRow = jsonSheet[0];
       const dataRows = jsonSheet.slice(1);
 
+      if (headerRow.length !== 10) {
+        alert("The table must have exactly 10 columns.");
+        return;
+      }
+
       const entries = dataRows.map((row) => ({
         Name: row[1],
         LastName: row[2],

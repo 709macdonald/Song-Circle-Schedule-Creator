@@ -154,7 +154,7 @@ function populateParticipants() {
     const participantSongComposerSpan = document.createElement("span");
     participantSongComposerSpan.className = "participantSongComposer";
     participantSongComposerSpan.textContent =
-      "  by  " + finishedSchedule[scheduleI].participants[index].composer;
+      "  by  " + finishedSchedule[scheduleI].participants[index].Composer;
 
     participantSongDiv.appendChild(participantSongComposerSpan);
 
