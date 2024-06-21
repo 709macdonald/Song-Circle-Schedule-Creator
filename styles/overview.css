@@ -72,24 +72,6 @@ input {
   cursor: pointer;
 }
 
-:root {
-  --primary-black: #212529;
-  --secondary-black: #343a40;
-  --gray-out: #c1cad6;
-  --BG-color: #f8f9fa;
-  --Secondary-BG-color: #f0f1f3;
-  --grayed-out: #616365;
-  --border-color: #e1e1e1;
-  --green: #35a34e;
-
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neu  e", Arial, sans-serif;
-  --font-small: 0.8rem;
-  --font-reg: 1rem;
-  --font-med: 2rem;
-  --font-large: 3rem;
-}
-
 .empty {
   border: 2px solid red;
 }
@@ -113,4 +95,22 @@ input {
 
 .editSVG {
   fill: var(--grayed-out);
+}
+
+:root {
+  --primary-black: #212529;
+  --secondary-black: #343a40;
+  --gray-out: #c1cad6;
+  --BG-color: #f8f9fa;
+  --Secondary-BG-color: #f0f1f3;
+  --grayed-out: #616365;
+  --border-color: #e1e1e1;
+  --green: #35a34e;
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neu  e", Arial, sans-serif;
+  --font-small: 0.8rem;
+  --font-reg: 1rem;
+  --font-med: 2rem;
+  --font-large: 3rem;
 }
