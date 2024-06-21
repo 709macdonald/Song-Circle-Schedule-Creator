@@ -53,6 +53,7 @@ function handleFileUpload(event) {
       participants = entries;
       console.log("Participants: ", participants);
 
+      cantClick();
       getClasses();
       participantsIntoClasses();
       classLength();
@@ -73,6 +74,14 @@ function displayFileName() {
     fileNameDisplay.textContent = `Uploaded file: ${file.name}`;
   } else {
     fileNameDisplay.textContent = "No File Chosen, Please Reload Page";
+  }
+}
+
+function cantClick() {
+  console.log("Button Clicked");
+  var button = document.getElementById("uploadGoogleSheet");
+  if (button) {
+    button.disabled = true;
   }
 }
 
