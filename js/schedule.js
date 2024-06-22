@@ -15,7 +15,6 @@ function populateScheduleTitle() {
   scheduleVenueAndDate.appendChild(scheduleVenue);
 
   const startTimeString = festival.dates[0].date;
-  console.log(startTimeString);
 
   const [year, month, day] = startTimeString.split("-");
   const startDate = new Date(year, month - 1, day);
@@ -47,7 +46,6 @@ function populateScheduleClasses() {
     const individualClassDiv = document.createElement("div");
     individualClassDiv.className = "individualClass";
     individualClassDiv.id = `individualClass_${scheduleI}`;
-    console.log(individualClassDiv.id);
 
     const individualClassTimeAndDateDiv = document.createElement("div");
     individualClassTimeAndDateDiv.className = "individualClassTimeAndDate";
@@ -107,7 +105,6 @@ function populateScheduleClasses() {
     targetDiv.appendChild(individualClassDiv);
     populateParticipants();
     scheduleI++;
-    console.log(scheduleI);
   });
 }
 

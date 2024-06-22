@@ -46,12 +46,9 @@ function handleFileUpload(event) {
         Email: row[9],
       }));
 
-      console.log(entries);
-
       alert("File uploaded and processed successfully!");
 
       participants = entries;
-      console.log("Participants: ", participants);
 
       cantClick();
       getClasses();
@@ -78,7 +75,6 @@ function displayFileName() {
 }
 
 function cantClick() {
-  console.log("Button Clicked");
   var button = document.getElementById("uploadGoogleSheet");
   if (button) {
     button.disabled = true;

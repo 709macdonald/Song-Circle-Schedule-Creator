@@ -9,9 +9,6 @@ function getClasses() {
   everyClass = participants.map((participant) => participant.ClassNumber);
 
   finalClassList = [...new Set(everyClass)];
-
-  console.log("every class: ", everyClass);
-  console.log("Final Class List", finalClassList);
 }
 
 function participantsIntoClasses() {
@@ -23,12 +20,9 @@ function participantsIntoClasses() {
       ),
     };
   });
-
-  console.log("Class Participants", classParticipants);
 }
 
 function classLength() {
-  console.log(classes);
   Object.keys(classParticipants).forEach((classKey) => {
     let numOfParticipants = classParticipants[classKey].participants.length;
     let totalPerformanceLength = 0;
@@ -53,18 +47,12 @@ function classLength() {
       classAdjudicationTime +
       bufferTime;
 
-    console.log(
-      `Total length of class ${classKey}: ${totalClassLengthInSeconds} seconds`
-    );
-
     classLengths.push({
       classKey,
       totalClassLength: totalClassLengthInSeconds,
     });
   });
 
-  console.log("Schedule info", classLengths);
-  console.log("festival info", festival);
   findClassStartTimes();
 
   return classLengths;
@@ -141,7 +129,6 @@ function findClassStartTimes() {
       cumulativeTime += inBetweenTime * 1000; // convert in-between time to milliseconds
     }
 
-    console.log("Classes and Start Times", classStartTimes);
     combineSchedule(classStartTimes, classParticipants);
   } else {
     console.error(
@@ -167,7 +154,6 @@ function combineSchedule(classStartTimes, classParticipants) {
     };
   });
 
-  console.log("Finished Schedule", finishedSchedule);
   populateScheduleTitle();
   populateScheduleClasses();
 }
