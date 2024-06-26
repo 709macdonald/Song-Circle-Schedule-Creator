@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/googleSheets.css" />
     <link rel="stylesheet" href="styles/schedule.css" />
     <link rel="stylesheet" href="styles/pop-ups.css" />
+    <link rel="stylesheet" href="styles/mobile.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   </head>
   <body>
@@ -49,126 +50,130 @@
         <!--SONG CIRCLE TITLE-->
         <p class="sideBarHead">Song Circle <br />Schedule Creator</p>
         <!--DESCRIPTION OF APP-->
-        <div class="appDescripton">
-          <div class="sidebarTitle">
-            Create easy schedules for music competitions
-          </div>
-          <div class="steps">Step 1: Fill out your festival information.</div>
-          <div class="steps">Step 2: Fill out your class information.</div>
-          <div class="steps">Step 3: Upload participants spreadsheet.</div>
-          <div class="steps">Step 4: Save Your Schedule</div>
-          <div class="steps">Reload page to restart.</div>
-        </div>
-        <!--GOOGLE SHEET LAYOUT ORDER-->
-        <div class="sheetDescriptionDiv">
-          <div class="sidebarTitle">Google Sheet layout and instructions</div>
-          <div class="descritpion">
-            We suggest using
-            <span style="font-style: italic">Google Forms</span> to register
-            your participants and then automatically create your spreadsheet.
-            Make sure your final spreadsheet includes a header and is in the
-            following order.
-          </div>
-          <div class="steps">1.Submission Time</div>
-          <div class="steps">2.First Name</div>
-          <div class="steps">3.Last Name</div>
-          <div class="steps">4.Song Title</div>
-          <div class="steps">5.Composer</div>
-          <div class="steps">
-            6.Performance Length
-            <span style="font-style: italic">IN SECONDS</span>;
-          </div>
-          <div class="steps">7.Class</div>
-          <div class="steps">8.Class Number</div>
-          <div class="steps">9.Participant Age</div>
-          <div class="steps">10.Email</div>
-        </div>
-        <!--EXPORT SECTION-->
-        <div id="export" class="exportDiv" style="display: none">
-          <div class="sidebarTitle">Export Final Schedule</div>
-          <div class="exportButtonDiv">
-            <div class="pdfDiv">
-              <button
-                id="generatePDF"
-                class="exportButton"
-                onmousedown="generatePDF()"
-                aria-label="Download PDF"
-              >
-                <svg
-                  class="exportButton-svg"
-                  aria-label="back"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 490 512"
-                  width="25"
-                  height="25"
-                >
-                  <use xlink:href="./images/file-pdf.svg#icon"></use>
-                </svg>
-              </button>
-              <label for="genetatePDF" class="uploadLabel">Download PDF</label>
+        <div class="instructionsDiv">
+          <div class="appDescripton">
+            <div class="sidebarTitle">
+              Create easy schedules for music competitions
             </div>
-            <div class="icsDiv">
-              <button
-                id="downloadICalButton"
-                class="exportButton"
-                onmousedown="handleDownloadICalButtonClick()"
-                aria-label="Download Calendar File"
-              >
-                <svg
-                  class="googlesheet-svg"
-                  aria-label="back"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 10 430 512"
-                  width="25"
-                  height="25"
+            <div class="steps">Step 1: Fill out your festival information.</div>
+            <div class="steps">Step 2: Fill out your class information.</div>
+            <div class="steps">Step 3: Upload participants spreadsheet.</div>
+            <div class="steps">Step 4: Save Your Schedule</div>
+            <div class="steps">Reload page to restart.</div>
+          </div>
+          <!--GOOGLE SHEET LAYOUT ORDER-->
+          <div class="sheetDescriptionDiv">
+            <div class="sidebarTitle">Google Sheet layout and instructions</div>
+            <div class="descritpion">
+              We suggest using
+              <span style="font-style: italic">Google Forms</span> to register
+              your participants and then automatically create your spreadsheet.
+              Make sure your final spreadsheet includes a header and is in the
+              following order.
+            </div>
+            <div class="steps">1.Submission Time</div>
+            <div class="steps">2.First Name</div>
+            <div class="steps">3.Last Name</div>
+            <div class="steps">4.Song Title</div>
+            <div class="steps">5.Composer</div>
+            <div class="steps">
+              6.Performance Length
+              <span style="font-style: italic">IN SECONDS</span>;
+            </div>
+            <div class="steps">7.Class</div>
+            <div class="steps">8.Class Number</div>
+            <div class="steps">9.Participant Age</div>
+            <div class="steps">10.Email</div>
+          </div>
+          <!--EXPORT SECTION-->
+          <div id="export" class="exportDiv" style="display: none">
+            <div class="sidebarTitle">Export Final Schedule</div>
+            <div class="exportButtonDiv">
+              <div class="pdfDiv">
+                <button
+                  id="generatePDF"
+                  class="exportButton"
+                  onmousedown="generatePDF()"
+                  aria-label="Download PDF"
                 >
-                  <use xlink:href="./images/calendar-check.svg#icon"></use>
-                </svg>
-              </button>
-              <div id="calTextDiv">
-                <label for="downloadICalButton" class="uploadLabel"
-                  >Download ICS
-                </label>
-                <p class="calFile">Calendar File</p>
+                  <svg
+                    class="exportButton-svg"
+                    aria-label="back"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 490 512"
+                    width="25"
+                    height="25"
+                  >
+                    <use xlink:href="./images/file-pdf.svg#icon"></use>
+                  </svg>
+                </button>
+                <label for="genetatePDF" class="uploadLabel"
+                  >Download PDF</label
+                >
+              </div>
+              <div class="icsDiv">
+                <button
+                  id="downloadICalButton"
+                  class="exportButton"
+                  onmousedown="handleDownloadICalButtonClick()"
+                  aria-label="Download Calendar File"
+                >
+                  <svg
+                    class="googlesheet-svg"
+                    aria-label="back"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 10 430 512"
+                    width="25"
+                    height="25"
+                  >
+                    <use xlink:href="./images/calendar-check.svg#icon"></use>
+                  </svg>
+                </button>
+                <div id="calTextDiv">
+                  <label for="downloadICalButton" class="uploadLabel"
+                    >Download ICS
+                  </label>
+                  <p class="calFile">Calendar File</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <!--LINK TO MY LINKEDIN AND GITHUB-->
-        <div class="creator-flex">
-          <p class="name" style="font-style: italic">
-            Created By: Peter MacDonald
-          </p>
-          <button
-            onclick="window.open('https://www.linkedin.com/in/peter-macdonald-1630a4178/', '_blank')"
-            class="linkButton"
-          >
-            <svg
-              class="googlesheet-svg"
-              aria-label="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 10 500 512"
-              width="20"
-              height="20"
+          <!--LINK TO MY LINKEDIN AND GITHUB-->
+          <div class="creator-flex">
+            <p class="name" style="font-style: italic">
+              Created By: Peter MacDonald
+            </p>
+            <button
+              onclick="window.open('https://www.linkedin.com/in/peter-macdonald-1630a4178/', '_blank')"
+              class="linkButton"
             >
-              <use xlink:href="./images/linkedin.svg#icon"></use>
-            </svg>
-          </button>
-          <button
-            onclick="window.open('https://github.com/709macdonald', '_blank')"
-            class="linkButton"
-          >
-            <svg
-              class="googlesheet-svg"
-              aria-label="back"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 10 500 512"
-              width="20"
-              height="20"
+              <svg
+                class="googlesheet-svg"
+                aria-label="back"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 10 500 512"
+                width="20"
+                height="20"
+              >
+                <use xlink:href="./images/linkedin.svg#icon"></use>
+              </svg>
+            </button>
+            <button
+              onclick="window.open('https://github.com/709macdonald', '_blank')"
+              class="linkButton"
             >
-              <use xlink:href="./images/github.svg#icon"></use>
-            </svg>
-          </button>
+              <svg
+                class="googlesheet-svg"
+                aria-label="back"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 10 500 512"
+                width="20"
+                height="20"
+              >
+                <use xlink:href="./images/github.svg#icon"></use>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
