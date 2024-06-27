@@ -69,3 +69,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     label.addEventListener("mouseout", () => clearDescription(descriptionId));
   });
 });
+
+// Mobible Info menu
+
+function toggleInstructions() {
+  var instructionsDiv = document.querySelector(".instructionsDiv");
+  if (
+    instructionsDiv.style.display === "none" ||
+    instructionsDiv.style.display === ""
+  ) {
+    instructionsDiv.style.display = "block";
+  } else {
+    instructionsDiv.style.display = "none";
+  }
+}

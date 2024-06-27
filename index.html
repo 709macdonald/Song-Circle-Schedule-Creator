@@ -17,38 +17,15 @@
   </head>
   <body>
     <div class="wrapper-grid">
-      <!-- EDIT BUTTONS -->
-      <div class="editButton-Div">
-        <button class="editButton" onmousedown="editButton()">
-          <svg
-            class="editSVG"
-            aria-label="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 10 500 512"
-            width="20"
-            height="20"
-          >
-            <use xlink:href="./images/pencil.svg#icon"></use>
-          </svg>
-        </button>
-        <button class="editButton" onmousedown="clearButton()">
-          <svg
-            class="editSVG"
-            aria-label="back"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 10 500 512"
-            width="20"
-            height="20"
-          >
-            <use xlink:href="./images/xmark.svg#icon"></use>
-          </svg>
-        </button>
-      </div>
-
       <!--MAIN CONTENT -->
       <div class="sidebar-flex">
         <!--SONG CIRCLE TITLE-->
         <p class="sideBarHead">Song Circle <br />Schedule Creator</p>
+        <div class="mobileInstructionsButton">
+          <button onclick="toggleInstructions()" class="instructionsButton">
+            Instructions
+          </button>
+        </div>
         <!--DESCRIPTION OF APP-->
         <div class="instructionsDiv">
           <div class="appDescripton">
@@ -175,6 +152,34 @@
             </button>
           </div>
         </div>
+      </div>
+
+      <!-- EDIT BUTTONS -->
+      <div class="editButton-Div">
+        <button class="editButton" onmousedown="editButton()">
+          <svg
+            class="editSVG"
+            aria-label="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 10 500 512"
+            width="20"
+            height="20"
+          >
+            <use xlink:href="./images/pencil.svg#icon"></use>
+          </svg>
+        </button>
+        <button class="editButton" onmousedown="clearButton()">
+          <svg
+            class="editSVG"
+            aria-label="back"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 10 500 512"
+            width="20"
+            height="20"
+          >
+            <use xlink:href="./images/xmark.svg#icon"></use>
+          </svg>
+        </button>
       </div>
 
       <div class="mainbar-flex mainbar-grid" id="mainBar-Hide">

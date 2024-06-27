@@ -1,37 +1,186 @@
 @media (max-width: 600px) {
+  /* Overview */
+  body {
+    max-width: 100%;
+  }
+
   .wrapper-grid {
     display: flex;
     flex-direction: column;
     position: relative;
+    max-width: 100%;
+  }
+
+  .mainbar-flex,
+  .mainbar-grid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 390px;
+    margin: 0 auto auto auto;
+  }
+
+  input {
+    max-width: 15rem;
+  }
+  /* Heading and Top Bar */
+
+  .sidebarTitle {
+    margin: 1rem 1rem 1rem 2em;
+    font-family: var(--font-family);
+    font-size: var(--font-large);
+    font-weight: bold;
+  }
+
+  .sideBarHead {
+    margin: 1rem 1rem 1rem 2rem;
+    font-family: var(--font-family);
+    font-size: 2.2rem;
+    font-weight: bold;
+  }
+
+  .titlediv {
+    margin: 0;
+  }
+
+  .instructionsButton {
+    display: block;
+    background-color: transparent;
+    color: var(--grayed-out);
+    border: none;
+    cursor: pointer;
+    margin: 0 auto 1rem 2.5rem;
+    font-family: var(--font-family);
+    font-size: var(--font-small);
   }
 
   .instructionsDiv {
     display: none;
   }
 
-  .infoDiv {
-    margin: 1rem;
-    width: 2rem;
+  .sidebarTitle,
+  .creator-flex {
+    margin-left: 2rem;
   }
 
-  input {
-    font-family: var(--font-family);
-    border-radius: 0.4rem;
-    border: 1px solid var(--border-color);
-    height: 2rem;
-    padding: 0 0 0 1rem;
-    background-color: var(--BG-color);
-    width: 5rem;
+  .editButton-Div {
+    z-index: 0;
+    flex-direction: row;
+    position: relative;
+    background-color: transparent;
+    margin-bottom: 1rem;
   }
+
+  /* Info Section */
+
+  .infoDiv {
+    margin: 0 1rem 1rem 1rem;
+    padding: 0;
+    min-width: 0;
+    max-width: none;
+    width: 22rem;
+    display: block;
+  }
+
+  .divDescription {
+    max-width: 18rem;
+  }
+
+  /* Festival Info */
 
   #festivalDatesTable {
     font-family: var(--font-family);
     margin-top: 2rem;
-    margin-left: 1rem;
-    width: 30rem;
     table-layout: fixed;
     border-collapse: collapse;
     border-radius: 0.4rem;
+    width: 20rem;
+  }
+
+  .venueLabels > * {
+    margin: auto;
+  }
+
+  .dateInput {
+    font-size: var(--font-small);
+    margin: 0.1rem 2rem 0.1rem 0.5rem;
+    max-width: 1rem;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    width: 0;
+    box-sizing: border-box;
+  }
+
+  input[type="date"]::-webkit-datetime-edit,
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-clear-button {
+    display: none;
+  }
+
+  input[type="date"]::-moz-focus-inner {
+    border: 0;
+  }
+
+  input[type="date"] {
+    color: transparent;
+  }
+
+  .timeInput {
+    font-size: var(--font-small);
+    margin: 0.1rem 2rem 0.1rem 0.5rem;
+    max-width: 1rem;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    width: 0;
+    box-sizing: border-box;
+  }
+
+  input[type="time"]::-webkit-datetime-edit,
+  input[type="time"]::-webkit-inner-spin-button,
+  input[type="time"]::-webkit-clear-button {
+    display: none;
+  }
+
+  input[type="time"]::-moz-focus-inner {
+    border: 0;
+  }
+
+  input[type="time"] {
+    color: transparent;
+  }
+
+  .venueLabels {
+    width: 1rem;
+  }
+
+  /* Google Sheet Section */
+  .googleSheetTextDiv {
+    width: 20rem;
+    padding: 0;
+    margin: 1rem auto 1rem 2rem;
+  }
+
+  .googleSheet-userInputDiv-flex {
+    width: auto;
+    flex-direction: column;
+  }
+
+  /* Schedule */
+
+  .scheduleClassDate {
+    margin-top: 1rem;
+  }
+
+  .participantInfo {
+    margin-left: 2rem;
+  }
+
+  .participantSong {
+    margin-left: 3rem;
   }
 
   :root {
@@ -48,7 +197,7 @@
       "Helvetica Neu  e", Arial, sans-serif;
     --font-small: 0.8rem;
     --font-reg: 1rem;
-    --font-med: 2rem;
-    --font-large: 2.5rem;
+    --font-med: 1.2rem;
+    --font-large: 1.5rem;
   }
 }
