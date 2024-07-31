@@ -8,6 +8,10 @@ Song Circle Schedule Creator is a web-based application designed to simplify sch
 
 This tool helps organizers schedule events by automating the creation of iCal events based on festival and participant data.
 
+## Motivation 
+
+My parents are both music teachers in St. John's, Newfoundland. Over the past few years, I've noticed the lack of scheduling applications for community singing festivals. These events often take weeks to organize, requiring applications, matching adjudicators, and planning schedules. With the Song Circle Schedule Creator, I hope to solve this problem. This version of the application is specifically focused on my parents' music festival, Song Circles.
+
 ## Usage
 
 ### Step 1: Festival Information
@@ -50,6 +54,6 @@ For questions or support, contact Peter MacDonald at 709macdonald@gmail.com.
 
 ---
 
-Thank you to Peter Woodman and the Get Coding program for their support in building this school project.
+Thank you to Peter Woodman for his patience while helping me learn these new skills, and to the Get Coding program for their support in building this school project.
 
 Song Circle Schedule Creator Version 1 - Built by Peter MacDonald
